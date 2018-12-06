@@ -1,0 +1,9 @@
+/build/
+/config/
+/dist/
+/*.js
+/src/pages/manage
+/src/pages/setting
+/src/pages/warn
+/src/components/manage-left
+/src/components/manage-dialog

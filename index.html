@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>药品监管溯源大数据平台</title>
+    <style>
+      html,body{
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        margin: 0;
+      }
+      body{
+        background: url('./static/imgs/body-bg.jpg') center no-repeat;
+        background-size:cover;
+      }
+      #starts{
+        position: absolute;
+        z-index: -1;
+        width: 100%;
+        height: 100%;
+      }
+       #appLoading {
+         width: 100%;
+         height: 100%;
+         background: #000;
+         position: relative;
+         z-index: 9999
+         }
+       #loading-text {
+            position: absolute;
+            color: #f1f1f1;
+            font-size: 150px;
+            line-height:600px;
+            top: 50%;
+            left: 50%;
+            width: 600px;
+            height: 600px;
+            margin-top:-300px;
+            margin-left:-300px;
+            /* -webkit-transform: translateY(-50%)  translateX(-50%);
+            transform: translateY(-50%)  translateX(-50%); */
+            animation: loading 1.5s infinite alternate;
+        }
+   @keyframes loading {
+    from {
+      opacity: 1;
+    }
+    50%{
+      opacity: 0;
+    }
+    100%{
+      opacity: 1;
+    }
+  }
+  #mark{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,.3);
+  z-index: 1
+
+  }
+    </style>
+    </style>
+
+    <!-- <script src='./static/deck/mapbox-gl.js'></script> -->
+    <script src='./static/cosmos/cosmos.js'></script>
+    <!-- <link href='./static/deck/mapbox-gl.css' rel='stylesheet' /> -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.0/TweenMax.min.js"></script> -->
+    <script src="https://webapi.amap.com/loca?key=07f15892623e2bfcd9eaa2cd67516f39&v=1.2.0"></script>
+
+
+  </head>
+  <body>
+    <div id="appLoading">
+      <span id=loading-text>LOADING...</span>
+    </div>
+    <canvas id="starts">该浏览器不支持canvas</canvas>
+    <!-- <div id="mark"></div> -->
+    <div id="app"></div>
+    <!-- built files will be auto injected -->
+    <script>
+      function scaleScreen(dom) {
+       var dw = window.innerWidth
+       var dh = window.innerHeight
+       var minRatio = Math.min(dw / 5500, dh / 3000)
+       dom.style.transform = 'scale(' + minRatio + ')'
+     }
+     var dom=document.getElementById('loading-text')
+     scaleScreen(dom)
+    </script>
+  </body>
+</html>
