@@ -4,7 +4,7 @@ export const config = {
     {
       type: 'transverseDoubleBar',
       id: 'test1',
-      className: 'test1',
+      className: 'test3',
       style: {
         width: '100%',
         height: '30%',

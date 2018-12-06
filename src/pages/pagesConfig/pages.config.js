@@ -2,9 +2,9 @@ export const config = {
   name: 'page2',
   parts: [
     {
-      type: 'transverseDoubleBar',
+      type: 'LineChart',
       id: 'test1',
-      className: 'test1',
+      className: 'test11',
       style: {
         width: '100%',
         height: '30%',
