@@ -9,7 +9,7 @@ import 'echarts/map/js/china.js'
 // import ElementUI from 'element-ui'
 // import * as D3 from './components/force/d3v4'
 import * as TweenMax from "gsap/umd/TweenMax";
-// import store from './store'
+import store from './store'
 import 'assets/css/index.scss'
 // import 'element-ui/lib/theme-chalk/index.css'
 Vue.prototype.$echarts = echarts
@@ -26,7 +26,7 @@ Vue.filter('filterNumber', function(value) {
   new Vue({
     el: '#app',
     router,
-    // store,
+    store,
     template: '<App/>',
     components: { App }
   })

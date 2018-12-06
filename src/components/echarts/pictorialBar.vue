@@ -7,13 +7,11 @@
       style="height:364px;width:100%"
     >
     </div>
-    <Cube></Cube>
   </div>
 </template>
 
 <script>
 import { vueBus } from '../../assets/js/common/vueBus'
-import Cube from '../cube'
 export default {
   name: 'pictorialBar',
   props: {
@@ -401,9 +399,6 @@ export default {
       window.onresize = this.myChart.resize
     }
   },
-  components: {
-    Cube
-  }
 }
 </script>
 

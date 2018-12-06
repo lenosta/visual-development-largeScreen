@@ -1,9 +1,7 @@
 <template>
   <div id="layout">
     <!-- <my-header /> -->
-    <div class="main">
-      <router-view></router-view>
-    </div>
+    <router-view></router-view>
   </div>
 </template>
 <script type="text/javascript">

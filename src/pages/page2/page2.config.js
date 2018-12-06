@@ -1,29 +1,41 @@
-export const config = [
-  {
-    path: 'transverseDoubleBar',
-    id: 'test1',
-    className: 'test1',
-    style: {
-      width: '40%',
-      height: '30%',
-      left: '10%',
-      top: '10%'
+export const config = {
+  name: 'page2',
+  parts: [
+    {
+      type: 'transverseDoubleBar',
+      id: 'test1',
+      className: 'test1',
+      style: {
+        width: '100%',
+        height: '30%',
+        left: '10%',
+        top: '0'
+      },
+      html: '模板1'
     },
-    html: '模板1',
-  },
-  {
-    componentName: 'LineChart',
-    bid: 'test2',
-    className: 'test2',
-    size: {
-      width: '40%',
-      height: '30%'
+    {
+      type: 'transverseDoubleBar',
+      id: 'test2',
+      className: 'test1',
+      style: {
+        width: '100%',
+        height: '30%',
+        left: 0,
+        top: '40%'
+      },
+      html: '模板1'
     },
-    position: {
-      left: '10%',
-      top: '60%'
-    },
-    template: '<h1>模板2</h1>',
-    isMounted:false
-  }
-]
+    {
+      type: 'transverseDoubleBar',
+      id: 'test3',
+      className: 'test1',
+      style: {
+        width: '100%',
+        height: '30%',
+        left: 0,
+        top: '70%'
+      },
+      html: '模板1'
+    }
+  ]
+}

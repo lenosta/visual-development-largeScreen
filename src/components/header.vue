@@ -10,8 +10,7 @@
       <router-link :to="{name:'page3'}">生成分析</router-link>
     </li>
     <li>
-      <router-link :to="{name:'page4'}">市场大数据</router-link>
-    </li>
+      <router-link :to="{name:'page4'}">市场大数据</router-link>    </li>
   </ul>
 </template>
 

@@ -1,11 +1,11 @@
 <template>
-  <div class="home-con">
+  <div class="parts-wrapper">
     <part
-      v-for="part of pageData"
+      v-for="part of partsData"
       :key="part.id"
       :part="part"
     >
-      <component :is="item.componentName"></component>
+      <component :is="part.type"></component>
     </part>
   </div>
 </template>
@@ -13,24 +13,32 @@
 import part from './part'
 import { vueBus } from '../../assets/js/common/vueBus'
 import * as components from './config'
+// import { mapState } from 'vuex'
 export default {
   data() {
     return {
-      pageData: config
     }
   },
-  created() {},
+  props: ['partsData'],
+  created() {
+    // var name = this.$route.name
+    // this.pageData = this.pages.filter((v, i) => {
+    //   return (v.name = name)
+    // })
+  },
   mounted() {},
   components: {
     part,
     ...components
   },
-  mounted() {},
-  methods: {}
+  methods: {},
+  computed: {
+    // ...mapState({ pages })
+  }
 }
 </script>
  <style lang="scss" scoped>
-.home-con {
+.parts-wrapper {
   position: relative;
   height: 100%;
   perspective: 1200px;
