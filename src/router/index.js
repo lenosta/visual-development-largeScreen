@@ -1,7 +1,9 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Layout from '../pages/layout'
-import page1 from 'pages/page1/page1'
+// import page1 from 'pages/page1/page1'
+var rou='page1.vue'
+const page1 = () => import('../pages/page1/'+rou)
 Vue.use(Router)
 
 export default new Router({

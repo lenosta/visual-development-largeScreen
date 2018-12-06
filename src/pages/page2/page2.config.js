@@ -1,21 +1,15 @@
 export const config = [
   {
-    componentName: 'transverseDoubleBar',
-    bid: 'test1',
+    path: 'transverseDoubleBar',
+    id: 'test1',
     className: 'test1',
-    size: {
+    style: {
       width: '40%',
-      height: '30%'
-    },
-    position: {
+      height: '30%',
       left: '10%',
       top: '10%'
     },
-    template: '模板1',
-    callBack: () => {
-      console.log('回调执行')
-    },
-    isMounted:false
+    html: '模板1',
   },
   {
     componentName: 'LineChart',

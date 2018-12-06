@@ -1,29 +1,32 @@
 <template>
   <div class="home-con">
-    <part v-for="part of pageData" :key="part.id" :part="part">
+    <part
+      v-for="part of pageData"
+      :key="part.id"
+      :part="part"
+    >
       <component :is="item.componentName"></component>
     </part>
   </div>
 </template>
 <script>
-import part from '../../components/part/part'
-import {vueBus} from '../../assets/js/common/vueBus'
-import { config } from './page2.config'
+import part from './part'
+import { vueBus } from '../../assets/js/common/vueBus'
+import * as components from './config'
 export default {
   data() {
     return {
-      pageData: config,
+      pageData: config
     }
   },
   created() {},
-  mounted() {
-  },
+  mounted() {},
   components: {
-    part
+    part,
+    ...components
   },
   mounted() {},
-  methods: {
-  }
+  methods: {}
 }
 </script>
  <style lang="scss" scoped>
