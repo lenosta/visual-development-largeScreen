@@ -13,10 +13,8 @@ export default {
   },
   created() {},
   mounted() {
-    let me = this
     this.addPage(config)
     this.getPage(this.$route.name)
-    this.pageData = this.currentPages
   },
   components: {
     partList

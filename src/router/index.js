@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Layout from '../pages/layout'
 var rou='index.vue'
 const page2 = () => import('../pages/page2/'+rou)
 Vue.use(Router)

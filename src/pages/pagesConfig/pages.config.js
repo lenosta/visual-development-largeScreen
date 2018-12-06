@@ -14,7 +14,7 @@ export const config = {
       html: '模板1'
     },
     {
-      type: 'LineChart',
+      type: 'transverseDoubleBar',
       id: 'test2',
       className: 'test1',
       style: {
@@ -26,7 +26,7 @@ export const config = {
       html: '模板1'
     },
     {
-      type: 'plusLineChart',
+      type: 'transverseDoubleBar',
       id: 'test3',
       className: 'test1',
       style: {
