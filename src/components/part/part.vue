@@ -8,11 +8,15 @@
   </div>
 </template>
 <script>
+import { preload } from '../../assets/js/common/preload'
 export default {
   data() {
     return {}
   },
   mounted() {
+    var arr = []
+    var load = preload(arr)
+    console.log(load )
     this.init()
   },
   methods: {
@@ -31,9 +35,10 @@ export default {
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
-  border-radius: 20px;
-  width: 877px;
-  height: 440px;
+  border-radius: 5px;
+  border: 1px solid #f1f1f1;
+  width: 300px;
+  height: 300px;
   overflow: hidden;
   // mix-blend-mode: color-dodge;
 }

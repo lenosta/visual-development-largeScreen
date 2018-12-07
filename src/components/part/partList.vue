@@ -11,7 +11,6 @@
 </template>
 <script>
 import part from './part'
-import { vueBus } from '../../assets/js/common/vueBus'
 import * as components from './config'
 // import { mapState } from 'vuex'
 export default {
