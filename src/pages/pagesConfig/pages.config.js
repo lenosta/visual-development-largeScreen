@@ -1,41 +1,8 @@
-export const config = {
-  name: 'page2',
-  parts: [
-    {
-      type: 'LineChart',
-      id: 'test1',
-      className: 'test11',
-      style: {
-        width: '100%',
-        height: '30%',
-        left: '10%',
-        top: '0'
-      },
-      html: '模板1'
-    },
-    {
-      type: 'transverseDoubleBar',
-      id: 'test2',
-      className: 'test1',
-      style: {
-        width: '100%',
-        height: '30%',
-        left: 0,
-        top: '40%'
-      },
-      html: '模板1'
-    },
-    {
-      type: 'transverseDoubleBar',
-      id: 'test3',
-      className: 'test1',
-      style: {
-        width: '100%',
-        height: '30%',
-        left: 0,
-        top: '70%'
-      },
-      html: '模板1'
-    }
-  ]
-}
+import * as page2 from './page2.config'
+import * as page3 from './page3.config'
+
+export const config = {page2, page3}
+
+
+
+// 未解决：需手动添加页面配置文件

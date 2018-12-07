@@ -13,7 +13,6 @@ export default {
   },
   created() {},
   mounted() {
-    this.pages
   },
   components: {
     partList

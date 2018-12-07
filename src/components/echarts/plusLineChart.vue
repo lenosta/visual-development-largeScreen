@@ -1,12 +1,8 @@
 <template>
-  <div style="width:100%;height:100%">
-    <h1 class="chart-top-title">舆情监控</h1>
     <div
       class="chart-wrapper"
       ref="chart"
-      style="height:364px;width:100%"
     >
-    </div>
   </div>
 </template>
 
@@ -171,4 +167,8 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
+.chart-wrapper {
+  width: 100%;
+  height: 100%;
+}
 </style>
