@@ -11,8 +11,6 @@
 </template>
 <script>
 import part from './part'
-import * as components from './config'
-// import { mapState } from 'vuex'
 export default {
   data() {
     return {
@@ -20,15 +18,13 @@ export default {
   },
   props: ['partsData'],
   created() {
-    // var name = this.$route.name
-    // this.pageData = this.pages.filter((v, i) => {
-    //   return (v.name = name)
-    // })
   },
-  mounted() {},
+  mounted() {
+    console.log(this.appConfig)
+  },
   components: {
     part,
-    ...components
+    ...this.appConfig.components1
   },
   methods: {},
   computed: {

@@ -1,5 +1,5 @@
-import page2 from './page2.config'
-import page3 from './page3.config'
+import page2 from 'pages/page2/config'
+import page3 from 'pages/page3/config'
 
 export default {page2, page3}
 

@@ -1,4 +1,4 @@
-import pagesConfig from '../pages/pagesConfig/pages.config'
+import pagesConfig from 'appConfig/pages.config'
 
 const state = {
   pages: pagesConfig,
