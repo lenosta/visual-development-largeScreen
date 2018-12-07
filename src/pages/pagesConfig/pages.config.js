@@ -1,7 +1,7 @@
-import * as page2 from './page2.config'
-import * as page3 from './page3.config'
+import page2 from './page2.config'
+import page3 from './page3.config'
 
-export const config = {page2, page3}
+export default {page2, page3}
 
 
 

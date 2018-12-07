@@ -1,5 +1,5 @@
 
-export const config = {
+export default {
     name: 'page2',
     parts: [
       {
@@ -39,5 +39,4 @@ export const config = {
         html: '模板1'
       }
     ]
-  }
-  
+}

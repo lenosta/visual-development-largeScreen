@@ -1,4 +1,4 @@
-export const config = {
+export default {
     name: 'page3',
     parts: [
       {

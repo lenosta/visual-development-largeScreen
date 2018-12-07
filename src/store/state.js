@@ -1,7 +1,7 @@
-import {config} from '../pages/pagesConfig/pages.config'
+import pagesConfig from '../pages/pagesConfig/pages.config'
 
 const state = {
-  pages: config,
+  pages: pagesConfig,
   currentPages: {},
   viewWidth: 1920,
   viewHeight: 1080,
