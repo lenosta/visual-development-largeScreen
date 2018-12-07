@@ -8,15 +8,11 @@
   </div>
 </template>
 <script>
-import { preload } from '../../assets/js/common/preload'
 export default {
   data() {
     return {}
   },
   mounted() {
-    var arr = []
-    var load = preload(arr)
-    console.log(load )
     this.init()
   },
   methods: {

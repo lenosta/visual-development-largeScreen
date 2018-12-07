@@ -24,7 +24,7 @@ export default {
   },
   components: {
     part,
-    ...this.appConfig.components1
+    // ...app.config.components
   },
   methods: {},
   computed: {

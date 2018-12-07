@@ -1,8 +1,9 @@
-import components1 from './component.register'
+import components from './component.register'
 import pages from './page.register'
 import pagesConfig from './pages.config'
+
 export default {
-    components1, 
+    components, 
     pages,
     pagesConfig
 }
