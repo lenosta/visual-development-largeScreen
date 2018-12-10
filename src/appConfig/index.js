@@ -1,9 +1,9 @@
-import components from './component.register'
-import pages from './page.register'
-import pagesConfig from './pages.config'
+import parts from './parts.register'
+import pages from './pages.register'
+import options from './pages.config'
 
 export default {
-    components, 
+    parts,
     pages,
-    pagesConfig
+    options
 }

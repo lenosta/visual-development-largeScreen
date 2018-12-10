@@ -11,20 +11,19 @@
 </template>
 <script>
 import part from './part'
+import parts from 'appConfig/parts.register'
 export default {
   data() {
-    return {
-    }
+    return {}
   },
   props: ['partsData'],
-  created() {
-  },
+  created() {},
   mounted() {
-    console.log(this.appConfig)
+    console.log(parts)
   },
   components: {
     part,
-    // ...app.config.components
+    ...parts
   },
   methods: {},
   computed: {

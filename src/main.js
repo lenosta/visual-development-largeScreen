@@ -10,6 +10,7 @@ import 'echarts/map/js/china.js'
 import * as TweenMax from "gsap/umd/TweenMax";
 import store from './store'
 import 'assets/css/index.scss'
+console.log(app)
 Vue.prototype.$chartColor = ['#08a7de', '#8abe32', '#de6f00', '#d34d4d']
 Vue.prototype.$echarts = echarts
 
@@ -28,4 +29,4 @@ Vue.prototype.$echarts = echarts
 
 
 
-  
+
