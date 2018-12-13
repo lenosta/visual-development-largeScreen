@@ -13,7 +13,7 @@ for (let pageName in pagesConfig) {
     {
       name: page.name,
       path: '/'+page.name,
-      component: pageComponent
+      component: app._components.pages[page.name]
     }
   )
 }

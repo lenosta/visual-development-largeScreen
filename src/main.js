@@ -32,16 +32,23 @@ window.vueRoot = new Vue({
 
 for(let pageTemplate in app._components.pages)
 {
-  findNodes(vueRoot.$children, pageTemplate._scopeId, app.pages)
+  let id = app._components.pages[pageTemplate]._scopeId;
+  console.log(id);
+  findNodes(vueRoot.$children, id, app.pages)
 }
 
 
 function findNodes(nodes, id, findArr) {
+  let isOk=false
   nodes.forEach((node) => {
     if (node.$options._scopeId == id) {
       findArr.push(node);
+      isOk=true;
+      return;
     }
-    findNodes(node.$children, id, findArr)
+    
+    //if(!isOk)
+      findNodes(node.$children, id, findArr)
   });
 }
 
