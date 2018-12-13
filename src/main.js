@@ -27,29 +27,35 @@ window.vueRoot = new Vue({
   router,
   store,
   template: '<App/>',
-  components: { App }
+  components: {
+    App
+  }
 })
+var flag = false;
 
-for(let pageTemplate in app._components.pages)
-{
-  findNodes(vueRoot.$children, pageTemplate._scopeId, app.pages)
+for (let pageTemplate in app._components.pages) {
+  findNodes(vueRoot.$children, app._components.pages[pageTemplate]._scopeId, app.pages)
 }
 
-
 function findNodes(nodes, id, findArr) {
+  
+  if(flag){
+    return false;
+  }
   nodes.forEach((node) => {
     if (node.$options._scopeId == id) {
       findArr.push(node);
+      flag = true;
+      return false;
+    }else {
+      findNodes(node.$children, id, findArr)
     }
-    findNodes(node.$children, id, findArr)
-  });
-}
 
+  });
+
+  
+}
 
 
 
 //app.getPage('page2').parts['ss'].type==''
-
-
-
-
