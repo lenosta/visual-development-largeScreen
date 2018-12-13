@@ -6,7 +6,7 @@ Vue.use(Router)
 
 let pageRoutes = [];
 let page = {};
-let pagesConfig = app.__options;
+let pagesConfig = app._options;
 for (let pageName in pagesConfig) {
   page = pagesConfig[pageName];
   pageRoutes.push(

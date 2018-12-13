@@ -11,14 +11,17 @@ export default {
       name: this.$route.name || this.$route.path.slice(1)
     }
   },
-  created() {},
+  // created() {
+  // },
   mounted() {
   },
   components: {
     partList
   },
   methods: {
-    
+    // init(){
+    //   console.log('page2 init')
+    // }
   },
   computed: {
     ...mapState(['pages'])

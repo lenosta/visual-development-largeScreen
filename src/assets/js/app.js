@@ -1,22 +1,19 @@
 import appConfig from 'appConfig'
 
 let app = {
-  // config: appConfig
+    // config: appConfig
+    _components: {
+        pages: appConfig.pages,// vue template
+        parts: appConfig.parts
+    },
+    _options:appConfig.options,
+    pages:[],// pages instance
+    getPage(name){
+        return this._components.pages[name];
+    }
 }
-Object.defineProperty(app, '__components', {
-  value: { parts: appConfig.parts, pages: appConfig.pages },
-  writable: false,
-  enumerable: true,
-  configurable: false
-})
-Object.defineProperty(app, '__options', {
-  value: appConfig.options,
-  writable: false,
-  enumerable: true,
-  configurable: false
-})
-app.getComponents=function(){
-  return this.__components
-}
+
 window.app = app
 export default app
+
+

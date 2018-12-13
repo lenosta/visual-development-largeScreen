@@ -18,7 +18,9 @@ export default {
     partList
   },
   methods: {
-    
+      init(){
+      console.log('page3 init')
+    }
   },
   computed: {
     ...mapState(['pages'])
