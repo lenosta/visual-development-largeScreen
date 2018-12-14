@@ -1,5 +1,5 @@
 <template>
-  <partList :partsData=pages[name].config.parts></partList>
+  <partList :partsData=pages[name].parts></partList>
 </template>
 <script>
 import partList from '../../components/part/partList'

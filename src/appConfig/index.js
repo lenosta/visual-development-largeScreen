@@ -5,5 +5,11 @@ import options from './pages.config'
 export default {
     parts,
     pages,
-    options
+    options,
+    // 系统默认配置
+    config:{
+        debug:false,
+        stars:false,
+        mock:true,
+    }
 }

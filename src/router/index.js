@@ -13,15 +13,14 @@ for (let pageName in pagesConfig) {
     {
       name: page.name,
       path: '/'+page.name,
-      component: pageComponent
+      component: app._components.pages[page.name]
     }
   )
 }
-
 export default new Router({
   routes: [
     {
-      path: '*', //路由默认跳转
+      path: '/', //路由默认跳转
       redirect: '/page2'
     },
      ...pageRoutes
