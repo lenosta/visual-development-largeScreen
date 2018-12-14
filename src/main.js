@@ -18,40 +18,11 @@ let vueRoot = new Vue({
   router,
   store,
   template: '<App/>',
-  components: { App }
+  components: {
+    App
+  }
 })
 app.init(vueRoot)
 
 if(app.config.debug)
   window.vueRoot = vueRoot
-//window.app = new AppVis(vueRoot)
-
-// for(let pageTemplate in app._components.pages)
-// {
-//   let id = app._components.pages[pageTemplate]._scopeId;
-//   findNodes(vueRoot.$children, id, app.pages)
-// }
-
-
-// function findNodes(nodes, id, findArr) {
-//   let isOk=false
-//   nodes.forEach((node) => {
-//     if (node.$options._scopeId == id) {
-//       findArr.push(node);
-//       isOk=true;
-//       return;
-//     }
-    
-//     if(!isOk)
-//       findNodes(node.$children, id, findArr)
-//   });
-// }
-
-
-
-
-//app.getPage('page2').parts['ss'].type==''
-
-
-
-
