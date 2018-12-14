@@ -12,14 +12,19 @@
 <script>
 import part from './part'
 import parts from 'appConfig/parts.register'
+import app1 from 'assets/js/App'
+
 export default {
   data() {
     return {}
   },
   props: ['partsData'],
-  created() {},
+  created() {
+    console.log(app1)
+    console.log('partlist-created:'+this.$app)
+  },
   mounted() {
-    console.log(parts)
+    
   },
   components: {
     part,
@@ -27,7 +32,7 @@ export default {
   },
   methods: {},
   computed: {
-    // ...mapState({ pages })
+    //...mapState({ pages })
   }
 }
 </script>

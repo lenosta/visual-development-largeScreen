@@ -17,11 +17,10 @@ for (let pageName in pagesConfig) {
     }
   )
 }
-
 export default new Router({
   routes: [
     {
-      path: '*', //路由默认跳转
+      path: '/', //路由默认跳转
       redirect: '/page2'
     },
      ...pageRoutes
