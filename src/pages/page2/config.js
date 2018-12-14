@@ -5,7 +5,7 @@ export default {
       {
         type: 'transverseSingleBar',
         id: 'test1',
-        className: 'test3',
+        className: 'test1',
         style: {
           width: '30%',
           height: '30%',
@@ -17,7 +17,7 @@ export default {
       {
         type: 'LineChart',
         id: 'test2',
-        className: 'test1',
+        className: 'test2',
         style: {
           width: '30%',
           height: '30%',
@@ -29,7 +29,7 @@ export default {
       {
         type: 'plusLineChart',
         id: 'test3',
-        className: 'test1',
+        className: 'test3',
         style: {
           width: '30%',
           height: '30%',

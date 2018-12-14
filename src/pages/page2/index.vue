@@ -11,9 +11,13 @@ export default {
       name: this.$route.name || this.$route.path.slice(1)
     }
   },
-  // created() {
-  // },
+  watch: {
+    $route(to, from) {
+      this.name = to.name
+    }
+  },
   mounted() {
+    console.log(this.name)
   },
   components: {
     partList

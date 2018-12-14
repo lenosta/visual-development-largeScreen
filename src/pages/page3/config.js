@@ -3,8 +3,8 @@ export default {
     parts: [
       {
         type: 'chinaMap',
-        id: 'test1',
-        className: 'test3',
+        id: 'test4',
+        className: 'test4',
         style: {
           width: '100%',
           height: '30%',
@@ -15,8 +15,8 @@ export default {
       },
       {
         type: 'plusMinusLineChart',
-        id: 'test2',
-        className: 'test1',
+        id: 'test5',
+        className: 'test5',
         style: {
           width: '100%',
           height: '30%',
@@ -27,4 +27,3 @@ export default {
       }
     ]
   }
-  

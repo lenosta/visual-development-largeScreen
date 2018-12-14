@@ -38,7 +38,7 @@ for (let pageTemplate in app._components.pages) {
 }
 
 function findNodes(nodes, id, findArr) {
-  
+
   if(flag){
     return false;
   }
@@ -53,9 +53,9 @@ function findNodes(nodes, id, findArr) {
 
   });
 
-  
+
 }
+// console.log(vueRoot.$route.matched[0].instances.default.$options)
 
 
 
-//app.getPage('page2').parts['ss'].type==''
