@@ -1,4 +1,4 @@
-export const adapt = function(opt) {
+ const adapt = function(opt) {
   var defultOpt = {
     sizeEqualRatio: false,
     w: 800,
@@ -41,7 +41,7 @@ export const adapt = function(opt) {
     } else {
       view.style.transform = 'scale(' + dw / option.w + ',' + dh / option.h + ')'
       left = (option.w * (dw / option.w - 1)) / 2 + 'px'
-      top = (option.h * (dh / option.h - 1)) / 2 + 'px' 
+      top = (option.h * (dh / option.h - 1)) / 2 + 'px'
     }
     top ? (view.style.top = top) : (view.style.bottom = bottom)
     left ? (view.style.left = left) : (view.style.right = right)
@@ -51,3 +51,5 @@ export const adapt = function(opt) {
     scaleScreen(option.sizeEqualRatio)
   })
 }
+export default adapt
+

@@ -1,9 +1,7 @@
 <template>
     <div class="chart-wrapper" ref="chart"></div>
 </template>
-
 <script>
-import { vueBus } from '../../assets/js/common/vueBus'
 export default {
   name: 'barDoubleChart',
   props: {
@@ -123,7 +121,7 @@ export default {
             }
           }
         },
-        yAxis: 
+        yAxis:
           {
             type: 'value',
             max: 300,

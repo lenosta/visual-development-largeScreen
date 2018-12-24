@@ -7,7 +7,6 @@
 </template>
 
 <script>
-import { vueBus } from '../../assets/js/common/vueBus'
 export default {
   name: 'transverseSingleBar',
   props: {

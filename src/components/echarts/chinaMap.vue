@@ -6,7 +6,6 @@
     </div>
 </template>
 <script>
-import { vueBus } from '../../assets/js/common/vueBus'
 export default {
   props: {
     echartsData: {
@@ -37,9 +36,6 @@ export default {
       let me = this
       this.myChart = this.$echarts.init(this.$refs.chart)
       this.initChart()
-      vueBus.$on('initChart', v => {
-        me.isinit = v
-      })
     })
   },
   methods: {

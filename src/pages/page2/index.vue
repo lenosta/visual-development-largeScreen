@@ -1,41 +1,46 @@
 <template>
-  <partList :partsData=pages[name].parts></partList>
+  <div>
+    <!-- 左 -->
+    <part :part="{id: 'test1',style: {  width: '30%',  height: '30%', left: '2%', top: '50px'}}">
+      <LineChart />
+    </part>
+    <!-- 中 -->
+    <part :part="{id: 'test2', className:'test2',style:{width: '30%',height: '30%',left: '34%',top: '50px'}}">
+      <transverseSingleBar />
+    </part>
+    <!-- 右 -->
+    <part :part="{id: 'test2', className:'test2',style:{width: '30%',height: '30%',left: '66%',top: '50px'}}">
+      <barDoubleChart />
+    </part>
+  </div>
 </template>
 <script>
-import {testPost} from '../../api/apiList/state'
-import partList from '../../components/part/partList'
+import part from '../../components/part/part'
 import * as MUTATION_TYPES from '../../store/mutation-types'
 import { mapMutations, mapState } from 'vuex'
+import transverseSingleBar from '$chart/transverseSingleBar'
+import LineChart from '$chart/LineChart'
+import barDoubleChart from '$chart/barDoubleChart'
 export default {
   data() {
-    return {
-      name: this.$route.name || this.$route.path.slice(1)
-    }
+    return {}
   },
   watch: {
     $route(to, from) {
       this.name = to.name
     }
   },
-   created() {
-    let params = { name: 'aaa', b: 'b' }
-    testPost(params).then(res => {
-      console.log(res)
-    })
-  },
-  mounted() {
-    console.log(this.name)
-  },
+  created() {},
+  mounted() {},
   components: {
-    partList
+    LineChart,
+    transverseSingleBar,
+    barDoubleChart,
+    part
   },
-  methods: {
-    // init(){
-    //   console.log('page2 init')
-    // }
-  },
+  methods: {},
   computed: {
-    ...mapState(['pages'])
+    ...mapState(['charts'])
   }
 }
 </script>
