@@ -11,11 +11,10 @@ export default {
       name: this.$route.name || this.$route.path.slice(1)
     }
   },
-  created() {},
   mounted() {
   },
   components: {
-    partList
+    partList,
   },
   methods: {
       init(){

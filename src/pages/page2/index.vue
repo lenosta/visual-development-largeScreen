@@ -1,7 +1,8 @@
 <template>
-  <partList :partsData=$selft.parts></partList>
+  <partList :partsData=pages[name].parts></partList>
 </template>
 <script>
+import {testPost} from '../../api/apiList/state'
 import partList from '../../components/part/partList'
 import * as MUTATION_TYPES from '../../store/mutation-types'
 import { mapMutations, mapState } from 'vuex'
@@ -15,6 +16,12 @@ export default {
     $route(to, from) {
       this.name = to.name
     }
+  },
+   created() {
+    let params = { name: 'aaa', b: 'b' }
+    testPost(params).then(res => {
+      console.log(res)
+    })
   },
   mounted() {
     console.log(this.name)
