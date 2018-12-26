@@ -1,17 +1,18 @@
 import * as types from './mutation-types'
 
 export default {
-  [types.ADD_PAGE](state, page) {
-    state.pages.push(page)
+  [types.LOAD_DOM](state) {
+    state.loadDom++
   },
-  [types.GET_PAGE](state, pageName) {
-    var currentPages = state.pages.find(v => v.name == pageName)
-    state.currentPages = currentPages
+  [types.LOAD_PERCENT](state) {
+    var parts = document.querySelectorAll('.common-part')
+    state.loadPercent = ((state.loadDom / parts.length) * 100).toFixed(2)
   },
-  [types.UPDATE_PAGE](state, pageName) {
-    [types.GET_PAGE](state, pageName)
-  },
-  [types.DEL_PAGE](state, page) {
-    
+  [types.CLEAR_LOAD](state) {
+    if (state.loadPercent == 100) {
+      state.loadPercent = 0
+      state.loadDom = 0
+      state.loadComplete = true
+    }
   }
 }

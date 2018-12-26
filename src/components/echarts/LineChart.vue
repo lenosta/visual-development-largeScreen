@@ -1,5 +1,8 @@
 <template>
-    <div class="chart-wrapper" ref="chart"></div>
+  <div
+    class="chart-wrapper"
+    ref="chart"
+  ></div>
 </template>
 
 <script>
@@ -13,14 +16,9 @@ export default {
   },
   data() {
     return {
-      dataArr: [
-        [0, 50, 50, 76, 76, 90],
-        [49, 49, 75, 75, 30, 30],
-        [20, 20, 35, 35, 54, 60],
-        [12, 12, 34, 34, 46, 50]
-      ],
+      dataArr: [[0, 50, 50, 76, 76, 90], [49, 49, 75, 75, 30, 30], [20, 20, 35, 35, 54, 60], [12, 12, 34, 34, 46, 50]],
       color: this.$chartColor || ['#D34D4D', '#E59F38', '#81A566', '#4BADCC'],
-      opacityColor:['rgba(8,167,22,.3)','rgba(138,190,50,.3)','rgba(222,111,0,.3)','rgba(211,77,77,.3)'],
+      opacityColor: ['rgba(8,167,22,.3)', 'rgba(138,190,50,.3)', 'rgba(222,111,0,.3)', 'rgba(211,77,77,.3)'],
       xData: ['2013', '2014', '2015', '2016', '2017', '2018'],
       axisLabelColor: '#ccd6e0',
       axisLineColor: '#809ab1'
@@ -36,6 +34,7 @@ export default {
   },
   mounted() {
     this.$nextTick(() => {
+      console.log('LineChart.vue')
       let me = this
       this.myChart = this.$echarts.init(this.$refs.chart)
       this.initChart()
@@ -65,7 +64,7 @@ export default {
           },
           areaStyle: {
             normal: {
-              color:this.opacityColor[index]
+              color: this.opacityColor[index]
               // color: new this.$echarts.graphic.LinearGradient(0, 0, 0, 1, [
               //   {
               //     offset: 0,
@@ -99,7 +98,7 @@ export default {
             axisLabel: {
               color: this.axisLabelColor
             },
-            axisTick: {show: false},
+            axisTick: { show: false },
             data: this.xData
           }
         ],
@@ -112,14 +111,14 @@ export default {
                 color: this.axisLineColor
               }
             },
-            axisTick: {show: false},
+            axisTick: { show: false },
             axisLabel: {
               margin: 10,
               textStyle: {
                 fontSize: 14
               },
               color: this.axisLabelColor,
-              formatter:'{value}%',
+              formatter: '{value}%'
             },
             splitLine: {
               show: false
@@ -137,8 +136,6 @@ export default {
       }
       this.myChart.setOption(option)
       window.onresize = this.myChart.resize
-      var currentIndex = -1
-      let _this = this
       // setInterval(function() {
       //   var dataLen = option.series[0].data.length
 
@@ -170,7 +167,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
 .chart-wrapper {
-  width: 100%;
-  height: 100%;
+  width: 520px;
+  height: 290px;
 }
 </style>

@@ -1,0 +1,48 @@
+/*eslint-disable*/
+import store from '@/store'
+import { mapState } from 'vuex'
+export default class AppState {
+  // todo 判断是否存在 key
+  static regist(messageKey, value) {
+    if (!messageKey || typeof messageKey !== 'string' || !messageKey.trim()) {
+      console.warn('请传入需要注册的KEY,且必须为非空string')
+      return
+    }
+    if (store.state.messenger[messageKey]) {
+      console.warn(`${messageKey}已经被注册！`)
+      return
+    }
+    store.commit('messenger/register', {
+      messageKey,
+      value
+    })
+  }
+  // 获取状态
+  static getState(messageKey) {
+    if (typeof messageKey === 'string') {
+      return mapState({
+        [messageKey]: state => state.messenger[messageKey]
+      })
+    } else if (Array.isArray(messageKey)) {
+      let stateKey = {}
+      messageKey.forEach((item, index) => {
+        stateKey[item] = state => state.messenger[item]
+      })
+      return mapState(stateKey)
+    }
+  }
+  static updateState(messageKey, value) {
+    if (!store.state.messenger.hasOwnProperty(messageKey)) {
+      return
+    }
+    store.commit('messenger/updateState', {
+      messageKey,
+      value
+    })
+  }
+  static loadingPart() {
+    store.commit('messenger/loadedPartCounter')
+    store.commit('messenger/loadedPartPercent')
+    store.commit('messenger/updateIsLoadPartComplete')
+  }
+}

@@ -1,19 +1,18 @@
- const adapt = function(opt) {
+const adapt = function(opt) {
   var defultOpt = {
     sizeEqualRatio: false,
-    w: 800,
-    h: 450,
+    w: 1920,
+    h: 1080,
     domSelector: 'body',
     left: 'm', //'l','m','r'
     top: 'm' // 't' 'm','b'
   }
   var option = Object.assign({}, defultOpt, opt)
-  var view = document.querySelector(option.domSelector)
-  view.style.width = option.w + 'px'
-  view.style.height = option.h + 'px'
   function scaleScreen(sizeEqualRatio) {
-    var dw = window.innerWidth
-    var dh = window.innerHeight
+    // var dw = window.innerWidth
+    // var dh = window.innerHeight
+    var dw = document.body.clientWidth
+    var dh = document.body.clientHeight
     var minRatio = Math.min(dw / option.w, dh / option.h)
     var left, top, right, bottom
     if (sizeEqualRatio) {
@@ -46,10 +45,12 @@
     top ? (view.style.top = top) : (view.style.bottom = bottom)
     left ? (view.style.left = left) : (view.style.right = right)
   }
+  var view = document.querySelector(option.domSelector)
+  view.style.width = option.w + 'px'
+  view.style.height = option.h + 'px'
   scaleScreen(option.sizeEqualRatio)
   window.addEventListener('resize', function() {
     scaleScreen(option.sizeEqualRatio)
   })
 }
 export default adapt
-

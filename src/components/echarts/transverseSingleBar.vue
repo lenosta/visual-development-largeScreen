@@ -1,8 +1,8 @@
 <template>
-    <div
-      class="chart-wrapper"
-      ref="chart"
-    >
+  <div
+    class="chart-wrapper"
+    ref="chart"
+  >
   </div>
 </template>
 
@@ -16,8 +16,7 @@ export default {
     }
   },
   data() {
-    return {
-    }
+    return {}
   },
   watch: {
     echartsData: {
@@ -29,6 +28,7 @@ export default {
   },
   mounted() {
     this.$nextTick(() => {
+      console.log('transverseSingleBar.vue')
       let me = this
       this.myChart = this.$echarts.init(this.$refs.chart)
       this.initChart()
@@ -117,6 +117,9 @@ export default {
         this.$emit('handleCharts', params.name)
       })
       this.myChart.setOption(option)
+      window.addEventListener('optimizedResize', () => {
+        this.myChart.resize
+      })
     }
   }
 }
@@ -124,8 +127,8 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
-.chart-wrapper {
-  width: 100%;
-  height: 100%;
-}
+// .chart-wrapper {
+//   width: 100%;
+//   height: 100%;
+// }
 </style>

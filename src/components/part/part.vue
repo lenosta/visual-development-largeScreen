@@ -1,6 +1,6 @@
 <template>
   <div
-    :class="['part',part.className]"
+    :class="['common-part',part.className]"
     ref='part'
     :id='part.id'
   >
@@ -8,24 +8,30 @@
   </div>
 </template>
 <script>
+import AppState from '../../assets/js/common/appState'
 export default {
   data() {
     return {}
   },
   mounted() {
-    this.init()
+    this.$nextTick(() => {
+      this.init()
+    })
   },
   methods: {
     init() {
       let part = this.$refs.part
       Object.assign(part.style, this.part.style)
+      AppState.loadingPart()
     }
   },
-  props: ['part']
+  props: ['part'],
+  computed: {
+  }
 }
 </script>
 <style lang="scss" scoped>
-.part {
+.common-part {
   position: absolute;
   box-sizing: border-box;
   background-position: center;

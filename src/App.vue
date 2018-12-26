@@ -15,10 +15,12 @@
 import adapt from './assets/js/common/page' //页面适配
 import Stats from './assets/js/common/stats' //页面刷新率展示
 import urlArg from './assets/js/common/urlArg' //获取url参数
+import AppState from './assets/js/common/appState'
+// import { mapState, mapMutations } from 'vuex'
 export default {
   data() {
     return {
-      queryParams:urlArg()//页面query参数获取
+      queryParams: urlArg() //页面query参数获取
     }
   },
   mounted() {
@@ -26,6 +28,17 @@ export default {
     if (this.queryParams.debug) {
       this.initStats()
       this.update()
+    }
+    // 保证所有dom 节点加载完毕
+    this.$nextTick(() => {})
+  },
+  watch: {
+    isLoadPartComplete: {
+      handler: function(newV, oldV) {
+        if (newV) {
+          console.log('part加载完毕', newV)
+        }
+      }
     }
   },
   methods: {
@@ -51,6 +64,9 @@ export default {
       requestAnimationFrame(this.update.bind(this))
       this.stats.update()
     }
+  },
+  computed: {
+    ...AppState.getState(['isLoadPartComplete'])
   }
 }
 </script>

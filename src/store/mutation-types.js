@@ -1,8 +1,6 @@
-export const SET_THEME = 'SET_THEME'
-export const SET_PAGES = 'SET_PAGES'
-export const ADD_PAGE = 'ADD_PAGE'
-export const GET_PAGE = 'GET_PAGE'
-export const UPDATE_PAGE = 'UPDATE_PAGE'
-export const DEL_PAGE = 'DEL_PAGE'
+
+export const LOAD_DOM = 'LOAD_DOM'
+export const LOAD_PERCENT = 'LOAD_PERCENT'
+export const CLEAR_LOAD = 'CLEAR_LOAD'
 
 

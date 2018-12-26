@@ -1,4 +1,4 @@
-export const preload = preload => {
+ const preload = preload => {
   if (!Array.isArray(preload)) return
   let length = preload.length
   if(length===0) return 'no preload'
@@ -12,3 +12,4 @@ export const preload = preload => {
     if (count === length) return 'preloadComplete'
   })
 }
+export default preload

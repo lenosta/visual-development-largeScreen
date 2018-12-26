@@ -1,5 +1,8 @@
 <template>
-    <div class="chart-wrapper" ref="chart"></div>
+  <div
+    class="chart-wrapper"
+    ref="chart"
+  ></div>
 </template>
 <script>
 export default {
@@ -32,6 +35,7 @@ export default {
   },
   mounted() {
     this.$nextTick(() => {
+      console.log('barDoubleChart.vue')
       let me = this
       this.myChart = this.$echarts.init(this.$refs.chart)
       this.initChart()
@@ -41,7 +45,7 @@ export default {
     initChart() {
       let series = []
       this.dataArr.map((item, index) => {
-        let colorItem = '';
+        let colorItem = ''
         if (index === 0) {
           colorItem = new this.$echarts.graphic.LinearGradient(0, 1, 0, 0, [
             {
@@ -53,7 +57,7 @@ export default {
               color: this.color[index]
             }
           ])
-        }else {
+        } else {
           colorItem = new this.$echarts.graphic.LinearGradient(0, 1, 0, 0, [
             {
               offset: 1,
@@ -65,20 +69,18 @@ export default {
             }
           ])
         }
-        series.push(
-          {
-            name: '',
-            type: 'bar',
-            barWidth: '25%',
-            data: item,
-            itemStyle: {
-              color: colorItem
-            },
-            animationDelay: function(idx) {
-              return idx * 10
-            }
+        series.push({
+          name: '',
+          type: 'bar',
+          barWidth: '25%',
+          data: item,
+          itemStyle: {
+            color: colorItem
+          },
+          animationDelay: function(idx) {
+            return idx * 10
           }
-        )
+        })
       })
       let option = {
         tooltip: {
@@ -121,31 +123,31 @@ export default {
             }
           }
         },
-        yAxis:
-          {
-            type: 'value',
-            max: 300,
-            axisLine: {
-              show: true,
-              lineStyle: {
-                color: this.axisLineColor
-              }
-            },
-            axisTick: {
-              show: false
-            },
-            axisLabel: {
-              show: false
-            },
-            splitLine: {
-              show: false
+        yAxis: {
+          type: 'value',
+          max: 300,
+          axisLine: {
+            show: true,
+            lineStyle: {
+              color: this.axisLineColor
             }
           },
+          axisTick: {
+            show: false
+          },
+          axisLabel: {
+            show: false
+          },
+          splitLine: {
+            show: false
+          }
+        },
         series: series,
         animationEasing: 'elasticOut'
       }
       this.myChart.setOption(option)
-      window.onresize = this.myChart.resize
+    window.onresize = this.myChart.resize
+      // window.onresize = this.myChart.resize
     }
   }
 }
@@ -153,8 +155,8 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
-.chart-wrapper {
-  width: 100%;
-  height: 100%;
-}
+// .chart-wrapper {
+//   width: 100%;
+//   height: 100%;
+// }
 </style>
