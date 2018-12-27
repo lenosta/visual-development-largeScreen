@@ -4,8 +4,8 @@
     ref="app"
   >
     <div class="nav">
-      <router-link :to="{name: 'page2'}">page2</router-link>
-      <!-- <router-link :to="{name: 'page3'}">page3</router-link> -->
+      <router-link :to="{name: 'demo1'}">demo1</router-link>
+      <router-link :to="{name: 'demo2'}">demo2</router-link>
     </div>
     <router-view />
   </div>
@@ -16,7 +16,6 @@ import adapt from './assets/js/common/page' //页面适配
 import Stats from './assets/js/common/stats' //页面刷新率展示
 import urlArg from './assets/js/common/urlArg' //获取url参数
 import AppState from './assets/js/common/appState'
-// import { mapState, mapMutations } from 'vuex'
 export default {
   data() {
     return {
@@ -37,6 +36,7 @@ export default {
       handler: function(newV, oldV) {
         if (newV) {
           console.log('part加载完毕', newV)
+          document.querySelector('#appLoading').style.display = 'none'
         }
       }
     }
