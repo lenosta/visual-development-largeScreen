@@ -1,6 +1,8 @@
 /*eslint-disable*/
 import store from '@/store'
-import { mapState } from 'vuex'
+import {
+  mapState
+} from 'vuex'
 export default class AppState {
   // todo 判断是否存在 key
   static regist(messageKey, value) {
@@ -16,6 +18,9 @@ export default class AppState {
       messageKey,
       value
     })
+  }
+  static getConfig(configKey) {
+    return AppState.getState('config')[configKey]
   }
   // 获取状态
   static getState(messageKey) {
@@ -46,5 +51,14 @@ export default class AppState {
     store.commit('messenger/loadedPartCounter')
     store.commit('messenger/loadedPartPercent')
     store.commit('messenger/updateIsLoadPartComplete')
+  }
+  static rigistNewModule(moduleName, state = {
+    state() {
+      return {}
+    },
+    mutations: {},
+    actions: {}
+  }) {
+    store.registerModule(moduleName, state)
   }
 }
