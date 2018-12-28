@@ -17,10 +17,6 @@ export default {
   data() {
     return {}
   },
-  debugOpt: {
-    debug: false,
-    animate: true
-  },
   mounted() {
     App.appPage.adapt({
       domSelector: '#app',
@@ -28,10 +24,9 @@ export default {
       w: 1920,
       h: 1080
     })
-    // 保证所有dom 节点加载完毕
-    this.$nextTick(() => {})
   },
   watch: {
+    // 全局状态isLoadPartComplete part组件是否加载完毕
     isLoadPartComplete: {
       handler: function(newV, oldV) {
         if (newV) {
@@ -43,6 +38,7 @@ export default {
   },
   methods: {},
   computed: {
+    //获取全局状态isLoadPartComplete
     ...App.appState.getState(['isLoadPartComplete'])
   }
 }

@@ -34,7 +34,6 @@ export default {
   },
   mounted() {
     this.$nextTick(() => {
-      console.log('pie.vue')
       let me = this
       this.myChart = this.$echarts.init(this.$refs.chart)
       this.initChart()

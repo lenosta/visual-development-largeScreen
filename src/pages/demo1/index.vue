@@ -20,16 +20,17 @@ import part from '../../components/part/part'
 import pie from '$chart/pie'
 import bar from '$chart/bar'
 import chinaMap from '$chart/chinaMap'
+import App from '../../assets/js/common/app'
 export default {
   data() {
     return {}
   },
-appOption: {
-animate: false
-},
+  appOption: {
+    animate: true
+  },
   created() {},
   mounted() {
-    console.log(this.appOption.animate)
+    App.appPart.getComponet()
   },
   components: {
     pie,

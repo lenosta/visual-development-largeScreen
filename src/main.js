@@ -20,6 +20,6 @@ let vueRoot = new Vue({
   components: {
     App
   },
-  appOption: { debug: false }
+  appOption: { debug: false, animate: false, isMock: false }
 })
 window.root = vueRoot
