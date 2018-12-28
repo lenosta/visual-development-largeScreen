@@ -1,27 +1,46 @@
 <template>
   <div>
-    <!-- 左 -->
-    <part :part="{id: 'test1',style: {  width: '30%',  height: '30%', left: '2%', top: '50px',background:'url(../../../static/imgs/body-bg.jpg)'}}">
+    <!-- 上左 -->
+    <part
+      :part="{id:'test1',style: {  width: '30%',  height: '30%', left: '2%', top: '50px'}}"
+      initType="LineChart"
+    >
       <LineChart />
     </part>
-    <!-- 中 -->
-    <part :part="{id: 'test2', className:'test2',style:{width: '30%',height: '30%',left: '34%',top: '50px'}}">
-      <h1 style='color:#000;width:50%;height:30px'>我是标题</h1>
+    <!-- 上中 -->
+    <part
+      :part="{id:'test2',className:'test2',style:{width: '30%',height: '30%',left: '34%',top: '50px'}}"
+      initType="transverseSingleBar"
+    >
       <transverseSingleBar />
     </part>
-    <!-- 右 -->
-    <part :part="{id: 'test3', className:'test2',style:{width: '30%',height: '30%',left: '66%',top: '50px'}}">
+    <!-- 上右 -->
+    <part
+      :part="{id:'test3', className:'test2',style:{width: '30%',height: '30%',left: '66%',top: '50px'}}"
+      initType="barDoubleChart"
+    >
       <barDoubleChart />
     </part>
-    <!-- 下 -->
-    <part :part="{id: 'test4', className:'test2',style:{width: '30%',height: '30%',left: '2%',top: 'calc(30% + 60px)'}}">
-      <barDoubleChart />
+    <!-- 下左 -->
+    <part
+      :part="{ id:'test4',className:'test2',style:{width: '30%',height: '30%',left: '2%',top: 'calc(30% + 60px)'}}"
+      initType="pictorialBar"
+    >
+      <pictorialBar />
     </part>
-    <part :part="{id: 'test5', className:'test2',style:{width: '30%',height: '30%',left: '34%',top: 'calc(30% + 60px)'}}">
-      <barDoubleChart />
+    <!-- 下中 -->
+    <part
+      :part="{id:'test5', className:'test2',style:{width: '30%',height: '30%',left: '34%',top: 'calc(30% + 60px)'}}"
+      initType="plusMinusLineChart"
+    >
+      <plusMinusLineChart />
     </part>
-    <part :part="{id: 'test6', className:'test2',style:{width: '30%',height: '30%',left: '66%',top: 'calc(30% + 60px)'}}">
-      <barDoubleChart />
+    <!-- 下右 -->
+    <part
+      :part="{id:'test6', className:'test2',style:{width: '30%',height: '30%',left: '66%',top: 'calc(30% + 60px)'}}"
+      initType="plusLineChart"
+    >
+      <plusLineChart />
     </part>
   </div>
 </template>
@@ -30,13 +49,15 @@ import part from '../../components/part/part'
 import transverseSingleBar from '$chart/transverseSingleBar'
 import LineChart from '$chart/LineChart'
 import barDoubleChart from '$chart/barDoubleChart'
+import pictorialBar from '$chart/pictorialBar'
+import plusMinusLineChart from '$chart/plusMinusLineChart'
+import plusLineChart from '$chart/plusLineChart'
 import AppState from '../../assets/js/common/appState'
 import { TimelineMax, Back, TweenMax } from 'gsap'
 export default {
   data() {
     return {
-      tl: new TimelineMax(),
-      num: 0
+      tl: new TimelineMax()
     }
   },
   watch: {
@@ -47,14 +68,19 @@ export default {
       immediate: true
     }
   },
-  created() {},
+  created() {
+    AppState.regist('initType')
+  },
   mounted() {
     this.animateIn()
   },
   components: {
     LineChart,
-    transverseSingleBar,
     barDoubleChart,
+    pictorialBar,
+    transverseSingleBar,
+    plusMinusLineChart,
+    plusLineChart,
     part
   },
   beforeRouteLeave(to, from, next) {
@@ -67,28 +93,35 @@ export default {
     animateIn() {
       let me = this
       this.tl.staggerFrom(
-        ['#test2', '#test5', '#test1', '#test4', '#test3', '#test6'],
-        1,
+        ['#test1', '#test4', '#test2', '#test5', '#test3', '#test6'],
+        .5,
         {
           opacity: 0,
+          handle: 1,
           cycle: {
-            y: [-300, 300]
+            y: [-150, 150]
           },
-          ease: Back.easeOut,
-          onReverseCompleteAll: me.reverseComplete
+          // ease: Back.easeOut,
+          onComplete: me.complete,
+          onCompleteParams: ['{self}']
         },
-        0.1
+        0.15
       )
+    },
+    complete(v) {
+      console.log(v)
+      let initType = v.target[0].getAttribute('initType')
+       AppState.updateState('initType',initType)
+      // if (v.target[0].style.handle < 0.3) {
+      //   AppState.updateState('initType',initType)
+      // }
     },
     animateOut() {
       this.tl.reverse()
-    },
-    reverseComplete() {
-      this.num++
     }
   },
   computed: {
-    ...AppState.getState(['isLoadPartComplete'])
+    ...AppState.getState(['initType'])
   }
 }
 </script>

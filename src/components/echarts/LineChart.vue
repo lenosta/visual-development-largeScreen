@@ -6,6 +6,7 @@
 </template>
 
 <script>
+import AppState from '../../assets/js/common/appState'
 export default {
   name: 'LineChart',
   props: {
@@ -30,6 +31,13 @@ export default {
         this.initChart()
       },
       deep: true //增加deep 观察对象的子对象变化
+    },
+    initType: {
+      handler: function(newV, oldV) {
+        if (newV == 'LineChart') {
+          this.initChart()
+        }
+      }
     }
   },
   mounted() {
@@ -37,7 +45,7 @@ export default {
       console.log('LineChart.vue')
       let me = this
       this.myChart = this.$echarts.init(this.$refs.chart)
-      this.initChart()
+      // this.initChart()
     })
   },
   methods: {
@@ -160,6 +168,9 @@ export default {
       //   })
       // }, 1000)
     }
+  },
+  computed: {
+    ...AppState.getState(['initType'])
   }
 }
 </script>

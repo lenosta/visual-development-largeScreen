@@ -1,37 +1,25 @@
 <template>
+  <!-- 每个part组件传入part属性进行页面布局 写明页面位置 方便修改及调整 -->
   <div>
     <!-- 上左 -->
-    <part :part="{style: {  width: '30%',  height: '30%', left: '2%', top: '50px'}}">
-      <LineChart />
+    <part :part="{className:'test-demo1',style: {  width: '30%',  height: '30%', left: '2%', top: '50px'}}">
+      <pie />
     </part>
     <!-- 上中 -->
-    <part :part="{className:'test2',style:{width: '30%',height: '30%',left: '34%',top: '50px'}}">
-      <transverseSingleBar />
+    <part :part="{className:'test-demo1',style:{width: '30%',height: '30%',left: '34%',top: '50px'}}">
+      <bar />
     </part>
     <!-- 上右 -->
-    <part :part="{ className:'test2',style:{width: '30%',height: '30%',left: '66%',top: '50px'}}">
-      <barDoubleChart />
-    </part>
-    <!-- 下左 -->
-    <part :part="{ className:'test2',style:{width: '30%',height: '30%',left: '2%',top: 'calc(30% + 60px)'}}">
-      <barDoubleChart />
-    </part>
-    <!-- 下中 -->
-    <part :part="{ className:'test2',style:{width: '30%',height: '30%',left: '34%',top: 'calc(30% + 60px)'}}">
-      <barDoubleChart />
-    </part>
-    <!-- 下右 -->
-    <part :part="{ className:'test2',style:{width: '30%',height: '30%',left: '66%',top: 'calc(30% + 60px)'}}">
-      <barDoubleChart />
+    <part :part="{ className:'test-demo1',style:{width: '30%',height: '30%',left: '66%',top: '50px'}}">
+      <chinaMap />
     </part>
   </div>
 </template>
 <script>
 import part from '../../components/part/part'
-import transverseSingleBar from '$chart/transverseSingleBar'
-import LineChart from '$chart/LineChart'
-import barDoubleChart from '$chart/barDoubleChart'
-import AppState from '../../assets/js/common/appState'
+import pie from '$chart/pie'
+import bar from '$chart/bar'
+import chinaMap from '$chart/chinaMap'
 export default {
   data() {
     return {}
@@ -39,15 +27,13 @@ export default {
   created() {},
   mounted() {},
   components: {
-    LineChart,
-    transverseSingleBar,
-    barDoubleChart,
+    pie,
+    bar,
+    chinaMap,
     part
   },
   methods: {},
-  computed: {
-    ...AppState.getState(['isLoadPartComplete'])
-  }
+  computed: {}
 }
 </script>
  <style lang="scss" scoped>

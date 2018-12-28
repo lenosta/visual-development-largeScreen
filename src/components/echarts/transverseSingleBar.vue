@@ -7,6 +7,7 @@
 </template>
 
 <script>
+import AppState from '../../assets/js/common/appState'
 export default {
   name: 'transverseSingleBar',
   props: {
@@ -24,6 +25,13 @@ export default {
         this.initChart()
       },
       deep: true //增加deep 观察对象的子对象变化
+    },
+    initType: {
+      handler: function(newV, oldV) {
+        if (newV == 'transverseSingleBar') {
+          this.initChart()
+        }
+      }
     }
   },
   mounted() {
@@ -31,7 +39,7 @@ export default {
       console.log('transverseSingleBar.vue')
       let me = this
       this.myChart = this.$echarts.init(this.$refs.chart)
-      this.initChart()
+      // this.initChart()
     })
   },
   methods: {
@@ -121,6 +129,9 @@ export default {
         this.myChart.resize
       })
     }
+  },
+  computed: {
+    ...AppState.getState(['initType'])
   }
 }
 </script>

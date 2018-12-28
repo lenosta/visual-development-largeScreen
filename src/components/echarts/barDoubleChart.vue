@@ -5,6 +5,7 @@
   ></div>
 </template>
 <script>
+import AppState from '../../assets/js/common/appState'
 export default {
   name: 'barDoubleChart',
   props: {
@@ -31,6 +32,13 @@ export default {
         this.initChart()
       },
       deep: true //增加deep 观察对象的子对象变化
+    },
+    initType: {
+      handler: function(newV, oldV) {
+        if (newV == 'barDoubleChart') {
+          this.initChart()
+        }
+      }
     }
   },
   mounted() {
@@ -38,7 +46,7 @@ export default {
       console.log('barDoubleChart.vue')
       let me = this
       this.myChart = this.$echarts.init(this.$refs.chart)
-      this.initChart()
+      // this.initChart()
     })
   },
   methods: {
@@ -146,17 +154,16 @@ export default {
         animationEasing: 'elasticOut'
       }
       this.myChart.setOption(option)
-    window.onresize = this.myChart.resize
+      window.onresize = this.myChart.resize
       // window.onresize = this.myChart.resize
     }
+  },
+  computed: {
+    ...AppState.getState(['initType'])
   }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
-// .chart-wrapper {
-//   width: 100%;
-//   height: 100%;
-// }
 </style>

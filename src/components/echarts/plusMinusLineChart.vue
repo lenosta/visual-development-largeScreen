@@ -1,8 +1,12 @@
 <template>
-    <div class="chart-wrapper" ref="chart" ></div>
+  <div
+    class="chart-wrapper"
+    ref="chart"
+  ></div>
 </template>
 
 <script>
+import AppState from '../../assets/js/common/appState'
 export default {
   name: 'plusMinusLineChart',
   props: {
@@ -27,13 +31,20 @@ export default {
         this.initChart()
       },
       deep: true //增加deep 观察对象的子对象变化
+    },
+    initType: {
+      handler: function(newV, oldV) {
+        if (newV == 'plusMinusLineChart') {
+          this.initChart()
+        }
+      }
     }
   },
   mounted() {
     this.$nextTick(() => {
       let me = this
       this.myChart = this.$echarts.init(this.$refs.chart)
-      this.initChart()
+      // this.initChart()
     })
   },
   methods: {
@@ -54,52 +65,50 @@ export default {
         }
       }
       this.dataArr.push(data, data2)
-      let series = [];
+      let series = []
       this.dataArr.map((item, index) => {
-        let colorItem = '';
-        if(index === 0){
+        let colorItem = ''
+        if (index === 0) {
           colorItem = new this.$echarts.graphic.LinearGradient(0, 0, 0, 1, [
-                  {
-                    offset: 0,
-                    color: '#006497'
-                  },
-                  {
-                    offset: 1,
-                    color: '#000'
-                  }
-                ])
-        }else {
+            {
+              offset: 0,
+              color: '#006497'
+            },
+            {
+              offset: 1,
+              color: '#000'
+            }
+          ])
+        } else {
           colorItem = new this.$echarts.graphic.LinearGradient(0, 1, 0, 0, [
-                  {
-                    offset: 0,
-                    color: '#006497'
-                  },
-                  {
-                    offset: 1,
-                    color: '#000'
-                  }
-                ])
+            {
+              offset: 0,
+              color: '#006497'
+            },
+            {
+              offset: 1,
+              color: '#000'
+            }
+          ])
         }
-        series.push(
-          {
-            name: this.legendData[index],
-            type: 'line',
-            smooth: false,
-            symbol: 'none',
-            sampling: 'average',
-            itemStyle: {
-              normal: {
-                color: this.color[index]
-              }
-            },
-            areaStyle: {
-              normal: {
-                color: colorItem
-              }
-            },
-            data: item
-          }
-        )
+        series.push({
+          name: this.legendData[index],
+          type: 'line',
+          smooth: false,
+          symbol: 'none',
+          sampling: 'average',
+          itemStyle: {
+            normal: {
+              color: this.color[index]
+            }
+          },
+          areaStyle: {
+            normal: {
+              color: colorItem
+            }
+          },
+          data: item
+        })
       })
       let option = {
         tooltip: {
@@ -167,14 +176,13 @@ export default {
       // })
       this.myChart.setOption(option)
     }
+  },
+  computed: {
+    ...AppState.getState(['initType'])
   }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
-.chart-wrapper {
-  width: 100%;
-  height: 100%;
-}
 </style>

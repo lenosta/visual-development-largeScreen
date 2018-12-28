@@ -1,12 +1,13 @@
 <template>
-    <div
-      class="chart-wrapper"
-      ref="chart"
-    >
+  <div
+    class="chart-wrapper"
+    ref="chart"
+  >
   </div>
 </template>
 
 <script>
+import AppState from '../../assets/js/common/appState'
 export default {
   name: 'plusLineChart',
   props: {
@@ -28,13 +29,20 @@ export default {
         this.initChart()
       },
       deep: true //增加deep 观察对象的子对象变化
+    },
+    initType: {
+      handler: function(newV, oldV) {
+        if (newV == 'plusLineChart') {
+          this.initChart()
+        }
+      }
     }
   },
   mounted() {
     this.$nextTick(() => {
       let me = this
       this.myChart = this.$echarts.init(this.$refs.chart)
-      this.initChart()
+      // this.initChart()
     })
   },
   methods: {
@@ -61,40 +69,40 @@ export default {
         },
         xAxis: [
           {
-          type: 'category',
-          boundaryGap: false,
-          data: date,
-          position: 'bottom',
-          axisLabel: {
-            color: this.axisLabelColor,
-            interval: function(index) {
-              return index % 50 === 0 || index === date.length - 1
+            type: 'category',
+            boundaryGap: false,
+            data: date,
+            position: 'bottom',
+            axisLabel: {
+              color: this.axisLabelColor,
+              interval: function(index) {
+                return index % 50 === 0 || index === date.length - 1
+              }
+            },
+            axisLine: {
+              lineStyle: {
+                width: 2,
+                color: this.axisLineColor
+              }
+            },
+            splitLine: {
+              show: true,
+              lineStyle: {
+                type: 'dashed',
+                color: this.axisLineColor
+              }
             }
           },
-          axisLine: {
-            lineStyle: {
-              width: 2,
-              color: this.axisLineColor
-            }
-          },
-          splitLine: {
-            show: true,
-            lineStyle: {
-              type: 'dashed',
-              color: this.axisLineColor
+          {
+            type: 'category',
+            position: 'top',
+            axisLine: {
+              lineStyle: {
+                width: 2,
+                color: this.axisLineColor
+              }
             }
           }
-        },
-        {
-          type: 'category',
-          position: 'top',
-          axisLine: {
-            lineStyle: {
-              width: 2,
-              color: this.axisLineColor
-            }
-          }
-        }
         ],
         yAxis: {
           type: 'value',
@@ -160,14 +168,13 @@ export default {
       })
       this.myChart.setOption(option)
     }
+  },
+  computed: {
+    ...AppState.getState(['initType'])
   }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
-.chart-wrapper {
-  width: 100%;
-  height: 100%;
-}
 </style>

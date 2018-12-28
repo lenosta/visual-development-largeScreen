@@ -23,12 +23,16 @@
 |   |   |   |-- common               //一些公用方法
 |   |   |-- font                     // 字体库文件夹
 |   |-- components                   // vue公共组件
+|   |   |--part
+|   |   |  |--part.vue               // 基础布局组件part
+|   |   |--echarts                   // 图表组件
 |   |-- pages                        // 所有页面
+|   |   |-- demo1                    // 无动画demo
+|   |   |-- demo2                    // 添加动画demo
 |   |-- router                       // 路由配置文件
 |   |-- store                        // vuex相关文件
 |   |-- visus                        // 图表相关类
 |   |-- App.vue                      // 页面入口文件
 |   |-- main.js                      // 程序入口文件，加载各种公共组件
 ```
-# 3.demo说明
- 
+

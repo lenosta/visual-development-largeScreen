@@ -1,12 +1,13 @@
 <template>
-    <div
-      class="chart-wrapper"
-      ref="chart"
-    >
+  <div
+    class="chart-wrapper"
+    ref="chart"
+  >
   </div>
 </template>
 
 <script>
+import AppState from '../../assets/js/common/appState'
 export default {
   name: 'pictorialBar',
   props: {
@@ -26,13 +27,20 @@ export default {
         this.initChart()
       },
       deep: true //增加deep 观察对象的子对象变化
+    },
+    initType: {
+      handler: function(newV, oldV) {
+        if (newV == 'pictorialBar') {
+          this.initChart()
+        }
+      }
     }
   },
   mounted() {
     this.$nextTick(() => {
       let me = this
       this.myChart = this.$echarts.init(this.$refs.chart)
-      this.initChart()
+      // this.initChart()
     })
   },
   methods: {
@@ -394,13 +402,12 @@ export default {
       window.onresize = this.myChart.resize
     }
   },
+  computed: {
+    ...AppState.getState(['initType'])
+  }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
-.chart-wrapper {
-  width: 100%;
-  height: 100%;
-}
 </style>
