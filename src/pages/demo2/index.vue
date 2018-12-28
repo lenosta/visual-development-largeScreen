@@ -52,7 +52,7 @@ import barDoubleChart from '$chart/barDoubleChart'
 import pictorialBar from '$chart/pictorialBar'
 import plusMinusLineChart from '$chart/plusMinusLineChart'
 import plusLineChart from '$chart/plusLineChart'
-import AppState from '../../assets/js/common/appState'
+import App from '../../assets/js/common/app'
 import { TimelineMax, Back, TweenMax } from 'gsap'
 export default {
   data() {
@@ -69,7 +69,7 @@ export default {
     }
   },
   created() {
-    AppState.regist('initType')
+    App.appState.regist('initType')
   },
   mounted() {
     this.animateIn()
@@ -111,7 +111,7 @@ export default {
     complete(v) {
       console.log(v)
       let initType = v.target[0].getAttribute('initType')
-       AppState.updateState('initType',initType)
+       App.appState.updateState('initType',initType)
       // if (v.target[0].style.handle < 0.3) {
       //   AppState.updateState('initType',initType)
       // }
@@ -121,7 +121,7 @@ export default {
     }
   },
   computed: {
-    ...AppState.getState(['initType'])
+    ...App.appState.getState(['initType'])
   }
 }
 </script>

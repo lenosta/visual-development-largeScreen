@@ -1,4 +1,4 @@
-const debugOpt = {
+const appOption = {
   namespaced: true,
   state: {
     debug: true
@@ -8,4 +8,4 @@ const debugOpt = {
   getters: {}
 }
 
-export default debugOpt
+export default appOption

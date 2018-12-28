@@ -24,8 +24,13 @@ export default {
   data() {
     return {}
   },
+appOption: {
+animate: false
+},
   created() {},
-  mounted() {},
+  mounted() {
+    console.log(this.appOption.animate)
+  },
   components: {
     pie,
     bar,

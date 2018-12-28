@@ -5,7 +5,7 @@ import * as getters from './getters'
 import state from './state'
 import mutations from './mutations'
 import messenger from './modules/messenger'
-import debugOpt from './modules/debug'
+import appOption from './modules/appOption'
 //每次通过mutation修改state的时候console.log
 import createLogger from 'vuex/dist/logger'
 Vue.use(Vuex)
@@ -16,7 +16,7 @@ const debug = process.env.NODE_ENV !== 'production'
 export default new Vuex.Store({
   modules: {
     messenger,
-    debugOpt
+    appOption
   },
   actions,
   getters,

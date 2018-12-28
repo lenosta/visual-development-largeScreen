@@ -53,4 +53,4 @@ const adapt = function(opt) {
     scaleScreen(option.sizeEqualRatio)
   })
 }
-export default adapt
+export default {adapt}

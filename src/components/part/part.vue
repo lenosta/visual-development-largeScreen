@@ -8,7 +8,7 @@
   </div>
 </template>
 <script>
-import AppState from '../../assets/js/common/appState'
+import App from '../../assets/js/common/app'
 export default {
   data() {
     return {}
@@ -22,12 +22,11 @@ export default {
     init() {
       let part = this.$refs.part
       Object.assign(part.style, this.part.style)
-      AppState.loadingPart()
+      App.appState.loadingPart()
     }
   },
   props: ['part'],
-  computed: {
-  }
+  computed: {}
 }
 </script>
 <style lang="scss" scoped>
@@ -39,7 +38,7 @@ export default {
   background-size: contain;
   border-radius: 5px;
   // border: 1px solid #f1f1f1;
-  background:#012b60;
+  background: #012b60;
   width: 300px;
   height: 300px;
   overflow: hidden;

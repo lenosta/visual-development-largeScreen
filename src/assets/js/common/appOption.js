@@ -16,7 +16,7 @@ export default {
     Vue.mixin({
       data() {
         return {
-          debugOpt: {}
+          appOption: {}
         }
       },
       watch: {},
@@ -32,7 +32,7 @@ export default {
          * 是否开启刷新率监控
          */
         _debugShouldOpenDebugMode() {
-          if (this.debugOpt.debug === true) {
+          if (this.appOption.debug === true) {
             this._debugOpenPageStatsMonitor()
           } else {
             this._debugCanclePageStatsMonitor()
@@ -52,7 +52,7 @@ export default {
           window._stats.domElement.style.top = '0px'
           window._stats.domElement.style.right = '0px'
           document.body.appendChild(window._stats.domElement)
-          
+
           function update() {
             window._requestAnimationFrameId = requestAnimationFrame(update)
             window._stats.update()
@@ -76,20 +76,20 @@ export default {
          */
         _debugGetFinalOptions() {
           // 全局debug配置
-          let debugOptionsLev0 = store.state.debugOpt
+          let appOptionionsLev0 = store.state.appOption
           // 组件debug配置
-          let debugOptionsLev1 = this.$options.debugOpt
+          let appOptionionsLev1 = this.$options.appOption
           // 参数
-          // let debugOptionsLev2 = this.$route.query
-          let debugOptionsLev2 = urlArg()
+          // let appOptionionsLev2 = this.$route.query
+          let appOptionionsLev2 = urlArg()
           // 获得一个最终的debug选项
-          let finaleOption = Object.assign({}, debugOptionsLev0, debugOptionsLev1, debugOptionsLev2)
+          let finaleOption = Object.assign({}, appOptionionsLev0, appOptionionsLev1, appOptionionsLev2)
           try {
             finaleOption.debug = JSON.parse(finaleOption.debug)
           } catch (err) {
             console.warn(`debug参数只能是true或false`)
           }
-          this.debugOpt = finaleOption
+          this.appOption = finaleOption
         }
       }
     })

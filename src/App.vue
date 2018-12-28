@@ -1,6 +1,8 @@
 <template>
-  <div id="app"
-    ref="app">
+  <div
+    id="app"
+    ref="app"
+  >
     <div class="nav">
       <router-link :to="{name: 'demo1'}">demo1</router-link>
       <router-link :to="{name: 'demo2'}">demo2</router-link>
@@ -10,34 +12,22 @@
 </template>
 
 <script>
-import adapt from './assets/js/common/page' //页面适配
-import Stats from './assets/js/common/stats' //页面刷新率展示
-import urlArg from './assets/js/common/urlArg' //获取url参数
-import AppState from './assets/js/common/appState'
-import system from '@/assets/js/common/system'
-// import { mapState, mapMutations } from 'vuex'
+import App from '@/assets/js/common/app'
 export default {
   data() {
-    return {
-      queryParams: urlArg() //页面query参数获取
-    }
+    return {}
   },
   debugOpt: {
     debug: false,
     animate: true
   },
   mounted() {
-    system.pageAdaptation({
+    App.appPage.adapt({
       domSelector: '#app',
       sizeEqualRatio: true,
       w: 1920,
       h: 1080
     })
-    // this.page() //页面适配，基础方法
-    if (this.queryParams.debug) {
-      // this.initStats()
-      // this.update()
-    }
     // 保证所有dom 节点加载完毕
     this.$nextTick(() => {})
   },
@@ -51,32 +41,9 @@ export default {
       }
     }
   },
-  methods: {
-    page() {
-      adapt({
-        domSelector: '#app',
-        sizeEqualRatio: true,
-        w: 1920,
-        h: 1080
-      })
-    },
-    initStats() {
-      this.stats = new Stats()
-      this.stats.setMode(0) //0:fps |1:ms
-      this.stats.domElement.style.position = 'absolute'
-      this.stats.domElement.style.zIndex = '9999'
-      this.stats.domElement.style.top = '0px'
-      this.stats.domElement.style.right = '0px'
-      document.body.appendChild(this.stats.domElement)
-      return this.stats
-    },
-    update() {
-      requestAnimationFrame(this.update)
-      this.stats.update()
-    }
-  },
+  methods: {},
   computed: {
-    ...AppState.getState(['isLoadPartComplete'])
+    ...App.appState.getState(['isLoadPartComplete'])
   }
 }
 </script>

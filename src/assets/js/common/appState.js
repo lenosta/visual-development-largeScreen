@@ -3,7 +3,7 @@ import store from '@/store'
 import {
   mapState
 } from 'vuex'
-export default class AppState {
+export default class appState {
   // todo 判断是否存在 key
   static regist(messageKey, value) {
     if (!messageKey || typeof messageKey !== 'string' || !messageKey.trim()) {
