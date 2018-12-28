@@ -5,7 +5,7 @@ const messenger = {
   state: {
     isLoadPartComplete: false,
     loadPartCount: 0,
-    loadPercent: 0
+    loadPercent: 0,
   },
   mutations: {
     updateState(state, payload) {
@@ -23,6 +23,9 @@ const messenger = {
     },
     updateIsLoadPartComplete(state) {
       state.loadPercent == 100 && (state.isLoadPartComplete = true)
+    },
+    updateOrderArr(state, payload) {
+      state.orderArr.push(payload)
     }
   },
   actions: {},

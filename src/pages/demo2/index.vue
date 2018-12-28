@@ -30,25 +30,66 @@ import part from '../../components/part/part'
 import transverseSingleBar from '$chart/transverseSingleBar'
 import LineChart from '$chart/LineChart'
 import barDoubleChart from '$chart/barDoubleChart'
+import AppState from '../../assets/js/common/appState'
+import { TimelineMax, Back, TweenMax } from 'gsap'
 export default {
   data() {
-    return {}
+    return {
+      tl: new TimelineMax(),
+      num: 0
+    }
   },
   watch: {
-    $route(to, from) {
-      this.name = to.name
+    $route: {
+      handler: function(to, from) {
+        // console.log(to, from)
+      },
+      immediate: true
     }
   },
   created() {},
-  mounted() {},
+  mounted() {
+    this.animateIn()
+  },
   components: {
     LineChart,
     transverseSingleBar,
     barDoubleChart,
     part
   },
-  methods: {},
-  computed: {}
+  beforeRouteLeave(to, from, next) {
+    this.animateOut()
+    setTimeout(function() {
+      next()
+    }, 1500)
+  },
+  methods: {
+    animateIn() {
+      let me = this
+      this.tl.staggerFrom(
+        ['#test2', '#test5', '#test1', '#test4', '#test3', '#test6'],
+        1,
+        {
+          opacity: 0,
+          cycle: {
+            y: [-300, 300]
+          },
+          ease: Back.easeOut,
+          onReverseCompleteAll: me.reverseComplete
+        },
+        0.1
+      )
+    },
+    animateOut() {
+      this.tl.reverse()
+    },
+    reverseComplete() {
+      this.num++
+    }
+  },
+  computed: {
+    ...AppState.getState(['isLoadPartComplete'])
+  }
 }
 </script>
  <style lang="scss" scoped>

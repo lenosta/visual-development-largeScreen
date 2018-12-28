@@ -2,8 +2,8 @@
   <div id="app"
     ref="app">
     <div class="nav">
-      <router-link :to="{name: 'page2'}">page2</router-link>
-      <!-- <router-link :to="{name: 'page3'}">page3</router-link> -->
+      <router-link :to="{name: 'demo1'}">demo1</router-link>
+      <router-link :to="{name: 'demo2'}">demo2</router-link>
     </div>
     <router-view />
   </div>
@@ -46,6 +46,7 @@ export default {
       handler: function(newV, oldV) {
         if (newV) {
           console.log('part加载完毕', newV)
+          document.querySelector('#appLoading').style.display = 'none'
         }
       }
     }

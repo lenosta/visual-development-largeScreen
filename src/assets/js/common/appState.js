@@ -36,6 +36,7 @@ export default class AppState {
       return mapState(stateKey)
     }
   }
+// 更新状态
   static updateState(messageKey, value) {
     if (!store.state.messenger.hasOwnProperty(messageKey)) {
       return
@@ -45,6 +46,7 @@ export default class AppState {
       value
     })
   }
+//更新IsLoadPartComplete状态
   static loadingPart() {
     store.commit('messenger/loadedPartCounter')
     store.commit('messenger/loadedPartPercent')
