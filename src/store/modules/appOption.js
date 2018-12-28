@@ -1,7 +1,8 @@
 const appOption = {
   namespaced: true,
   state: {
-    debug: true
+    debug: false,
+    mock: true
   },
   mutations: {},
   actions: {},

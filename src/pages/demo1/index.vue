@@ -24,12 +24,10 @@ export default {
   data() {
     return {}
   },
-appOption: {
-animate: false
-},
+  appOption: {debug: false},
   created() {},
   mounted() {
-    console.log(this.appOption.animate)
+    // console.log(this.appOption.animate)
   },
   components: {
     pie,

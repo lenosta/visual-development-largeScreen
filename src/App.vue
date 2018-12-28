@@ -17,7 +17,7 @@ export default {
   data() {
     return {}
   },
-  debugOpt: {
+  appOption: {
     debug: false,
     animate: true
   },
