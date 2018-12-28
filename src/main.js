@@ -9,9 +9,11 @@ import 'echarts/map/js/china.js'
 import * as TweenMax from 'gsap/umd/TweenMax'
 import store from './store'
 import 'assets/css/index.scss'
+import debugOpt from '@/assets/js/common/debugOptions'
+import debug from '@/assets/js/common/debug'
 Vue.prototype.$chartColor = ['#08a7de', '#8abe32', '#de6f00', '#d34d4d']
 Vue.prototype.$echarts = echarts
-
+Vue.use(debug)
 let vueRoot = new Vue({
   el: '#app',
   router,
@@ -19,6 +21,7 @@ let vueRoot = new Vue({
   template: '<App/>',
   components: {
     App
-  }
+  },
+  debugOpt
 })
 

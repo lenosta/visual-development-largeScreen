@@ -1,8 +1,6 @@
 <template>
-  <div
-    id="app"
-    ref="app"
-  >
+  <div id="app"
+    ref="app">
     <div class="nav">
       <router-link :to="{name: 'page2'}">page2</router-link>
       <!-- <router-link :to="{name: 'page3'}">page3</router-link> -->
@@ -16,6 +14,7 @@ import adapt from './assets/js/common/page' //页面适配
 import Stats from './assets/js/common/stats' //页面刷新率展示
 import urlArg from './assets/js/common/urlArg' //获取url参数
 import AppState from './assets/js/common/appState'
+import system from '@/assets/js/common/system'
 // import { mapState, mapMutations } from 'vuex'
 export default {
   data() {
@@ -23,11 +22,21 @@ export default {
       queryParams: urlArg() //页面query参数获取
     }
   },
+  debugOpt: {
+    debug: false,
+    animate: true
+  },
   mounted() {
-    this.page() //页面适配，基础方法
+    system.pageAdaptation({
+      domSelector: '#app',
+      sizeEqualRatio: true,
+      w: 1920,
+      h: 1080
+    })
+    // this.page() //页面适配，基础方法
     if (this.queryParams.debug) {
-      this.initStats()
-      this.update()
+      // this.initStats()
+      // this.update()
     }
     // 保证所有dom 节点加载完毕
     this.$nextTick(() => {})
@@ -61,7 +70,7 @@ export default {
       return this.stats
     },
     update() {
-      requestAnimationFrame(this.update.bind(this))
+      requestAnimationFrame(this.update)
       this.stats.update()
     }
   },
