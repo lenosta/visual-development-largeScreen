@@ -25,12 +25,10 @@ export default {
   data() {
     return {}
   },
-  appOption: {
-    animate: true
-  },
+  appOption: {debug: false},
   created() {},
   mounted() {
-    App.appPart.getComponet()
+    // console.log(this.appOption.animate)
   },
   components: {
     pie,

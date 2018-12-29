@@ -4,7 +4,11 @@ import {
   mapState
 } from 'vuex'
 export default class appState {
-  // todo 判断是否存在 key
+  /**
+   * 注册一个state
+   * @param {string} messageKey 需要注册的state的key
+   * @param {any} value state详细信息 可选参数
+   */
   static regist(messageKey, value) {
     if (!messageKey || typeof messageKey !== 'string' || !messageKey.trim()) {
       console.warn('请传入需要注册的KEY,且必须为非空string')
@@ -19,10 +23,18 @@ export default class appState {
       value
     })
   }
+  /**
+   *
+   * @param {string} configKey
+   */
   static getConfig(configKey) {
     return AppState.getState('config')[configKey]
   }
-  // 获取状态
+  /**
+   * 获取state
+   * @param {string} messageKey 想要获取的state的key
+   * @return {aarray} 返回计算属性
+   */
   static getState(messageKey) {
     if (typeof messageKey === 'string') {
       return mapState({
@@ -36,7 +48,11 @@ export default class appState {
       return mapState(stateKey)
     }
   }
-// 更新状态
+  /**
+   * 更新state
+   * @param {string} messageKey 需要更新的state的key
+   * @param {any} value 新值
+   */
   static updateState(messageKey, value) {
     if (!store.state.messenger.hasOwnProperty(messageKey)) {
       return
@@ -46,12 +62,17 @@ export default class appState {
       value
     })
   }
-//更新IsLoadPartComplete状态
+  //更新IsLoadPartComplete状态
   static loadingPart() {
     store.commit('messenger/loadedPartCounter')
     store.commit('messenger/loadedPartPercent')
     store.commit('messenger/updateIsLoadPartComplete')
   }
+  /**
+   * 注册新的store模块
+   * @param {string} moduleName 注册新的store模块名称
+   * @param {object} state stroe对象
+   */
   static rigistNewModule(moduleName, state = {
     state() {
       return {}

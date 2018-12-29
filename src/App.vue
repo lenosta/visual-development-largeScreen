@@ -17,6 +17,10 @@ export default {
   data() {
     return {}
   },
+  appOption: {
+    debug: false,
+    animate: true
+  },
   mounted() {
     App.appPage.adapt({
       domSelector: '#app',
