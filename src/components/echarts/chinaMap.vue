@@ -1,9 +1,9 @@
 <template>
-    <div
-      class="chart-wrapper"
-      ref="chart"
-    >
-    </div>
+  <div
+    class="chart-wrapper"
+    ref="chart"
+  >
+  </div>
 </template>
 <script>
 export default {
@@ -32,6 +32,7 @@ export default {
     }
   },
   mounted() {
+   
     this.$nextTick(() => {
       let me = this
       this.myChart = this.$echarts.init(this.$refs.chart)

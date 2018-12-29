@@ -35,16 +35,17 @@ export default {
     initType: {
       handler: function(newV, oldV) {
         if (newV == 'plusMinusLineChart') {
-          this.initChart()
+          // this.initChart()
         }
       }
     }
   },
   mounted() {
+    const isAnimate = this.appOption.animate
     this.$nextTick(() => {
       let me = this
       this.myChart = this.$echarts.init(this.$refs.chart)
-      // this.initChart()
+      isAnimate && this.initChart()
     })
   },
   methods: {

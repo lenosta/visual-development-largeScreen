@@ -68,6 +68,7 @@ export default {
       immediate: true
     }
   },
+  appOption: { animate: true },
   created() {
     App.appState.regist('initType')
   },
@@ -94,7 +95,7 @@ export default {
       let me = this
       this.tl.staggerFrom(
         ['#test1', '#test4', '#test2', '#test5', '#test3', '#test6'],
-        .5,
+        .8,
         {
           opacity: 0,
           handle: 1,
@@ -111,7 +112,7 @@ export default {
     complete(v) {
       console.log(v)
       let initType = v.target[0].getAttribute('initType')
-       App.appState.updateState('initType',initType)
+      // App.appState.updateState('initType', initType)
       // if (v.target[0].style.handle < 0.3) {
       //   AppState.updateState('initType',initType)
       // }

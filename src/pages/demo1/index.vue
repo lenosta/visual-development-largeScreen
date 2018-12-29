@@ -25,7 +25,7 @@ export default {
   data() {
     return {}
   },
-  appOption: {debug: false},
+  appOption: {animate: false},
   created() {},
   mounted() {
     // console.log(this.appOption.animate)
