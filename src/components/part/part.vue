@@ -8,7 +8,7 @@
   </div>
 </template>
 <script>
-import App from '../../assets/js/common/app'
+import App from '../../assets/js/app/app'
 export default {
   data() {
     return {}

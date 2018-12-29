@@ -5,7 +5,7 @@
   ></div>
 </template>
 <script>
-import AppState from '../../assets/js/common/appState'
+import AppState from '../../assets/js/app/appState'
 export default {
   name: 'barDoubleChart',
   props: {
@@ -43,10 +43,9 @@ export default {
   },
   mounted() {
     this.$nextTick(() => {
-      console.log('barDoubleChart.vue')
       let me = this
       this.myChart = this.$echarts.init(this.$refs.chart)
-      // this.initChart()
+      !this.appOption.animate && this.initChart()
     })
   },
   methods: {

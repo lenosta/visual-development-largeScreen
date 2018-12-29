@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import AppState from '../../assets/js/common/appState'
+import AppState from '../../assets/js/app/appState'
 export default {
   name: 'LineChart',
   props: {
@@ -35,7 +35,7 @@ export default {
     initType: {
       handler: function(newV, oldV) {
         if (newV == 'LineChart') {
-          // this.initChart()
+          this.initChart()
         }
       }
     }
@@ -45,7 +45,7 @@ export default {
     this.$nextTick(() => {
       let me = this
       this.myChart = this.$echarts.init(this.$refs.chart)
-      isAnimate&&this.initChart()
+      !isAnimate&&this.initChart()
     })
   },
   methods: {

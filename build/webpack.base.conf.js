@@ -43,7 +43,7 @@ module.exports = {
       'common': resolve('src/common'),
       'components': resolve('src/components'),
       'pages': resolve('src/pages'),
-      '$chart': resolve('src/components/echarts'),
+      '$chart': resolve('src/components/charts'),
       'appConfig': resolve('src/appConfig')
     }
   },

@@ -52,7 +52,7 @@ import barDoubleChart from '$chart/barDoubleChart'
 import pictorialBar from '$chart/pictorialBar'
 import plusMinusLineChart from '$chart/plusMinusLineChart'
 import plusLineChart from '$chart/plusLineChart'
-import App from '../../assets/js/common/app'
+import App from '../../assets/js/app/app'
 import { TimelineMax, Back, TweenMax } from 'gsap'
 export default {
   data() {
@@ -95,7 +95,7 @@ export default {
       let me = this
       this.tl.staggerFrom(
         ['#test1', '#test4', '#test2', '#test5', '#test3', '#test6'],
-        .8,
+        0.8,
         {
           opacity: 0,
           handle: 1,
@@ -110,12 +110,8 @@ export default {
       )
     },
     complete(v) {
-      console.log(v)
       let initType = v.target[0].getAttribute('initType')
-      // App.appState.updateState('initType', initType)
-      // if (v.target[0].style.handle < 0.3) {
-      //   AppState.updateState('initType',initType)
-      // }
+      App.appState.updateState('initType', initType)
     },
     animateOut() {
       this.tl.reverse()

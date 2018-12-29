@@ -12,16 +12,13 @@
 </template>
 
 <script>
-import App from '@/assets/js/common/app'
+import App from '@/assets/js/app/app'
 export default {
   data() {
     return {}
   },
-  appOption: {
-    debug: false,
-    animate: true
-  },
   mounted() {
+    // 页面适配
     App.appPage.adapt({
       domSelector: '#app',
       sizeEqualRatio: true,

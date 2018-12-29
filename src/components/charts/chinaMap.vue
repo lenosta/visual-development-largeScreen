@@ -7,6 +7,7 @@
 </template>
 <script>
 export default {
+  name: 'bar',
   props: {
     echartsData: {
       type: Object,
@@ -32,11 +33,11 @@ export default {
     }
   },
   mounted() {
-   
+
     this.$nextTick(() => {
       let me = this
       this.myChart = this.$echarts.init(this.$refs.chart)
-      this.initChart()
+     !this.appOption.animate&&this.initChart()
     })
   },
   methods: {

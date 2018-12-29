@@ -5,13 +5,16 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import echarts from 'echarts'
+// import ElementUI from 'element-ui'; //使用时可放开
+// import 'element-ui/lib/theme-chalk/index.css'
 import 'echarts/map/js/china.js'
 import store from './store'
 import 'assets/css/index.scss'
-import appOption from '@/assets/js/common/appOption'
-Vue.prototype.$chartColor = ['#08a7de', '#8abe32', '#de6f00', '#d34d4d']
+import appOption from '@/assets/js/app/appOption'
+Vue.prototype.$chartColor = ['#08a7de', '#8abe32', '#de6f00', '#d34d4d'] //图表临时使用公用颜色   可删除
 Vue.prototype.$echarts = echarts
 Vue.use(appOption)
+// Vue.use(ElementUI);
 let vueRoot = new Vue({
   el: '#app',
   router,
