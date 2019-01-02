@@ -15,29 +15,14 @@ export default {
     }
   },
   data() {
-    return {
-      isinit: ''
-    }
-  },
-  watch: {
-    echartsData: {
-      handler: function(val, oldVal) {
-        this.initChart()
-      },
-      deep: true //增加deep 观察对象的子对象变化
-    },
-    isinit: {
-      handler: function(val, oldVal) {
-        val == 'chinaMap' && this.initChart()
-      }
-    }
+    return {}
   },
   mounted() {
-
+    const isAnimate = this.appOption.animate
     this.$nextTick(() => {
       let me = this
       this.myChart = this.$echarts.init(this.$refs.chart)
-     !this.appOption.animate&&this.initChart()
+      // !isAnimate && this.initChart()
     })
   },
   methods: {

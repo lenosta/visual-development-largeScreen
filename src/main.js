@@ -10,12 +10,9 @@ import echarts from 'echarts'
 import 'echarts/map/js/china.js'
 import store from './store'
 import 'assets/css/index.scss'
-import appOption from '@/assets/js/app/appOption'
-import appPart from '@/assets/js/app/appPart'
-Vue.prototype.$chartColor = ['#08a7de', '#8abe32', '#de6f00', '#d34d4d'] //图表临时使用公用颜色   可删除
+import appMixin from '@/assets/js/app/appMixin'
 Vue.prototype.$echarts = echarts
-Vue.use(appOption)
-Vue.use(appPart)
+Vue.use(appMixin)
 // Vue.use(ElementUI);
 let vueRoot = new Vue({
   el: '#app',
@@ -25,6 +22,6 @@ let vueRoot = new Vue({
   components: {
     App
   },
-  appOption: { debug: false, animate: false, isMock: false } //默认全局配置参数
+  appOption: { debug: false, animate: false, isMock: false,stars:false} //默认全局配置参数
 })
 window.root = vueRoot

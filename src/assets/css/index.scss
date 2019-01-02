@@ -8,7 +8,7 @@ body {
   height: 100vh;
   overflow: hidden;
   box-sizing: border-box;
-  // background: url('../imgs/body-bg.jpg') center no-repeat;
+  background: url('../imgs/body-bg.jpg') center no-repeat;
   background-size: cover
 }
 
@@ -24,7 +24,7 @@ body {
 // 路由类名
 .router-active,.router-active:hover {
   color: red;
-  text-decoration: underline
+  text-decoration: none;
 }
 .chart-wrapper {
   width: 520px;

@@ -18,6 +18,14 @@ export default {
       this.init()
     })
   },
+  watch: {
+    part: {
+      handler: function(val, oldVal) {
+        Object.assign(this.$refs.part.style, this.part.style)
+      },
+      deep: true //增加deep 观察对象的子对象变化
+    }
+  },
   methods: {
     init() {
       let part = this.$refs.part
@@ -25,8 +33,7 @@ export default {
       App.appState.loadingPart()
     }
   },
-  props: ['part'],
-  computed: {}
+  props: ['part']
 }
 </script>
 <style lang="scss" scoped>

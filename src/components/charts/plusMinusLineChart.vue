@@ -20,7 +20,7 @@ export default {
       isinit: '',
       dataArr: [],
       legendData: ['库存量', '购买量'],
-      color: this.$chartColor || ['#08A7DF', '#8ABE32'],
+      color:['#08A7DF', '#8ABE32'],
       axisLabelColor: '#ccd6e0',
       axisLineColor: '#809ab1'
     }

@@ -18,7 +18,7 @@ export default {
   },
   data() {
     return {
-      color: this.$chartColor || ['006497'],
+      color:['#006497'],
       axisLabelColor: '#ccd6e0',
       axisLineColor: '#809ab1'
     }
@@ -163,9 +163,6 @@ export default {
           }
         ]
       }
-      this.myChart.on('click', params => {
-        this.$emit('handleCharts', params.name)
-      })
       this.myChart.setOption(option)
     }
   },

@@ -18,7 +18,7 @@ export default {
   data() {
     return {
       dataArr: [[0, 50, 50, 76, 76, 90], [49, 49, 75, 75, 30, 30], [20, 20, 35, 35, 54, 60], [12, 12, 34, 34, 46, 50]],
-      color: this.$chartColor || ['#D34D4D', '#E59F38', '#81A566', '#4BADCC'],
+      color: ['#D34D4D', '#E59F38', '#81A566', '#4BADCC'],
       opacityColor: ['rgba(8,167,22,.3)', 'rgba(138,190,50,.3)', 'rgba(222,111,0,.3)', 'rgba(211,77,77,.3)'],
       xData: ['2013', '2014', '2015', '2016', '2017', '2018'],
       axisLabelColor: '#ccd6e0',

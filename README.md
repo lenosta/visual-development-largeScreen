@@ -23,10 +23,9 @@
 |   |   |   |-- common               // 一些公用方法
 |   |   |   |-- app                  // 模板核心操作方法
 |   |   |       |--app.js            // 顶级类,作为其他方法的统一导出
-|   |   |       |--appOption.js      // 顶级配置(全局默认配置在main.js,每个子组件可添加此配置项权重是url配置>组件配置>页面配置>全局默认配置)
+|   |   |       |--appMixin.js       // VUE混入项(全局给出vm.appOption和vm.$getComponent(componentTag)每个子组件可添加此配置项权重是url配置>组件配置>页面配置>全局默认配置)
 |   |   |       |--appState.js       // 提供动态注册状态方法appState.regist(${key},${value})、更新状态appState.update(key,value)、获取状态值方法appState.getSate([key1,ke2.....])
 |   |   |       |--appPage.js        // 提供页面适配其他页面操作方法
-|   |   |       |--appPart.js        // 提供组件的操作方法
 |   |   |-- font                     // 字体库文件夹
 |   |-- components                   // vue公共组件
 |   |   |--part

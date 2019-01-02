@@ -18,7 +18,7 @@ export default {
   },
   data() {
     return {
-      color: this.$chartColor || ['rgb(71, 165, 214)', 'rgb(143, 179, 72)']
+      color: ['rgb(71, 165, 214)', 'rgb(143, 179, 72)']
     }
   },
   watch: {

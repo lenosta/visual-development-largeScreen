@@ -16,15 +16,16 @@
       <chinaMap />
       <p>part3</p>
     </part>
-    <part :part="{style:{top:'40%',left:'45%',background:'none'}}">
+
+    <part :part="{style:{top:'40%',left:'45%',background:'none',width:'50%'}}">
       <button
         ref='btn'
-        @click="showPie"
-      >测试组件实例改变属性</button>
+        @click="showCharts"
+      >测试触发子组件内部方法</button>
       <button
         ref='btn'
         @click="changePieData"
-      >测试改变组件值</button>
+      >测试改子变组件内部值</button>
     </part>
   </div>
 </template>
@@ -38,13 +39,17 @@ export default {
   name: 'demo1',
   data() {
     return {
-      $pie: null
+      $pie: null,
+      $bar: null,
+      $chinaMap: null
     }
   },
   created() {},
   mounted() {
     this.$nextTick(() => {
       this.$pie = this.$getComponent('pie')[0]
+      this.$bar = this.$getComponent('bar')[0]
+      this.$chinaMap = this.$getComponent('chinaMap')[0]
     })
   },
   components: {
@@ -54,14 +59,15 @@ export default {
     part
   },
   methods: {
-    showPie() {
+    showCharts() {
       // 获取当前页面任一组件实例，该方法返回数组，可在都没渲染完后进行任一操作
-      console.log(this.$pie)
       this.$pie.initChart()
+      this.$bar.initChart()
+      this.$chinaMap.initChart()
     },
     changePieData() {
-      this.$pie.value1 = 50
-      this.$pie.value2 = 50
+      this.$pie.value1 = (Math.random() * 50).toFixed(0)
+      this.$pie.value2 = 100 - this.$pie.value1
       this.$pie.initChart()
     }
   },
@@ -71,6 +77,16 @@ export default {
  <style lang="scss" scoped>
 p {
   text-align: center;
+}
+button {
+  background: none;
+  outline: none;
+  border: 0 none;
+  color: #fff;
+  height: 30px;
+  line-height: 30px;
+  background: #012b60;
+  padding: 0 5px;
 }
 </style>
 

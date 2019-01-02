@@ -18,6 +18,9 @@ export default {
     return {}
   },
   mounted() {
+    if (this.appOption.stars == true) {
+      canvas('stars', 230, 2000, 60, 2, 800000, 0.5)
+    }
     // 页面适配
     App.appPage.adapt({
       domSelector: '#app',

@@ -33,10 +33,11 @@ export default {
     // }
   },
   mounted() {
+    const isAnimate = this.appOption.animate
     this.$nextTick(() => {
       let me = this
       this.myChart = this.$echarts.init(this.$refs.chart)
-      !this.appOption.animate&&this.initChart()
+      // !isAnimate && this.initChart()
     })
   },
   methods: {
@@ -50,7 +51,7 @@ export default {
             type: 'shadow' // 默认为直线，可选为：'line' | 'shadow'
           }
         },
-       grid: {
+        grid: {
           top: 50,
           bottom: 0,
           left: 20,

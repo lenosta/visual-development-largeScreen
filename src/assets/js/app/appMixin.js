@@ -1,18 +1,20 @@
-// 项目配置插件
+/**
+ *  以插件形式进行 vue的混入
+ * 1.混入配置项appOption:{}
+ * 2.全局注册方法 vm.$getComponent()
+ */
+import Type from './isType'
 import Stats from './stats'
 import urlArg from './urlArg'
 import store from '../../../store'
-import { get } from 'https'
-export default {
+const appMixin = {
   install(Vue, option) {
-    // 全局mixin
     Vue.mixin({
       data() {
         return {
           appOption: {} // 组件混入选项
         }
       },
-      watch: {},
       created() {
         // 获取当前组件配置项
         this._debugGetFinalOptions()
@@ -22,9 +24,36 @@ export default {
         }
       },
       methods: {
-        /**
-         * 是否开启刷新率监控
-         */
+        // 依据组件标签名称获取组件实例数组
+        $getComponent(componentTag) {
+          let component = []
+          let allComp = this._getAllChildComp(this)
+          component = allComp.filter(function(vm) {
+            return vm.$options._componentTag === componentTag
+          })
+          if (component.length == 0) {
+            console.warn(`${componentTag} 组件不存在`)
+            return
+          }
+          return component
+        },
+        _getAllChildComp(instance) {
+          let allComp = [],
+            child
+          if (Type.isObject(instance)) {
+            child = instance.$children
+          } else if (Type.isArray(instance)) {
+            child = instance
+          }
+          for (let i = 0; i < child.length; i++) {
+            allComp.push(child[i])
+            if (child[i].$children.length > 0) {
+              allComp = allComp.concat(this._getAllChildComp(child[i].$children))
+            }
+          }
+          return allComp
+        },
+        // 是否开启刷新率监控
         _debugShouldOpenDebugMode() {
           if (this.appOption.debug === true) {
             this._debugOpenPageStatsMonitor()
@@ -32,9 +61,7 @@ export default {
             this._debugCanclePageStatsMonitor()
           }
         },
-        /**
-         * 开启刷新率监控
-         */
+        // 开启刷新率监控
         _debugOpenPageStatsMonitor() {
           if (window._stats) {
             return
@@ -46,18 +73,15 @@ export default {
           window._stats.domElement.style.top = '0px'
           window._stats.domElement.style.right = '0px'
           document.body.appendChild(window._stats.domElement)
-          /**
-           * 更新动画
-           */
+          // 更新刷新率
           function update() {
             window._requestAnimationFrameId = requestAnimationFrame(update)
             window._stats.update()
           }
           update()
         },
-        /**
-         * 关闭刷新率监控
-         */
+
+        //  关闭刷新率监控
         _debugCanclePageStatsMonitor() {
           let dom = document.querySelectorAll('#stats')
           let doms = Array.from(dom)
@@ -67,19 +91,14 @@ export default {
           window._stats = null
           cancelAnimationFrame(window._requestAnimationFrameId)
         },
-        /**
-         * 获取最终的配置选项
-         */
+        //  获取最终的配置选项
         _debugGetFinalOptions() {
           // 全局配置项
           let appOptionionsLev0 = store.state.appOption
           // 组件debug配置
           let optionList = []
           let that = this
-          /**
-           * 递归实例的$options 获取配置
-           * @param {object} that 实例对象
-           */
+          // 递归实例的$options 获取配置
           function getComponentOption(that) {
             if (that.$options.parent) {
               if (that.$options.appOption) {
@@ -109,3 +128,4 @@ export default {
     })
   }
 }
+export default appMixin
