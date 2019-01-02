@@ -14,7 +14,10 @@ export default {
     }
   },
   data() {
-    return {}
+    return {
+      value1: 18,
+      value2: 34
+    }
   },
   watch: {
     echartsData: {
@@ -28,7 +31,7 @@ export default {
     this.$nextTick(() => {
       let me = this
       this.myChart = this.$echarts.init(this.$refs.chart)
-      !this.appOption.animate&&this.initChart()
+      // !this.appOption.animate&&this.initChart()
     })
   },
   methods: {
@@ -73,7 +76,7 @@ export default {
             },
             data: [
               {
-                value: 18,
+                value: me.value1,
                 name: '负面舆论',
                 label: {
                   normal: {
@@ -109,7 +112,7 @@ export default {
               },
 
               {
-                value: 34,
+                value: me.value2,
                 name: '正面舆论',
                 label: {
                   normal: {
@@ -151,7 +154,7 @@ export default {
       window.onresize = this.myChart.resize
       // window.onresize = this.myChart.resize
     }
-  },
+  }
 }
 </script>
 

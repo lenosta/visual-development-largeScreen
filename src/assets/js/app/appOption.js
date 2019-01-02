@@ -2,9 +2,7 @@
 import Stats from './stats'
 import urlArg from './urlArg'
 import store from '../../../store'
-import {
-  get
-} from 'https';
+import { get } from 'https'
 export default {
   install(Vue, option) {
     // 全局mixin
@@ -18,7 +16,8 @@ export default {
       created() {
         // 获取当前组件配置项
         this._debugGetFinalOptions()
-        if (!this.$parent) { // 根组件
+        if (!this.$parent) {
+          // 根组件
           this._debugShouldOpenDebugMode()
         }
       },
