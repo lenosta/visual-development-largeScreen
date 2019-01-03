@@ -6,6 +6,7 @@
     <header>
       <div class="inner">
         <h1 class="lg-title"><img class="logo" />前端可视化模板{{title?' - '+title:''}}</h1>
+        <div class="user-area down-temp"> <a href="https://codeload.github.com/jusfoun-FE/visual-development-largeScreen/zip/master">下载模板</a></div>
         <div class="user-area"><a
             :href="'https://github.com/jusfoun-FE/visual-development-largeScreen/tree/demo/src/pages/'+page+'/index.vue'"
             target="_blank"
@@ -211,6 +212,10 @@ header h1 {
 .user-area:hover a {
   color: #fff;
 }
+.down-temp {
+  position: relative;
+  left: 701px;
+}
 .main {
   width: 100%;
   height: 100%;
@@ -232,42 +237,5 @@ footer {
   display: flex;
   justify-content: space-around;
 }
-/* 设备宽度大于 320px 小于 800px */
-@media all and (min-width: 320px) and (max-width: 800px) {
-  .app,
-  appmax {
-    min-width: 700px;
-    height: 100%;
-  }
-  footer {
-    display: none;
-  }
-  .lg-title {
-    display: none;
-  }
-  .sm-title {
-    display: block;
-  }
-  .left-menu {
-    height: calc(100% - 55px);
-    background: rgba(0, 0, 0, 0.5);
-  }
-}
-::-webkit-scrollbar-track-piece {
-  width: 10px;
-  background-color: rgba(0, 0, 0, 0.2);
-}
-::-webkit-scrollbar {
-  width: 5px;
-  height: 6px;
-}
-::-webkit-scrollbar-thumb {
-  height: 30px;
-  background: #595b5d;
-  cursor: pointer;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: #595b5d;
-  cursor: pointer;
-}
+
 </style>
