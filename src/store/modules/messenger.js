@@ -2,11 +2,10 @@ import Vue from 'vue'
 
 const messenger = {
   namespaced: true,
-
   state: {
     isLoadPartComplete: false,
     loadPartCount: 0,
-    loadPercent: 0,
+    loadPercent: 0
   },
   mutations: {
     /**
@@ -62,9 +61,6 @@ const messenger = {
      */
     updateIsLoadPartComplete(state) {
       state.loadPercent == 100 && (state.isLoadPartComplete = true)
-    },
-    updateOrderArr(state, payload) {
-      state.orderArr.push(payload)
     }
   },
   actions: {},

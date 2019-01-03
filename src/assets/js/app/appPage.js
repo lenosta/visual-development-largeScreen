@@ -56,11 +56,22 @@ const adapt = function(opt) {
     top ? (view.style.top = top) : (view.style.bottom = bottom)
     left ? (view.style.left = left) : (view.style.right = right)
   }
+
+  /**
+   * @description 进行页面设置
+   * @author zzg
+   * @date 2019-01-03
+   */
   var view = document.querySelector(option.domSelector)
   view.style.width = option.w + 'px'
   view.style.height = option.h + 'px'
   scaleScreen(option.sizeEqualRatio)
 
+  /**
+   * @description 随窗口进行resize
+   * @author zzg
+   * @date 2019-01-03
+   */
   window.addEventListener('resize', function() {
     scaleScreen(option.sizeEqualRatio)
   })
