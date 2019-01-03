@@ -1,26 +1,15 @@
 <template>
-  <!-- 每个part组件传入part属性进行页面布局 写明页面位置 方便修改及调整 -->
   <div>
-    <!-- 上左 -->
-    <part :part="{className:'test-demo1',style: {  width: '400px',  height: '250px', left: '220px', top: '70px'}}">
-      <p>part:{className:'',style: { width: '400px', height: '250px', left: '220px', top: '70px'}}</p>
-    </part>
-    <!-- 上中 -->
-    <part :part="{className:'',style:{ width: '400px',  height: '250px',left: '640px',top: '70px'}}">
-      <p>part:{className:'',style:{ width: '400px', height: '250px',left: '640px',top: '70px'}}</p>
-    </part>
-    <!-- 上右 -->
-    <part :part="{ className:'',style:{ width: '400px',  height: '250px',left: '1060px',top: '70px'}}">
-      <p>part:{ className:'',style:{ width: '400px', height: '250px',left: '1060px',top: '70px'}}</p>
-    </part>
+    <part :part="{style:{width: '520px',  height: '290px',left: '220px',top: '70px',padding:'20px',fontSize:'16px'}}">增加url查询参数?debug=true&animate=false&stars=true 切换到动画&通信页签试试</part>
   </div>
 </template>
 <script>
-import App from '../../assets/js/app/app'
+//运行时配置>组件配置>页面配置>默认配置
 import part from '../../components/part/part'
 export default {
   data() {
-    return {}
+    return {
+    }
   },
   components: {
     part

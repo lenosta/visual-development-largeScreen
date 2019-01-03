@@ -25,9 +25,7 @@
         </router-link>
       </div>
     </ul>
-    <router-view
-      class="main"
-    ></router-view>
+    <router-view class="main"></router-view>
 
     <footer>
       <span> 版权所有 xxxxx</span>
@@ -47,6 +45,8 @@ export default {
     }
   },
   created() {
+    document.querySelectorAll('.common-part').length == 0 &&
+      (document.querySelector('#appLoading').style.display = 'none')
     this.items = this.$router.options.routes
       .filter(route => route.isMenu)
       .map(route => {

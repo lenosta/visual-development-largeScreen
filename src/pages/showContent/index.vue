@@ -21,7 +21,7 @@
       >触发子组件内部方法</button>
       <button
         ref='btn'
-        @click="changePieData"
+        @click="changeData"
       >改变子变组件内部值</button>
     </part>
   </div>
@@ -40,9 +40,9 @@ export default {
       $chinaMap: null
     }
   },
-  created() {},
   mounted() {
     this.$nextTick(() => {
+      // 获取当前页面任一组件实例，该方法返回数组
       this.$pie = this.$getComponent('pie')[0]
       this.$bar = this.$getComponent('bar')[0]
       this.$chinaMap = this.$getComponent('chinaMap')[0]
@@ -56,12 +56,12 @@ export default {
   },
   methods: {
     showCharts() {
-      // 获取当前页面任一组件实例，该方法返回数组，可在都没渲染完后进行任一操作
+      // 主动调取子组件实例方法
       this.$pie.initChart()
       this.$bar.initChart()
       this.$chinaMap.initChart()
     },
-    changePieData() {
+    changeData() {
       this.$pie.changeValue()
       this.$pie.initChart()
       this.$bar.changeValue()

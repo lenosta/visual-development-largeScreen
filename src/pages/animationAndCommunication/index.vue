@@ -2,42 +2,42 @@
   <div>
     <!-- 上左 -->
     <part
-      :part="{id:'test1',style: {  width: '400px',  height: '250px',left: '220px',top: '70px'}}"
+      :part="{id:'test1',style: {  width: '520px',  height: '290px',left: '220px',top: '70px'}}"
       initType="LineChart"
     >
       <LineChart />
     </part>
     <!-- 上中 -->
     <part
-      :part="{id:'test2',className:'test2',style:{width: '400px',  height: '250px',left: '640px',top: '70px'}}"
+      :part="{id:'test2',className:'test2',style:{width: '520px',  height: '290px',left: '760px',top: '70px'}}"
       initType="transverseSingleBar"
     >
       <transverseSingleBar />
     </part>
     <!-- 上右 -->
     <part
-      :part="{id:'test3', className:'test2',style:{width: '400px',  height: '250px',left: '1060px',top: '70px'}}"
+      :part="{id:'test3', className:'test2',style:{width: '520px',  height: '290px',left: '1300px',top: '70px'}}"
       initType="barDoubleChart"
     >
       <barDoubleChart />
     </part>
     <!-- 下左 -->
     <part
-      :part="{ id:'test4',className:'test2',style:{width: '700px',  height: '300px',left: '220px',top: '350px'}}"
+      :part="{ id:'test4',className:'test2',style:{width: '520px',  height: '290px',left: '220px',top: '380px'}}"
       initType="pictorialBar"
     >
       <pictorialBar />
     </part>
     <!-- 下中 -->
     <part
-      :part="{id:'test5', className:'test2',style:{width: '400px',  height: '250px',left: '640px',top: '350px'}}"
+      :part="{id:'test5', className:'test2',style:{width: '520px',  height: '290px',left: '760px',top: '380px'}}"
       initType="plusMinusLineChart"
     >
       <plusMinusLineChart />
     </part>
     <!-- 下右 -->
     <part
-      :part="{id:'test6', className:'test2',style:{width: '400px',  height: '250px',left: '1060px',top: '350px'}}"
+      :part="{id:'test6', className:'test2',style:{width: '520px',  height: '290px',left: '1300px',top: '380px'}}"
       initType="plusLineChart"
     >
       <plusLineChart />
@@ -57,10 +57,9 @@ import pictorialBar from '$chart/pictorialBar'
 import plusMinusLineChart from '$chart/plusMinusLineChart'
 import plusLineChart from '$chart/plusLineChart'
 import App from '../../assets/js/app/app'
+// 动画库插件引入
 import { TimelineMax, Back, TweenMax } from 'gsap'
 export default {
-  name: 'demo2',
-  title: 'demo2',
   data() {
     return {
       tl: new TimelineMax()
@@ -76,10 +75,13 @@ export default {
   },
   appOption: { animate: true },
   created() {
+    // 注册状态
     App.appState.regist('initType')
   },
   mounted() {
-    this.animateIn()
+    this.$nextTick(() => {
+      this.appOption.animate && this.animateIn()
+    })
   },
   components: {
     LineChart,
@@ -91,10 +93,14 @@ export default {
     part
   },
   beforeRouteLeave(to, from, next) {
-    this.animateOut()
-    setTimeout(function() {
+    if (!this.appOption.animate) {
       next()
-    }, 1500)
+    } else {
+      this.animateOut()
+      setTimeout(function() {
+        next()
+      }, 1800)
+    }
   },
   methods: {
     animateIn() {
@@ -117,15 +123,16 @@ export default {
     },
     complete(v) {
       let initType = v.target[0].getAttribute('initType')
+      // 更新状态
       App.appState.updateState('initType', initType)
     },
     animateOut() {
       this.tl.reverse()
     }
-  },
-  computed: {
-    ...App.appState.getState(['initType'])
   }
+  // computed: {
+  //   ...App.appState.getState(['initType'])
+  // }
 }
 </script>
  <style lang="scss" scoped>
