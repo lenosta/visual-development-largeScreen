@@ -1,8 +1,8 @@
 <template>
   <div
-    :class="['common-part',part.className]"
+    :class="['common-part',part?part.className:'']"
     ref='part'
-    :id='part.id'
+    :id='part?part.id:""'
   >
     <slot></slot>
   </div>
@@ -29,11 +29,15 @@ export default {
   methods: {
     init() {
       let part = this.$refs.part
-      Object.assign(part.style, this.part.style)
+      Object.assign(part.style, this.part ? this.part.style : {})
       App.appState.loadingPart()
     }
   },
-  props: ['part']
+  props: {
+    part: {
+      type: Object
+    }
+  }
 }
 </script>
 <style lang="scss" scoped>
@@ -45,7 +49,7 @@ export default {
   background-size: contain;
   border-radius: 5px;
   // border: 1px solid #f1f1f1;
-  background: #012b60;
+  background: #012b607d;
   width: 300px;
   height: 300px;
   overflow: hidden;
