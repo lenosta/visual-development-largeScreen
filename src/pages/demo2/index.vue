@@ -2,42 +2,42 @@
   <div>
     <!-- 上左 -->
     <part
-      :part="{id:'test1',style: {  width: '30%',  height: '30%', left: '2%', top: '50px'}}"
+      :part="{id:'test1',style: {  width: '400px',  height: '250px',left: '220px',top: '70px'}}"
       initType="LineChart"
     >
       <LineChart />
     </part>
     <!-- 上中 -->
     <part
-      :part="{id:'test2',className:'test2',style:{width: '30%',height: '30%',left: '34%',top: '50px'}}"
+      :part="{id:'test2',className:'test2',style:{width: '400px',  height: '250px',left: '640px',top: '70px'}}"
       initType="transverseSingleBar"
     >
       <transverseSingleBar />
     </part>
     <!-- 上右 -->
     <part
-      :part="{id:'test3', className:'test2',style:{width: '30%',height: '30%',left: '66%',top: '50px'}}"
+      :part="{id:'test3', className:'test2',style:{width: '400px',  height: '250px',left: '1060px',top: '70px'}}"
       initType="barDoubleChart"
     >
       <barDoubleChart />
     </part>
     <!-- 下左 -->
     <part
-      :part="{ id:'test4',className:'test2',style:{width: '30%',height: '30%',left: '2%',top: 'calc(30% + 60px)'}}"
+      :part="{ id:'test4',className:'test2',style:{width: '400px',  height: '250px',left: '220px',top: '350px'}}"
       initType="pictorialBar"
     >
       <pictorialBar />
     </part>
     <!-- 下中 -->
     <part
-      :part="{id:'test5', className:'test2',style:{width: '30%',height: '30%',left: '34%',top: 'calc(30% + 60px)'}}"
+      :part="{id:'test5', className:'test2',style:{width: '400px',  height: '250px',left: '640px',top: '350px'}}"
       initType="plusMinusLineChart"
     >
       <plusMinusLineChart />
     </part>
     <!-- 下右 -->
     <part
-      :part="{id:'test6', className:'test2',style:{width: '30%',height: '30%',left: '66%',top: 'calc(30% + 60px)'}}"
+      :part="{id:'test6', className:'test2',style:{width: '400px',  height: '250px',left: '1060px',top: '350px'}}"
       initType="plusLineChart"
     >
       <plusLineChart />
@@ -59,6 +59,8 @@ import plusLineChart from '$chart/plusLineChart'
 import App from '../../assets/js/app/app'
 import { TimelineMax, Back, TweenMax } from 'gsap'
 export default {
+  name: 'demo2',
+  title: 'demo2',
   data() {
     return {
       tl: new TimelineMax()

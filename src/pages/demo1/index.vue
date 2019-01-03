@@ -2,30 +2,27 @@
   <!-- 每个part组件传入part属性进行页面布局 写明页面位置 方便修改及调整 -->
   <div>
     <!-- 上左 -->
-    <part :part="{className:'test-demo1',style: {  width: '30%',  height: '30%', left: '2%', top: '50px'}}">
+    <part :part="{className:'test-demo1',style: {  width: '400px',  height: '250px', left: '220px', top: '70px'}}">
       <pie />
-      <p>part1</p>
     </part>
     <!-- 上中 -->
-    <part :part="{className:'test-demo1',style:{width: '30%',height: '30%',left: '34%',top: '50px'}}">
+    <part :part="{className:'test-demo1',style:{ width: '400px',  height: '250px',left: '640px',top: '70px'}}">
       <bar />
-      <p>part2</p>
     </part>
     <!-- 上右 -->
-    <part :part="{ className:'test-demo1',style:{width: '30%',height: '30%',left: '66%',top: '50px'}}">
+    <part :part="{ className:'test-demo1',style:{ width: '400px',  height: '250px',left: '1060px',top: '70px'}}">
       <chinaMap />
-      <p>part3</p>
     </part>
-
+    <!-- 以下是操作部分   -->
     <part :part="{style:{top:'40%',left:'45%',background:'none',width:'50%'}}">
       <button
         ref='btn'
         @click="showCharts"
-      >测试触发子组件内部方法</button>
+      >触发子组件内部方法</button>
       <button
         ref='btn'
         @click="changePieData"
-      >测试改子变组件内部值</button>
+      >改变子变组件内部值</button>
     </part>
   </div>
 </template>
@@ -36,7 +33,6 @@ import bar from '$chart/bar'
 import chinaMap from '$chart/chinaMap'
 import App from '../../assets/js/app/app'
 export default {
-  name: 'demo1',
   data() {
     return {
       $pie: null,
