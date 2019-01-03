@@ -3,22 +3,21 @@
   <div>
     <div>
       <!-- 上左 -->
-      <part :part="{className:'test',style: {  width: '400px',  height: '250px', left: '220px', top: '70px'}}">
-        <p>part:{className:'test',style: { width: '400px', height: '250px', left: '220px', top: '70px'}}</p>
+      <part :part="{className:'test',style: {  width: '520px',  height: '290px', left: '220px', top: '70px'}}">
+        <p>part</p>
       </part>
       <!-- 上中 -->
-      <part :part="{className:'test',style:{ width: '400px',  height: '250px',left: '640px',top: '70px'}}">
-        <p>part:{className:'test',style:{ width: '400px', height: '250px',left: '640px',top: '70px'}}</p>
+      <part :part="{className:'test',style:{ width: '520px',  height: '290px',left: '760px',top: '70px'}}">
+        <p>part</p>
       </part>
       <!-- 上右 -->
-      <part :part="{ className:'test',style:{ width: '400px',  height: '250px',left: '1060px',top: '70px'}}">
-        <p>part:{ className:'test',style:{ width: '400px', height: '250px',left: '1060px',top: '70px'}}</p>
+      <part :part="{ className:'test',style:{ width: '520px',  height: '290px',left: '1300px',top: '70px'}}">
+        <p>part</p>
       </part>
     </div>
   </div>
 </template>
 <script>
-import App from '../../assets/js/app/app'
 import part from '../../components/part/part'
 export default {
   data() {

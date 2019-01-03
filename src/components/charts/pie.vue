@@ -153,6 +153,10 @@ export default {
       this.myChart.setOption(option)
       window.onresize = this.myChart.resize
       // window.onresize = this.myChart.resize
+    },
+    changeValue() {
+      this.value1 = (Math.random() * 50).toFixed(0)
+      this.value2 = 100 - this.value1
     }
   }
 }

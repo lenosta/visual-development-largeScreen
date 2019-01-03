@@ -15,7 +15,9 @@ export default {
     }
   },
   data() {
-    return {}
+    return {
+      value: []
+    }
   },
   mounted() {
     const isAnimate = this.appOption.animate
@@ -27,6 +29,7 @@ export default {
   },
   methods: {
     initChart() {
+      let me = this
       var geoCoordMap = {
         上海: [121.4648, 31.2891],
         东莞: [113.8953, 22.901],
@@ -143,7 +146,6 @@ export default {
         青岛: [120.4651, 36.3373],
         韶关: [113.7964, 24.7028]
       }
-
       var BJData = [
         [
           {
@@ -465,10 +467,13 @@ export default {
         return res
       }
 
-      var color = ['#a6c84c', '#ffa022', '#46bee9']
+      var color = ['#ffa022', '#a6c84c', '#46bee9']
       var series = []
-      ;[['北京', BJData], ['上海', SHData]].forEach(function(item, i) {
-        //console.log(item,i);
+      var geoValue = [['北京', BJData], ['上海', SHData], ['广州', GZData]]
+      var num = parseInt(Math.random() * 3)
+
+      var filterVal = [geoValue[num]]
+      filterVal.forEach(function(item, i) {
         series.push(
           {
             name: item[0] + ' Top10',
@@ -546,37 +551,6 @@ export default {
         )
       })
       var option = {
-        // title: {
-        //   text: '模拟迁徙',
-        //   subtext: '数据纯属虚构',
-        //   left: 'center',
-        //   textStyle: {
-        //     color: '#fff'
-        //   }
-        // },
-        // tooltip: {
-        //   trigger: 'item',
-        //   formatter: function(params, ticket, callback) {
-        //     console.log(params)
-        //     if (params.seriesType == 'effectScatter') {
-        //       return '线路：' + params.data.name + '' + params.data.value[2]
-        //     } else if (params.seriesType == 'lines') {
-        //       return params.data.fromName + '>' + params.data.toName + '<br />' + params.data.value
-        //     } else {
-        //       return params.name
-        //     }
-        //   }
-        // },
-        // legend: {
-        //   orient: 'vertical',
-        //   top: 'bottom',
-        //   left: 'right',
-        //   data: ['北京 Top10', '上海 Top10', '广州 Top10'],
-        //   textStyle: {
-        //     color: '#fff'
-        //   },
-        //   selectedMode: 'multiple'
-        // },
         geo: {
           type: 'map',
           map: 'china',
@@ -592,7 +566,6 @@ export default {
           itemStyle: {
             normal: {
               areaColor: '#08A7DF'
-              // borderColor: '#404a59'
             },
             emphasis: {
               areaColor: '#de6f00'

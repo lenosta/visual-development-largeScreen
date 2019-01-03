@@ -23,7 +23,7 @@
     </part>
     <!-- 下左 -->
     <part
-      :part="{ id:'test4',className:'test2',style:{width: '400px',  height: '250px',left: '220px',top: '350px'}}"
+      :part="{ id:'test4',className:'test2',style:{width: '700px',  height: '300px',left: '220px',top: '350px'}}"
       initType="pictorialBar"
     >
       <pictorialBar />

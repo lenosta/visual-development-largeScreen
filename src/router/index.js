@@ -1,9 +1,9 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import demo1 from 'pages/demo1'
-import demo2 from 'pages/demo2'
-import demo3 from 'pages/demo3'
-import demo4 from 'pages/demo4'
+import showContent from 'pages/showContent'
+import communication from 'pages/communication'
+import addAnimation from 'pages/addAnimation'
+import configuration from 'pages/configuration'
 import baseLayout from 'pages/baseLayout'
 Vue.use(Router)
 export default new Router({
@@ -23,9 +23,9 @@ export default new Router({
       }
     },
     {
-      name: 'demo1',
-      path: '/demo1',
-      component: demo1,
+      name: 'showContent',
+      path: '/showContent',
+      component: showContent,
       menuIcon: 'icon-neironggengxin',
       isMenu: true,
       meta:{
@@ -33,9 +33,9 @@ export default new Router({
       }
     },
     {
-      name: 'demo2',
-      path: '/demo2',
-      component: demo2,
+      name: 'communication',
+      path: '/communication',
+      component: communication,
       menuIcon: 'icon-tongxin',
       isMenu: true,
       meta:{
@@ -43,9 +43,9 @@ export default new Router({
       }
     },
     {
-      name: 'demo3',
-      path: '/demo3',
-      component: demo3,
+      name: 'addAnimation',
+      path: '/addAnimation',
+      component: addAnimation,
       menuIcon: 'icon-jiaohuyanshidonghua',
       isMenu: true,
       meta:{
@@ -53,9 +53,9 @@ export default new Router({
       }
     },
     {
-      name: 'demo4',
-      path: '/demo4',
-      component: demo4,
+      name: 'configuration',
+      path: '/configuration',
+      component: configuration,
       menuIcon: 'icon-peizhi',
       isMenu: true,
       meta:{

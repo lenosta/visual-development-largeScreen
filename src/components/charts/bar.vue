@@ -15,7 +15,9 @@ export default {
     }
   },
   data() {
-    return {}
+    return {
+      value: [334, 390, 330, 200, 220, 110, 52]
+    }
   },
   watch: {
     echartsData: {
@@ -53,7 +55,7 @@ export default {
         },
         grid: {
           top: 50,
-          bottom: 0,
+          bottom: 20,
           left: 20,
           right: 0,
           containLabel: true
@@ -106,7 +108,7 @@ export default {
             name: '直接访问',
             type: 'bar',
             barWidth: '60%',
-            data: [334, 390, 330, 200, 220, 110, 52],
+            data: me.value,
             itemStyle: {
               borderColor: 'rgba(0,230,252, 1)',
               borderWidth: 1,
@@ -119,6 +121,17 @@ export default {
       this.myChart.setOption(option)
       window.onresize = this.myChart.resize
       // window.onresize = this.myChart.resize
+    },
+    changeValue() {
+      this.value = [
+        Math.random() * 50 + 270,
+        Math.random() * 90 + 300,
+        Math.random() * 30 + 300,
+        Math.random() * 30 + 170,
+        Math.random() * 50 + 170,
+        Math.random() * 20 + 90,
+        Math.random() * 22 + 30
+      ]
     }
   },
   computed: {
