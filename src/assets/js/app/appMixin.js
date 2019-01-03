@@ -24,7 +24,13 @@ const appMixin = {
         }
       },
       methods: {
-        // 依据组件标签名称获取组件实例数组
+        /**
+         * @description 依据标签名获取vue实例
+         * @author zzg
+         * @date 2019-01-03
+         * @param {String} componentTag
+         * @returns {Array} 返回实例数组
+         */
         $getComponent(componentTag) {
           let component = []
           let allComp = this._getAllChildComp(this)
@@ -37,6 +43,14 @@ const appMixin = {
           }
           return component
         },
+
+        /**
+         * @description 获取当前vue实例的所有子实例
+         * @author zzg
+         * @date 2019-01-03
+         * @param {Object} instance
+         * @returns {Array}  返回数组
+         */
         _getAllChildComp(instance) {
           let allComp = [],
             child
@@ -53,7 +67,12 @@ const appMixin = {
           }
           return allComp
         },
-        // 是否开启刷新率监控
+
+        /**
+         * @description 是否开启刷新率监控
+         * @author zzg
+         * @date 2019-01-03
+         */
         _debugShouldOpenDebugMode() {
           if (this.appOption.debug === true) {
             this._debugOpenPageStatsMonitor()
@@ -61,7 +80,12 @@ const appMixin = {
             this._debugCanclePageStatsMonitor()
           }
         },
-        // 开启刷新率监控
+
+        /**
+         * @description  开启刷新率监控
+         * @author zzg
+         * @date 2019-01-03
+         */
         _debugOpenPageStatsMonitor() {
           if (window._stats) {
             return
@@ -73,7 +97,12 @@ const appMixin = {
           window._stats.domElement.style.top = '0px'
           window._stats.domElement.style.right = '0px'
           document.body.appendChild(window._stats.domElement)
-          // 更新刷新率
+
+          /**
+           * @description 更新刷新率
+           * @author zzg
+           * @date 2019-01-03
+           */
           function update() {
             window._requestAnimationFrameId = requestAnimationFrame(update)
             window._stats.update()
@@ -81,7 +110,11 @@ const appMixin = {
           update()
         },
 
-        //  关闭刷新率监控
+        /**
+         * @description 关闭刷新率监控
+         * @author zzg
+         * @date 2019-01-03
+         */
         _debugCanclePageStatsMonitor() {
           let dom = document.querySelectorAll('#stats')
           let doms = Array.from(dom)
@@ -91,13 +124,20 @@ const appMixin = {
           window._stats = null
           cancelAnimationFrame(window._requestAnimationFrameId)
         },
-        //  获取最终的配置选项
+
+        /**
+         * @description 获取最终的配置选项
+         * @author zzg
+         * @date 2019-01-03
+         */
         _debugGetFinalOptions() {
           // 全局配置项
           let appOptionionsLev0 = store.state.appOption
+
           // 组件debug配置
           let optionList = []
           let that = this
+
           // 递归实例的$options 获取配置
           function getComponentOption(that) {
             if (that.$options.parent) {
@@ -111,16 +151,21 @@ const appMixin = {
               }
             }
           }
+
+          // 调用获取配置项
           getComponentOption(that)
           let opt = {}
           for (let i = optionList.length - 1; i >= 0; i--) {
             opt = Object.assign(opt, optionList[i])
           }
           let appOptionionsLev1 = opt
+
           // url参数
           let appOptionionsLev2 = urlArg()
+
           // 获得一个最终的组件配置选项
           let finaleOption = Object.assign({}, appOptionionsLev0, appOptionionsLev1, appOptionionsLev2)
+
           // 混入data
           this.appOption = finaleOption
         }

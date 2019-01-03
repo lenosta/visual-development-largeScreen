@@ -1,16 +1,27 @@
+/**
+ * @description 页面适配
+ * @author zzg
+ * @date 2019-01-03
+ * @param {Object} opt
+ */
 const adapt = function(opt) {
   var defultOpt = {
-    sizeEqualRatio: false,
-    w: 1920,
-    h: 1080,
-    domSelector: 'body',
-    left: 'm', //'l','m','r'
-    top: 'm' // 't' 'm','b'
+    sizeEqualRatio: false, //是否等比缩放页面
+    w: 1920, // 默认宽度
+    h: 1080, // 默认高度
+    domSelector: 'body', // 默认绑定dom节点
+    left: 'm', //'l','m','r' 定位位置 默认水平居中
+    top: 'm' //'t' 'm','b' 定位位置 默认垂直居中
   }
   var option = Object.assign({}, defultOpt, opt)
+
+  /**
+   * @description 是否等比缩放页面
+   * @author zzg
+   * @date 2019-01-03
+   * @param {Boolean} sizeEqualRatio
+   */
   function scaleScreen(sizeEqualRatio) {
-    // var dw = window.innerWidth
-    // var dh = window.innerHeight
     var dw = document.body.clientWidth
     var dh = document.body.clientHeight
     var minRatio = Math.min(dw / option.w, dh / option.h)
@@ -49,6 +60,7 @@ const adapt = function(opt) {
   view.style.width = option.w + 'px'
   view.style.height = option.h + 'px'
   scaleScreen(option.sizeEqualRatio)
+
   window.addEventListener('resize', function() {
     scaleScreen(option.sizeEqualRatio)
   })

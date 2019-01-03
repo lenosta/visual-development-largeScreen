@@ -1,8 +1,6 @@
 /*eslint-disable*/
 import store from '@/store'
-import {
-  mapState
-} from 'vuex'
+import { mapState } from 'vuex'
 export default class appState {
   /**
    * 注册一个state
@@ -32,8 +30,8 @@ export default class appState {
   }
   /**
    * 获取state
-   * @param {string} messageKey 想要获取的state的key
-   * @return {aarray} 返回计算属性
+   * @param {String} messageKey 想要获取的state的key
+   * @return {Array} 返回计算属性
    */
   static getState(messageKey) {
     if (typeof messageKey === 'string') {
@@ -62,7 +60,14 @@ export default class appState {
       value
     })
   }
-  //更新IsLoadPartComplete状态
+
+  /**
+   * @description 更新IsLoadPartComplete状态
+   * @author zzg
+   * @date 2019-01-03
+   * @static
+   * @memberof appState
+   */
   static loadingPart() {
     store.commit('messenger/loadedPartCounter')
     store.commit('messenger/loadedPartPercent')
@@ -73,13 +78,16 @@ export default class appState {
    * @param {string} moduleName 注册新的store模块名称
    * @param {object} state stroe对象
    */
-  static rigistNewModule(moduleName, state = {
-    state() {
-      return {}
-    },
-    mutations: {},
-    actions: {}
-  }) {
+  static rigistNewModule(
+    moduleName,
+    state = {
+      state() {
+        return {}
+      },
+      mutations: {},
+      actions: {}
+    }
+  ) {
     store.registerModule(moduleName, state)
   }
 }
