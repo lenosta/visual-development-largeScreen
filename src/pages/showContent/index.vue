@@ -2,15 +2,15 @@
   <!-- 每个part组件传入part属性进行页面布局 写明页面位置 方便修改及调整 -->
   <div>
     <!-- 上左 -->
-    <part :part="{className:'test-demo1',style: {  width: '520px',  height: '290px', left: '220px', top: '70px'}}">
+    <part :part="{className:'test-demo1',style: {  width: '520px',  height: '290px', left: '20px', top: '20px'}}">
       <pie />
     </part>
     <!-- 上中 -->
-    <part :part="{className:'test-demo1',style:{ width: '520px',  height: '290px',left: '760px',top: '70px'}}">
+    <part :part="{className:'test-demo1',style:{ width: '520px',  height: '290px',left: '560px',top: '20px'}}">
       <bar />
     </part>
     <!-- 上右 -->
-    <part :part="{ className:'test-demo1',style:{ width: '520px',  height: '290px',left: '1300px',top: '70px'}}">
+    <part :part="{ className:'test-demo1',style:{ width: '520px',  height: '290px',left: '1100px',top: '20px'}}">
       <chinaMap />
     </part>
     <!-- 以下是操作部分   -->

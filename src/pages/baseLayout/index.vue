@@ -3,17 +3,19 @@
   <div>
     <div>
       <!-- 上左 -->
-      <part :part="{className:'test',style: {  width: '520px',  height: '290px', left: '220px', top: '70px'}}">
+      <part :part="{className:'test',style: {  width: '520px',  height: '290px', left: '20px', top: '20px'}}">
         <p>part</p>
       </part>
       <!-- 上中 -->
-      <part :part="{className:'test',style:{ width: '520px',  height: '290px',left: '760px',top: '70px'}}">
+      <part :part="{className:'test',style:{ width: '520px',  height: '290px',left: '560px',top: '20px'}}">
         <p>part</p>
       </part>
       <!-- 上右 -->
-      <part :part="{ className:'test',style:{ width: '520px',  height: '290px',left: '1300px',top: '70px'}}">
+      <part :part="{ className:'test',style:{ width: '520px',  height: '290px',left: '1100px',top: '20px'}}">
         <p>part</p>
       </part>
+      <!-- 操作部分 -->
+      <part :part="{style:{top:'40%',left:'40%',background:'none',width:'50%'}}"><button @click="changeStyle">点击改变stlye</button></part>
     </div>
   </div>
 </template>
@@ -26,13 +28,25 @@ export default {
   components: {
     part
   },
+  methods: {
+    changeStyle() {
+      let part1 = this.$getComponent('part')[0]
+      part1.setStyle({ top: '60px', width: '100px',height:'60px'})
+    },
+  },
   created() {},
-  mounted() {}
+  mounted() {
+    let parts = this.$getComponent('part')[0]
+    console.log(parts)
+  }
 }
 </script>
  <style lang="scss" scoped>
 p {
   text-align: center;
+}
+.test {
+  transition: all 0.8s;
 }
 button {
   background: none;

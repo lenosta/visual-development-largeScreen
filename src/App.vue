@@ -5,7 +5,7 @@
   >
     <header>
       <div class="inner">
-        <h1 class="lg-title"><img class="logo" />前端可视化模板{{title?' - '+title:''}}</h1>
+        <h1 class="lg-title"><img class="logo" />可视化框架{{title?' - '+title:''}}</h1>
         <div class="user-area down-temp"> <a href="https://codeload.github.com/jusfoun-FE/visual-development-largeScreen/zip/master">下载模板</a></div>
         <div class="user-area"><a
             :href="'https://github.com/jusfoun-FE/visual-development-largeScreen/tree/demo/src/pages/'+page+'/index.vue'"
@@ -45,6 +45,7 @@ export default {
       page: ''
     }
   },
+// appOption:{wrapHeight:},
   created() {
     document.querySelectorAll('.common-part').length == 0 &&
       (document.querySelector('#appLoading').style.display = 'none')
@@ -68,7 +69,7 @@ export default {
       domSelector: '#app',
       sizeEqualRatio: true,
       w: 1920,
-      h: 1080
+      h: 1080,
     })
   },
   watch: {
@@ -102,8 +103,8 @@ export default {
   box-sizing: border-box;
   background-size: cover;
   z-index: 999;
-  border-left: 1px #333 solid;
-  border-right: 1px #333 solid;
+  width: 100%;
+  height: 100%;
 }
 header {
   height: 55px;
@@ -213,16 +214,16 @@ header h1 {
   color: #fff;
 }
 .down-temp {
-  position: relative;
-  left: 701px;
+  position: absolute;
+  right: 100px;
 }
 .main {
-  width: 100%;
-  height: 100%;
+  width: calc(100% - 200px);
+  height: calc(100% - 110px);
   position: absolute;
-  top: 0;
+  top: 55px;
+  left: 200px;
   overflow: hidden;
-  // background: url('./assets/img/bg2.jpg');
   background-size: 100% 100%;
 }
 footer {
@@ -237,5 +238,4 @@ footer {
   display: flex;
   justify-content: space-around;
 }
-
 </style>

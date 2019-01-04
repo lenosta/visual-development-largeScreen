@@ -1,6 +1,6 @@
 <template>
   <div>
-    <part :part="{style:{width: '520px',  height: '290px',left: '220px',top: '70px',padding:'20px',fontSize:'16px'}}">增加url查询参数?debug=true&animate=false&stars=true 切换到动画&通信页签试试</part>
+    <part :part="{style:{width: '520px',  height: '290px',left: '20px',top: '20px',padding:'20px',fontSize:'16px'}}">增加url查询参数?debug=true&animate=false&stars=true 切换到动画&通信页签试试</part>
   </div>
 </template>
 <script>
