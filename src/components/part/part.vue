@@ -31,6 +31,9 @@ export default {
       let part = this.$refs.part
       Object.assign(part.style, this.part ? this.part.style : {})
       App.appState.loadingPart()
+    },
+    setStyle(style) {
+      Object.assign(this.$refs.part.style, typeof style === 'object' ? style : {})
     }
   },
   props: {
