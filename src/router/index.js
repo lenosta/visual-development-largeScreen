@@ -1,8 +1,9 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import showContent from 'pages/showContent'
-import animationAndCommunication from 'pages/animationAndCommunication'
+import animation from 'pages/animation'
 import configuration from 'pages/configuration'
+import communication from 'pages/communication'
 import baseLayout from 'pages/baseLayout'
 Vue.use(Router)
 export default new Router({
@@ -32,13 +33,23 @@ export default new Router({
       }
     },
     {
-      name: 'animationAndCommunication',
-      path: '/animationAndCommunication',
-      component: animationAndCommunication,
+      name: 'animation',
+      path: '/animation',
+      component: animation,
       menuIcon: 'icon-jiaohuyanshidonghua',
       isMenu: true,
       meta: {
-        title: '动画&通信'
+        title: '动画'
+      }
+    },
+    {
+      name: 'communication',
+      path: '/communication',
+      component: communication,
+      menuIcon: 'icon-tongxin',
+      isMenu: true,
+      meta: {
+        title: '通信'
       }
     },
     {
