@@ -15,7 +15,7 @@
         <p>part</p>
       </part>
       <!-- 操作部分 -->
-      <part :part="{style:{top:'40%',left:'40%',background:'none',width:'50%'}}"><button @click="changeStyle">点击改变stlye</button></part>
+      <part :part="{style:{top:'330px',left:'720px',background:'none',width:'300px',height:'50px'}}"><button @click="changeStyle">点击改变stlye</button><button @click="reset">点击复原</button></part>
     </div>
   </div>
 </template>
@@ -30,14 +30,21 @@ export default {
   },
   methods: {
     changeStyle() {
-      let part1 = this.$getComponent('part')[0]
-      part1.setStyle({ top: '60px', width: '100px',height:'60px'})
+      this.$parts.forEach((e, i) => {
+        i < 3 && e.setStyle({ top: '50px', width: '240px', height: '150px' })
+      })
     },
+    reset() {
+      this.$parts.forEach((e, i) => {
+        i < 3 && e.setStyle({ top: '20px', width: '520px', height: '290px' })
+      })
+    }
   },
   created() {},
   mounted() {
-    let parts = this.$getComponent('part')[0]
-    console.log(parts)
+    this.$nextTick(() => {
+      this.$parts = this.$getComponent('part')
+    })
   }
 }
 </script>
@@ -57,6 +64,7 @@ button {
   line-height: 30px;
   background: #012b60;
   padding: 0 5px;
+  margin: 10px;
 }
 </style>
 

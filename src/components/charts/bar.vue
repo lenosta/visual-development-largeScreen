@@ -39,7 +39,7 @@ export default {
     this.$nextTick(() => {
       let me = this
       this.myChart = this.$echarts.init(this.$refs.chart)
-      // !isAnimate && this.initChart()
+      !isAnimate && this.initChart()
     })
   },
   methods: {

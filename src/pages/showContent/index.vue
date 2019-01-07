@@ -14,7 +14,7 @@
       <chinaMap />
     </part>
     <!-- 以下是操作部分   -->
-    <part :part="{style:{top:'40%',left:'45%',background:'none',width:'50%'}}">
+    <part :part="{style:{top:'330px',left:'720px',background:'none',width:'300px',height:'50px'}}">
       <button
         ref='btn'
         @click="showCharts"
@@ -48,6 +48,9 @@ export default {
       this.$chinaMap = this.$getComponent('chinaMap')[0]
     })
   },
+  appOption: {
+    animate: true
+  },
   components: {
     pie,
     bar,
@@ -56,11 +59,12 @@ export default {
   },
   methods: {
     showCharts() {
-      // 主动调取子组件实例方法
+      // 触发子组件内部方法
       this.$pie.initChart()
       this.$bar.initChart()
       this.$chinaMap.initChart()
     },
+    // 改变子变组件内部值
     changeData() {
       this.$pie.changeValue()
       this.$pie.initChart()

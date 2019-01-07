@@ -31,7 +31,7 @@ export default {
     this.$nextTick(() => {
       let me = this
       this.myChart = this.$echarts.init(this.$refs.chart)
-      // !this.appOption.animate&&this.initChart()
+      !this.appOption.animate&&this.initChart()
     })
   },
   methods: {

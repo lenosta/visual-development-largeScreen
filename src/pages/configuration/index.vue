@@ -1,6 +1,7 @@
 <template>
   <div>
-    <part :part="{style:{width: '520px',  height: '290px',left: '20px',top: '20px',padding:'20px',fontSize:'16px'}}">增加url查询参数?debug=true&animate=false&stars=true 切换到动画&通信页签试试</part>
+    <part :part="{style:{width: '520px',  height: '290px',left: '20px',top: '20px',padding:'20px',fontSize:'16px'}}">当前配置：{{appOption}}</part>
+    <part :part="{style:{top:'330px',left:'260px',background:'none',width:'70px',height:'50px',textAlign:'center'}}"><button @click="changeOption">点我试试</button></part>
   </div>
 </template>
 <script>
@@ -8,20 +9,22 @@
 import part from '../../components/part/part'
 export default {
   data() {
-    return {
-    }
+    return {}
   },
   components: {
     part
+  },
+  methods: {
+    changeOption() {
+      let url = location.origin + '/?debug=true&isAdapt=true&animate=false&stars=true' + location.hash
+      location.href = url
+    }
   },
   created() {},
   mounted() {}
 }
 </script>
  <style lang="scss" scoped>
-p {
-  text-align: center;
-}
 button {
   background: none;
   outline: none;
