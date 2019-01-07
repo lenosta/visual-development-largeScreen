@@ -8,7 +8,7 @@
         <h1 class="lg-title"><img class="logo" />可视化框架{{title?' - '+title:''}}</h1>
         <div class="user-area down-temp"> <a href="https://codeload.github.com/jusfoun-FE/visual-development-largeScreen/zip/master">立即使用</a></div>
         <div class="user-area"><a
-            :href="'https://github.com/jusfoun-FE/visual-development-largeScreen/tree/demo/src/pages/'+page+'/index.vue'"
+            :href="'https://github.com/jusfoun-FE/visual-development-largeScreen/tree/master/src/pages/'+page+'/index.vue'"
             target="_blank"
           >查看源码</a></div>
       </div>
