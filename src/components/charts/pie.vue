@@ -5,6 +5,7 @@
   ></div>
 </template>
 <script>
+import AppState from '../../assets/js/app/appState'
 export default {
   name: 'pie',
   props: {
@@ -25,13 +26,20 @@ export default {
         this.initChart()
       },
       deep: true //增加deep 观察对象的子对象变化
+    },
+    areaName: {
+      handler: function(newV, oldV) {
+        // 监听状态更新 进行视图的更新
+          this.changeValue()
+          this.initChart()
+      }
     }
   },
   mounted() {
     this.$nextTick(() => {
       let me = this
       this.myChart = this.$echarts.init(this.$refs.chart)
-      // !this.appOption.animate&&this.initChart()
+      !this.appOption.animate && this.initChart()
     })
   },
   methods: {
@@ -153,7 +161,14 @@ export default {
       this.myChart.setOption(option)
       window.onresize = this.myChart.resize
       // window.onresize = this.myChart.resize
+    },
+    changeValue() {
+      this.value1 = (Math.random() * 50).toFixed(0)
+      this.value2 = 100 - this.value1
     }
+  },
+  computed: {
+    ...AppState.getState(['areaName'])
   }
 }
 </script>

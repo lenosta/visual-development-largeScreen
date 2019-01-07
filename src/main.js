@@ -22,6 +22,6 @@ let vueRoot = new Vue({
   components: {
     App
   },
-  appOption: { debug: false, animate: false, isMock: false,stars:false} //默认全局配置参数
+  appOption: { debug: false, animate: false, isMock: false,stars:false,isAdapt:false} //默认全局配置参数
 })
 window.root = vueRoot

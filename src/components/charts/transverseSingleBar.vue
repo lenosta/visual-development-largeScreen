@@ -36,7 +36,6 @@ export default {
   },
   mounted() {
     this.$nextTick(() => {
-      console.log('transverseSingleBar.vue')
       let me = this
       this.myChart = this.$echarts.init(this.$refs.chart)
       !this.appOption.animate && this.initChart()

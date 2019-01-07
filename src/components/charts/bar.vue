@@ -15,7 +15,9 @@ export default {
     }
   },
   data() {
-    return {}
+    return {
+      value: [334, 390, 330, 200, 220, 110, 52]
+    }
   },
   watch: {
     echartsData: {
@@ -23,7 +25,7 @@ export default {
         this.initChart()
       },
       deep: true //增加deep 观察对象的子对象变化
-    }
+    },
     // initType: {
     //   handler: function(newV, oldV) {
     //     if (newV == 'barDoubleChart') {
@@ -31,13 +33,21 @@ export default {
     //     }
     //   }
     // }
+    areaName: {
+      handler: function(newV, oldV) {
+// 监听状态更新 进行视图的更新
+        this.changeValue()
+        this.initChart()
+      },
+      immediate: false
+    }
   },
   mounted() {
     const isAnimate = this.appOption.animate
     this.$nextTick(() => {
       let me = this
       this.myChart = this.$echarts.init(this.$refs.chart)
-      // !isAnimate && this.initChart()
+      !isAnimate && this.initChart()
     })
   },
   methods: {
@@ -53,7 +63,7 @@ export default {
         },
         grid: {
           top: 50,
-          bottom: 0,
+          bottom: 20,
           left: 20,
           right: 0,
           containLabel: true
@@ -106,7 +116,7 @@ export default {
             name: '直接访问',
             type: 'bar',
             barWidth: '60%',
-            data: [334, 390, 330, 200, 220, 110, 52],
+            data: me.value,
             itemStyle: {
               borderColor: 'rgba(0,230,252, 1)',
               borderWidth: 1,
@@ -119,10 +129,21 @@ export default {
       this.myChart.setOption(option)
       window.onresize = this.myChart.resize
       // window.onresize = this.myChart.resize
+    },
+    changeValue() {
+      this.value = [
+        Math.random() * 50 + 270,
+        Math.random() * 90 + 300,
+        Math.random() * 30 + 300,
+        Math.random() * 30 + 170,
+        Math.random() * 50 + 170,
+        Math.random() * 20 + 90,
+        Math.random() * 22 + 30
+      ]
     }
   },
   computed: {
-    // ...AppState.getState(['initType'])
+    ...AppState.getState(['areaName'])
   }
 }
 </script>

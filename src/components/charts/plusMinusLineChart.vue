@@ -35,7 +35,6 @@ export default {
     initType: {
       handler: function(newV, oldV) {
         if (newV == 'plusMinusLineChart') {
-          console.log(1)
           this.initChart()
         }
       }
@@ -47,7 +46,6 @@ export default {
       let me = this
       this.myChart = this.$echarts.init(this.$refs.chart)
       !this.appOption.animate && this.initChart()
-      console.log(2)
     })
   },
   methods: {
