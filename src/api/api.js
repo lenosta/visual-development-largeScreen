@@ -63,11 +63,11 @@ xhr.interceptors.request.use(
 // 添加响应拦截器
 xhr.interceptors.response.use(
   function(response) {
-    if (response.data[STATUS] === ERR_OK) {
+    if (response[STATUS] === ERR_OK) {
       return response.data
     } else {
       // 接口异常返回
-      const flag = parseInt(response.data[STATUS], 10)
+      const flag = parseInt(response[STATUS], 10)
       const msg =
         flag === 201
           ? '201 error: Missing parameter'

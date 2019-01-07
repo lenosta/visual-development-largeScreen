@@ -14,4 +14,7 @@ const getTreeData = params => {
 const getConfigData = params => {
   return xhr.get('static/json/page.config.json', { params })
 }
-export { getList, testPost, getTreeData,getConfigData }
+const getJson = (url, params) => {
+  return xhr.get(url, params)
+}
+export  { getList, testPost, getTreeData, getConfigData,getJson }
