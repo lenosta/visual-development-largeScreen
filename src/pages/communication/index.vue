@@ -20,15 +20,16 @@ import part from '../../components/part/part'
 import pie from '$chart/pie'
 import bar from '$chart/bar'
 import jianxi from '$chart/jianxiMap'
-import App from '../../assets/js/app/app'
+// 组件通信 包括3步
+// 1.在需要通信的组件进行状态的注册
+// 2.在状态改变时进行状态的更新
+// 3.在需要更新视图的组件中进行状态监听根据参数进行视图更新
 export default {
   data() {
-    return {
-    }
+    return {}
   },
   mounted() {
-    this.$nextTick(() => {
-    })
+    this.$nextTick(() => {})
   },
   components: {
     pie,
@@ -36,8 +37,7 @@ export default {
     jianxi,
     part
   },
-  methods: {
-  },
+  methods: {},
   computed: {}
 }
 </script>

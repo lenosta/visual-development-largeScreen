@@ -25,7 +25,7 @@ export default {
         this.initChart()
       },
       deep: true //增加deep 观察对象的子对象变化
-    }
+    },
     // initType: {
     //   handler: function(newV, oldV) {
     //     if (newV == 'barDoubleChart') {
@@ -33,6 +33,14 @@ export default {
     //     }
     //   }
     // }
+    areaName: {
+      handler: function(newV, oldV) {
+// 监听状态更新 进行视图的更新
+        this.changeValue()
+        this.initChart()
+      },
+      immediate: false
+    }
   },
   mounted() {
     const isAnimate = this.appOption.animate
@@ -135,7 +143,7 @@ export default {
     }
   },
   computed: {
-    // ...AppState.getState(['initType'])
+    ...AppState.getState(['areaName'])
   }
 }
 </script>

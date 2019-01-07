@@ -20,6 +20,10 @@ export default {
       value: [334, 390, 330, 200, 220, 110, 52]
     }
   },
+  created() {
+    // 注册状态
+    AppState.regist('areaName')
+  },
   watch: {
     echartsData: {
       handler: function(val, oldVal) {
@@ -371,7 +375,8 @@ export default {
                 show: true,
                 textStyle: {
                   color: '#fff'
-                }
+                },
+                fontSize: 10
               },
               emphasis: {
                 textStyle: {
@@ -491,6 +496,8 @@ export default {
           goDown: true, // 是否下钻
           // 下钻回调
           callback: function(name, option, instance) {
+            // 回调中更新状态
+            AppState.updateState('areaName', name)
           }
           // 数据展示
           // data: [
