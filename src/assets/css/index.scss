@@ -21,12 +21,19 @@ body {
   text-align: center;
   letter-spacing: 2px;
 }
+
 // 路由类名
-.router-active,.router-active:hover {
+.router-active,
+.router-active:hover {
   color: red;
   text-decoration: none;
 }
+
 .chart-wrapper {
   width: 520px;
   height: 290px;
+}
+
+.test {
+  border: 1px solid rgba(204, 204, 204, 0.43);
 }

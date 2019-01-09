@@ -1,6 +1,6 @@
 <template>
   <div>
-    <part :part="{style:{width: '520px',  height: '290px',left: '20px',top: '20px',padding:'20px',fontSize:'16px'}}">当前配置：{{appOption}}</part>
+    <part :part="{ className:'test', style:{width: '520px',  height: '290px',left: '20px',top: '20px',padding:'20px',fontSize:'16px'}}">当前配置：{{appOption}}</part>
     <part :part="{style:{top:'330px',left:'260px',background:'none',width:'70px',height:'50px',textAlign:'center'}}"><button @click="changeOption">点我试试</button></part>
   </div>
 </template>

@@ -32,8 +32,11 @@
 |   |   |  |--part.vue               // 基础布局组件part-接受属性part={}
 |   |   |--charts                    // 图表组件
 |   |-- pages                        // 所有页面
-|   |   |-- demo1                    // 无动画demo
-|   |   |-- demo2                    // 添加动画demo
+|   |   |-- baseLayout               // 基本布局demo
+|   |   |-- communication            // 通信demo
+|   |   |-- configuration            // 系统配置demo
+|   |   |-- showContent              // 内容显示demo
+|   |   |-- animation                // 动画序列demo
 |   |-- router                       // 路由配置文件
 |   |-- store                        // vuex相关文件
 |   |-- App.vue                      // 页面入口文件

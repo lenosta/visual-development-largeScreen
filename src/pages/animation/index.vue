@@ -2,42 +2,42 @@
   <div>
     <!-- 上左 -->
     <part
-      :part="{id:'test1',style: {  width: '520px',  height: '290px',left: '20px',top: '20px'}}"
+      :part="{id:'test1', className:'test', style: {  width: '520px',  height: '290px',left: '20px',top: '20px'}}"
       initType="LineChart"
     >
       <LineChart />
     </part>
     <!-- 上中 -->
     <part
-      :part="{id:'test2',className:'test2',style:{width: '520px',  height: '290px',left: '560px',top: '20px'}}"
+      :part="{id:'test2',className:'test',style:{width: '520px',  height: '290px',left: '560px',top: '20px'}}"
       initType="transverseSingleBar"
     >
       <transverseSingleBar />
     </part>
     <!-- 上右 -->
     <part
-      :part="{id:'test3', className:'test2',style:{width: '520px',  height: '290px',left: '1100px',top: '20px'}}"
+      :part="{id:'test3', className:'test',style:{width: '520px',  height: '290px',left: '1100px',top: '20px'}}"
       initType="barDoubleChart"
     >
       <barDoubleChart />
     </part>
     <!-- 下左 -->
     <part
-      :part="{ id:'test4',className:'test2',style:{width: '520px',  height: '290px',left: '20px',top: '330px'}}"
+      :part="{ id:'test4',className:'test',style:{width: '520px',  height: '290px',left: '20px',top: '330px'}}"
       initType="pictorialBar"
     >
       <pictorialBar />
     </part>
     <!-- 下中 -->
     <part
-      :part="{id:'test5', className:'test2',style:{width: '520px',  height: '290px',left: '560px',top: '330px'}}"
+      :part="{id:'test5', className:'test',style:{width: '520px',  height: '290px',left: '560px',top: '330px'}}"
       initType="plusMinusLineChart"
     >
       <plusMinusLineChart />
     </part>
     <!-- 下右 -->
     <part
-      :part="{id:'test6', className:'test2',style:{width: '520px',  height: '290px',left: '1100px',top: '330px'}}"
+      :part="{id:'test6', className:'test',style:{width: '520px',  height: '290px',left: '1100px',top: '330px'}}"
       initType="plusLineChart"
     >
       <plusLineChart />

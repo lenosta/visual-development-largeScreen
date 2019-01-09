@@ -224,7 +224,7 @@ header h1 {
   position: absolute;
   top: 55px;
   left: 200px;
-  overflow: hidden;
+  // overflow: hidden;
   background-size: 100% 100%;
 }
 footer {
