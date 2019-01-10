@@ -32,16 +32,16 @@ const appMixin = {
          * @returns {Array} 返回实例数组
          */
         $getComponent(componentTag) {
-          let component = []
+          let components = []
           let allComp = this._getAllChildComp(this)
-          component = allComp.filter(function(vm) {
+          components = allComp.filter(function(vm) {
             return vm.$options._componentTag === componentTag
           })
-          if (component.length == 0) {
+          if (components.length == 0) {
             console.warn(`${componentTag} 组件不存在`)
             return
           }
-          return component
+          return components
         },
 
         /**

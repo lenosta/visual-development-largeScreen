@@ -6,13 +6,9 @@
 </template>
 <script>
 //运行时配置>组件配置>页面配置>默认配置
-import part from '../../components/part/part'
 export default {
   data() {
     return {}
-  },
-  components: {
-    part
   },
   methods: {
     changeOption() {

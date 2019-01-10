@@ -61,10 +61,11 @@ export default {
       })
   },
   mounted() {
+    // 是否开启星空效果
     if (this.appOption.stars == true) {
       canvas('stars', 230, 2000, 60, 2, 800000, 0.5)
     }
-    // 页面适配
+    // 是否开启页面适配
     this.appOption.isAdapt &&
       App.appPage.adapt({
         domSelector: '#app',

@@ -4,30 +4,22 @@
     <div>
       <!-- 上 -->
       <part :part="{className:'test test-trans',style: {  width: '400px',  height: '200px', left: '20px', top: '20px'}}">
-        <p>part</p>
       </part>
       <part :part="{className:'test test-trans',style:{ width: '400px',  height: '200px',left: '440px',top: '20px'}}">
-        <p>part</p>
       </part>
       <part :part="{ className:'test test-trans',style:{ width: '400px',  height: '200px',left: '860px',top: '20px'}}">
-        <p>part</p>
       </part>
       <part :part="{ className:'test test-trans',style:{ width: '400px',  height: '200px',left: '1280px',top: '20px'}}">
-        <p>part</p>
       </part>
 
       <!-- 下 -->
       <part :part="{ className:'test test-trans',style:{ width: '400px',  height: '200px',left: '20px',top: '240px'}}">
-        <p>part</p>
       </part>
       <part :part="{ className:'test test-trans',style:{ width: '400px',  height: '200px',left: '440px',top: '240px'}}">
-        <p>part</p>
       </part>
       <part :part="{ className:'test test-trans',style:{ width: '400px',  height: '200px',left: '860px',top: '240px'}}">
-        <p>part</p>
       </part>
       <part :part="{ className:'test test-trans',style:{ width: '400px',  height: '200px',left: '1280px',top: '240px'}}">
-        <p>part</p>
       </part>
       <!-- 操作部分 -->
       <part :part="{style:{top:'-50px',left:'600px',background:'none',width:'420px',height:'50px',zIndex:99999}}">
@@ -40,13 +32,9 @@
   </div>
 </template>
 <script>
-import part from '../../components/part/part'
 export default {
   data() {
     return {}
-  },
-  components: {
-    part
   },
   methods: {
     changeLayout(flag) {

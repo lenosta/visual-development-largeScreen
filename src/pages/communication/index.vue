@@ -16,7 +16,6 @@
   </div>
 </template>
 <script>
-import part from '../../components/part/part'
 import pie from '$chart/pie'
 import bar from '$chart/bar'
 import jianxi from '$chart/jianxiMap'
@@ -35,7 +34,6 @@ export default {
     pie,
     bar,
     jianxi,
-    part
   },
   methods: {},
   computed: {}

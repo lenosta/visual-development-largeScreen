@@ -27,7 +27,6 @@
   </div>
 </template>
 <script>
-import part from '../../components/part/part'
 import pie from '$chart/pie'
 import bar from '$chart/bar'
 import chinaMap from '$chart/chinaMap'
@@ -55,7 +54,6 @@ export default {
     pie,
     bar,
     chinaMap,
-    part
   },
   methods: {
     showCharts() {

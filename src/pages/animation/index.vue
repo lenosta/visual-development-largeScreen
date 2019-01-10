@@ -49,7 +49,6 @@
 // 1、注册动画标识状态
 // 2、更新动画标识状态
 // 3、在需要进行动画的地方进行监听
-import part from '../../components/part/part'
 import transverseSingleBar from '$chart/transverseSingleBar'
 import LineChart from '$chart/LineChart'
 import barDoubleChart from '$chart/barDoubleChart'
@@ -90,7 +89,6 @@ export default {
     transverseSingleBar,
     plusMinusLineChart,
     plusLineChart,
-    part
   },
   beforeRouteLeave(to, from, next) {
     if (!this.appOption.animate) {

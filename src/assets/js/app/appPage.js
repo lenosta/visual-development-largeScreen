@@ -63,6 +63,7 @@ const adapt = function(opt) {
    * @date 2019-01-03
    */
   var view = document.querySelector(option.domSelector)
+  view.style.position = 'absolute'
   view.style.width = option.w + 'px'
   view.style.height = option.h + 'px'
   scaleScreen(option.sizeEqualRatio)
