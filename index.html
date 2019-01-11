@@ -1,0 +1,53 @@
+<!DOCTYPE html><html><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>可视化大屏模板</title><style>html,body{
+     width: 100%;
+     height: 100%;
+     overflow: hidden;
+     margin: 0;
+   }
+    #appLoading {
+     width: 100%;
+     height: 100%;
+     /* background: #000; */
+     position: fixed;
+     z-index: 9999;
+     top:0;
+     transition: all 2s
+     }
+    #canvas{
+     width: 100%;
+     height: 100%;
+     position: fixed;
+     z-index: 9998
+    }
+   #loading-text {
+     position: absolute;
+     color: #f1f1f1;
+     font-size: 60px;
+     line-height:600px;
+     top: 20px;
+     left: 50%;
+     width: 800px;
+     height: 600px;
+     /* margin-top:-300px; */
+     margin-left:-400px;
+     text-align: center;
+     z-index: 10000
+     /* animation: loading 1.5s infinite alternate; */
+    }
+    #stars{
+        position: absolute;
+        z-index: -1;
+        width: 100%;
+        height: 100%;
+      }
+   @keyframes loading {
+      from {
+        opacity: 1;
+      }
+      50%{
+        opacity: 0;
+      }
+      100%{
+        opacity: 1;
+      }
+    }</style><link href=./static/css/app.d420ba12c6a5cc1feef36a7434e4221c.css rel=stylesheet></head><body><div id=appLoading><span id=loading-text>Visual LargeScreen</span><canvas id=canvas>该浏览器不支持canvas</canvas></div><canvas id=stars>该浏览器不支持canvas</canvas><div id=app></div><script src=./static/cosmos/cosmos.js></script><script src=./static/loading/loading.js></script><script type=text/javascript src=./static/js/manifest.3ad1d5771e9b13dbdad2.js></script><script type=text/javascript src=./static/js/vendor.78ea053a414595fc8fac.js></script><script type=text/javascript src=./static/js/app.2de60d6c9c775f76a9c4.js></script></body></html>
