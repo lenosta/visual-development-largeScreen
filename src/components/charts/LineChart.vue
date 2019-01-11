@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import AppState from '../../assets/js/app/appState'
+import { state } from '../../assets/js/app'
 export default {
   name: 'LineChart',
   props: {
@@ -41,141 +41,230 @@ export default {
     }
   },
   mounted() {
-    const isAnimate = this.appOption.animate
+    const isAnimate = this.appConfig.animate
     this.$nextTick(() => {
       let me = this
       this.myChart = this.$echarts.init(this.$refs.chart)
-      !isAnimate&&this.initChart()
+      !isAnimate && this.initChart()
     })
   },
   methods: {
     initChart() {
-      let series = []
-      this.dataArr.map((item, index) => {
-        series.push({
-          name: '',
-          type: 'line',
-          symbol: 'circle',
-          symbolSize: 10,
-          lineStyle: {
-            normal: {
-              width: 2,
-              color: this.color[index]
-            }
-          },
-          itemStyle: {
-            normal: {
-              color: '#fff',
-              borderColor: this.color[index],
-              borderWidth: 4
-            }
-          },
-          areaStyle: {
-            normal: {
-              color: this.opacityColor[index]
-              // color: new this.$echarts.graphic.LinearGradient(0, 0, 0, 1, [
-              //   {
-              //     offset: 0,
-              //     color: this.color[index]
-              //   },
-              //   {
-              //     offset: 1,
-              //     color: 'rgba(47,47,47,0.4)'
-              //   }
-              // ])
-            }
-          },
-          data: item
-        })
-      })
+      var fontColor = '#30eee9'
       let option = {
+        backgroundColor: 'rgba(0,0,0,0)',
+        grid: {
+          left: '5%',
+          right: '10%',
+          top: '20%',
+          bottom: '15%',
+          containLabel: true
+        },
         tooltip: {
-          trigger: 'axis'
+          show: true,
+          trigger: 'item'
         },
         legend: {
-          show: false
+          show: true,
+          x: 'center',
+          y: '35',
+          icon: 'stack',
+          itemWidth: 10,
+          itemHeight: 10,
+          textStyle: {
+            color: '#1bb4f6'
+          },
+          data: ['已采纳', '已发布', '浏览量']
         },
         xAxis: [
           {
+            type: 'category',
             boundaryGap: false,
+            axisLabel: {
+              color: fontColor
+            },
             axisLine: {
+              show: true,
               lineStyle: {
-                color: this.axisLineColor
+                color: '#397cbc'
               }
             },
-            axisLabel: {
-              color: this.axisLabelColor
+            axisTick: {
+              show: false
             },
-            axisTick: { show: false },
-            data: this.xData
+            splitLine: {
+              show: true,
+              lineStyle: {
+                color: '#195384'
+              }
+            },
+            data: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月']
           }
         ],
         yAxis: [
           {
             type: 'value',
-            name: '',
-            axisLine: {
-              lineStyle: {
-                color: this.axisLineColor
+            name: '信息量',
+            min: 0,
+            max: 1000,
+            axisLabel: {
+              formatter: '{value}',
+              textStyle: {
+                color: '#2ad1d2'
               }
             },
-            axisTick: { show: false },
-            axisLabel: {
-              margin: 10,
-              textStyle: {
-                fontSize: 14
-              },
-              color: this.axisLabelColor,
-              formatter: '{value}%'
+            axisLine: {
+              lineStyle: {
+                color: '#27b4c2'
+              }
+            },
+            axisTick: {
+              show: false
             },
             splitLine: {
+              show: true,
+              lineStyle: {
+                color: '#11366e'
+              }
+            }
+          },
+          {
+            type: 'value',
+            name: '浏览量',
+            min: 0,
+            max: 1000,
+            axisLabel: {
+              formatter: '{value} 人',
+              textStyle: {
+                color: '#186afe'
+              }
+            },
+            axisLine: {
+              lineStyle: {
+                color: '#186afe'
+              }
+            },
+            axisTick: {
               show: false
+            },
+            splitLine: {
+              show: true,
+              lineStyle: {
+                color: '#11366e'
+              }
             }
           }
         ],
-        grid: {
-          top: 20,
-          bottom: 50,
-          left: 80,
-          right: 50
-        },
-        series: series,
-        animationEasing: 'bounceOut'
+        series: [
+          {
+            name: '已采纳',
+            type: 'line',
+            stack: '总量',
+            symbol: 'circle',
+            symbolSize: 5,
+            itemStyle: {
+              normal: {
+                color: '#0092f6',
+                lineStyle: {
+                  color: '#0092f6',
+                  width: 1
+                },
+                areaStyle: {
+                  //color: '#94C9EC'
+                  color: new this.$echarts.graphic.LinearGradient(0, 1, 0, 0, [
+                    {
+                      offset: 0,
+                      color: 'rgba(7,44,90,0.3)'
+                    },
+                    {
+                      offset: 1,
+                      color: 'rgba(0,146,246,0.9)'
+                    }
+                  ])
+                }
+              }
+            },
+            markPoint: {
+              itemStyle: {
+                normal: {
+                  color: 'red'
+                }
+              }
+            },
+            data: [120, 132, 101, 134, 90, 230, 210, 182, 191, 234, 290, 330]
+          },
+          {
+            name: '已发布',
+            type: 'line',
+            stack: '总量',
+            symbol: 'circle',
+            symbolSize: 5,
+            itemStyle: {
+              normal: {
+                color: '#00d4c7',
+                lineStyle: {
+                  color: '#00d4c7',
+                  width: 1
+                },
+                areaStyle: {
+                  //color: '#94C9EC'
+                  color: new this.$echarts.graphic.LinearGradient(0, 1, 0, 0, [
+                    {
+                      offset: 0,
+                      color: 'rgba(7,44,90,0.3)'
+                    },
+                    {
+                      offset: 1,
+                      color: 'rgba(0,212,199,0.9)'
+                    }
+                  ])
+                }
+              }
+            },
+            data: [220, 182, 191, 234, 290, 330, 310, 201, 154, 190, 330, 410]
+          },
+          {
+            name: '浏览量',
+            type: 'line',
+            stack: '总量',
+            symbol: 'circle',
+            symbolSize: 5,
+            itemStyle: {
+              normal: {
+                color: '#aecb56',
+                lineStyle: {
+                  color: '#aecb56',
+                  width: 1
+                },
+                areaStyle: {
+                  //color: '#94C9EC'
+                  color: new this.$echarts.graphic.LinearGradient(0, 1, 0, 0, [
+                    {
+                      offset: 0,
+                      color: 'rgba(7,44,90,0.3)'
+                    },
+                    {
+                      offset: 1,
+                      color: 'rgba(114,144,89,0.9)'
+                    }
+                  ])
+                }
+              }
+            },
+            data: [150, 232, 201, 154, 190, 330, 410, 150, 232, 201, 154, 190]
+          }
+        ]
       }
       this.myChart.setOption(option)
       window.onresize = this.myChart.resize
-      // setInterval(function() {
-      //   var dataLen = option.series[0].data.length
-
-      //   // 取消之前高亮的图形
-      //   _this.myChart.dispatchAction({
-      //     type: 'downplay',
-      //     seriesIndex: 0,
-      //     dataIndex: currentIndex
-      //   })
-      //   currentIndex = (currentIndex + 1) % dataLen
-      //   // 高亮当前图形
-      //   _this.myChart.dispatchAction({
-      //     type: 'highlight',
-      //     seriesIndex: 0,
-      //     dataIndex: currentIndex
-      //   })
-      //   // 显示 tooltip
-      //   _this.myChart.dispatchAction({
-      //     type: 'showTip',
-      //     seriesIndex: 0,
-      //     dataIndex: currentIndex
-      //   })
-      // }, 1000)
     }
   },
   computed: {
-    ...AppState.getState(['initType'])
+    ...state.getState(['initType'])
   }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
-
 </style>

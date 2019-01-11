@@ -8,7 +8,7 @@
   </div>
 </template>
 <script>
-import App from '../../assets/js/app/app'
+import { state } from '@/assets/js/app'
 export default {
   data() {
     return {}
@@ -30,7 +30,7 @@ export default {
     init() {
       let part = this.$refs.part
       Object.assign(part.style, this.part ? this.part.style : {})
-      App.appState.loadingPart()
+      state.loadingPart()
     },
     setStyle(style) {
       Object.assign(this.$refs.part.style, typeof style === 'object' ? style : {})

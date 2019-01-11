@@ -30,7 +30,6 @@
 import pie from '$chart/pie'
 import bar from '$chart/bar'
 import chinaMap from '$chart/chinaMap'
-import App from '../../assets/js/app/app'
 export default {
   data() {
     return {
@@ -39,6 +38,7 @@ export default {
       $chinaMap: null
     }
   },
+  appConfig: { animate: true },
   mounted() {
     this.$nextTick(() => {
       // 获取当前页面任一组件实例，该方法返回数组
@@ -47,13 +47,10 @@ export default {
       this.$chinaMap = this.$getComponent('chinaMap')[0]
     })
   },
-  appOption: {
-    animate: true
-  },
   components: {
     pie,
     bar,
-    chinaMap,
+    chinaMap
   },
   methods: {
     showCharts() {

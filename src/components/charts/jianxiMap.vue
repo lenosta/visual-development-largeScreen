@@ -5,7 +5,7 @@
   ></div>
 </template>
 <script>
-import AppState from '../../assets/js/app/appState'
+import {state} from '../../assets/js/app'
 import { getJson } from '../../api/apiList/state'
 export default {
   name: 'bar',
@@ -22,7 +22,7 @@ export default {
   },
   created() {
     // 注册状态
-    AppState.regist('areaName')
+    state.regist('areaName')
   },
   watch: {
     echartsData: {
@@ -33,7 +33,7 @@ export default {
     }
   },
   mounted() {
-    const isAnimate = this.appOption.animate
+    const isAnimate = this.appConfig.animate
     this.$nextTick(() => {
       let me = this
       this.myChart = this.$echarts.init(this.$refs.chart)
@@ -497,7 +497,7 @@ export default {
           // 下钻回调
           callback: function(name, option, instance) {
             // 回调中更新状态
-            AppState.updateState('areaName', name)
+            state.updateState('areaName', name)
           }
           // 数据展示
           // data: [
@@ -535,7 +535,7 @@ export default {
     }
   },
   computed: {
-    // ...AppState.getState(['initType'])
+    ...state.getState(['initType'])
   }
 }
 </script>

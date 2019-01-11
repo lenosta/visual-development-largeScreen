@@ -5,7 +5,7 @@
   ></div>
 </template>
 <script>
-import AppState from '../../assets/js/app/appState'
+import {state} from '../../assets/js/app'
 export default {
   name: 'pie',
   props: {
@@ -39,7 +39,7 @@ export default {
     this.$nextTick(() => {
       let me = this
       this.myChart = this.$echarts.init(this.$refs.chart)
-      !this.appOption.animate && this.initChart()
+      !this.appConfig.animate && this.initChart()
     })
   },
   methods: {
@@ -102,7 +102,7 @@ export default {
                 },
                 itemStyle: {
                   normal: {
-                    color: new me.$echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                    color: new me.$echarts.graphic.LinearGradient(0, 0, 0, 0, [
                       {
                         offset: 0,
                         color: 'rgba(255,200,30, .1)'
@@ -138,7 +138,7 @@ export default {
                 },
                 itemStyle: {
                   normal: {
-                    color: new me.$echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                    color: new me.$echarts.graphic.LinearGradient(0, 0, 0, 0, [
                       {
                         offset: 0,
                         color: 'rgba(0,230,252, .1)'
@@ -168,7 +168,7 @@ export default {
     }
   },
   computed: {
-    ...AppState.getState(['areaName'])
+    ...state.getState(['areaName'])
   }
 }
 </script>

@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import AppState from '../../assets/js/app/appState'
+import {state} from '../../assets/js/app'
 export default {
   name: 'plusLineChart',
   props: {
@@ -42,7 +42,7 @@ export default {
     this.$nextTick(() => {
       let me = this
       this.myChart = this.$echarts.init(this.$refs.chart)
-       !this.appOption.animate&&this.initChart()
+       !this.appConfig.animate&&this.initChart()
     })
   },
   methods: {
@@ -167,7 +167,7 @@ export default {
     }
   },
   computed: {
-    ...AppState.getState(['initType'])
+    ...state.getState(['initType'])
   }
 }
 </script>

@@ -55,7 +55,7 @@ import barDoubleChart from '$chart/barDoubleChart'
 import pictorialBar from '$chart/pictorialBar'
 import plusMinusLineChart from '$chart/plusMinusLineChart'
 import plusLineChart from '$chart/plusLineChart'
-import App from '../../assets/js/app/app'
+import { state } from '@/assets/js/app'
 // 动画库插件引入
 import { TimelineMax, Back, TweenMax } from 'gsap'
 export default {
@@ -72,14 +72,14 @@ export default {
       immediate: true
     }
   },
-  appOption: { animate: true },
+  appConfig: { animate: true },
   created() {
     // 注册状态
-    App.appState.regist('initType')
+    state.regist('initType')
   },
   mounted() {
     this.$nextTick(() => {
-      this.appOption.animate && this.animateIn()
+      this.appConfig.animate && this.animateIn()
     })
   },
   components: {
@@ -88,10 +88,10 @@ export default {
     pictorialBar,
     transverseSingleBar,
     plusMinusLineChart,
-    plusLineChart,
+    plusLineChart
   },
   beforeRouteLeave(to, from, next) {
-    if (!this.appOption.animate) {
+    if (!this.appConfig.animate) {
       next()
     } else {
       this.animateOut()
@@ -122,15 +122,12 @@ export default {
     complete(v) {
       let initType = v.target[0].getAttribute('initType')
       // 更新状态
-      App.appState.updateState('initType', initType)
+      state.updateState('initType', initType)
     },
     animateOut() {
       this.tl.reverse()
     }
   }
-  // computed: {
-  //   ...App.appState.getState(['initType'])
-  // }
 }
 </script>
  <style lang="scss" scoped>

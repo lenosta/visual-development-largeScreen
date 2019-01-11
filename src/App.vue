@@ -36,7 +36,7 @@
 </template>
 
 <script>
-import App from '@/assets/js/app/app'
+import { state, pageAdapt } from '@/assets/js/app'
 export default {
   data() {
     return {
@@ -45,10 +45,7 @@ export default {
       page: ''
     }
   },
-  // appOption:{wrapHeight:},
   created() {
-    document.querySelectorAll('.common-part').length == 0 &&
-      (document.querySelector('#appLoading').style.display = 'none')
     this.items = this.$router.options.routes
       .filter(route => route.isMenu)
       .map(route => {
@@ -62,12 +59,12 @@ export default {
   },
   mounted() {
     // 是否开启星空效果
-    if (this.appOption.stars == true) {
+    if (this.appConfig.stars == true) {
       canvas('stars', 230, 2000, 60, 2, 800000, 0.5)
     }
     // 是否开启页面适配
-    this.appOption.isAdapt &&
-      App.appPage.adapt({
+    this.appConfig.isAdapt &&
+      pageAdapt({
         domSelector: '#app',
         sizeEqualRatio: true,
         w: 1920,
@@ -80,7 +77,14 @@ export default {
       handler: function(newV, oldV) {
         if (newV) {
           console.log('part加载完毕', newV)
-          document.querySelector('#appLoading').style.display = 'none'
+          setTimeout(() => {
+            console.log(1)
+            document.querySelector('#appLoading').style.top = '-100%'
+          }, 10000)
+          setTimeout(() => {
+            console.log(2)
+            document.querySelector('#appLoading').style.display = 'none'
+          }, 13000)
         }
       }
     },
@@ -94,7 +98,7 @@ export default {
   },
   computed: {
     //获取全局状态isLoadPartComplete
-    ...App.appState.getState(['isLoadPartComplete'])
+    ...state.getState(['isLoadPartComplete'])
   }
 }
 </script>

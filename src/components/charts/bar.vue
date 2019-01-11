@@ -5,7 +5,7 @@
   ></div>
 </template>
 <script>
-import AppState from '../../assets/js/app/appState'
+import { state} from '@/assets/js/app'
 export default {
   name: 'bar',
   props: {
@@ -35,7 +35,7 @@ export default {
     // }
     areaName: {
       handler: function(newV, oldV) {
-// 监听状态更新 进行视图的更新
+        // 监听状态更新 进行视图的更新
         this.changeValue()
         this.initChart()
       },
@@ -43,7 +43,7 @@ export default {
     }
   },
   mounted() {
-    const isAnimate = this.appOption.animate
+    const isAnimate = this.appConfig.animate
     this.$nextTick(() => {
       let me = this
       this.myChart = this.$echarts.init(this.$refs.chart)
@@ -143,7 +143,7 @@ export default {
     }
   },
   computed: {
-    ...AppState.getState(['areaName'])
+    ...state.getState(['areaName'])
   }
 }
 </script>

@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import AppState from '../../assets/js/app/appState'
+import { state } from '../../assets/js/app'
 export default {
   name: 'pictorialBar',
   props: {
@@ -40,370 +40,175 @@ export default {
     this.$nextTick(() => {
       let me = this
       this.myChart = this.$echarts.init(this.$refs.chart)
-     !this.appOption.animate&&this.initChart()
+      !this.appConfig.animate && this.initChart()
     })
   },
   methods: {
     initChart() {
-      var myData = ['预计召回药品数量', '预计触达消费者人数', '预计互联网触达量', '预计短信触达量', '预计电话触达量']
-      var dataFirm = {
-        1: [
-          { name: '', value: 389 },
-          { name: '', value: 299 },
-          { name: '', value: 262 },
-          { name: '', value: 244 },
-          { name: '', value: 103 }
-        ]
-      }
-      var dataFirmDot = dataFirm[1].map(item => {
-        return item.value - 20
-      })
-      var dataFirmStack = {
-        1: [40, 40, 40, 40, 40]
-      }
-      var myData1 = ['召回药品数量', '触达消费者人数', '互联网触达量', '短信触达量', '电话触达量']
-      var dataDevice = {
-        1: [
-          { name: '', value: 467 },
-          { name: '', value: 345 },
-          { name: '', value: 258 },
-          { name: '', value: 231 },
-          { name: '', value: 123 }
-        ]
-      }
-      var dataDeviceDot = dataDevice[1].map(item => {
-        return item.value - 30
-      })
-      var dataDeviceStack = {
-        1: [50, 50, 50, 50, 50]
-      }
-      var timeLineData = [1]
-      var option = {
-        baseOption: {
-          timeline: {
-            show: false,
-            top: 0,
-            data: []
-          },
-          legend: {
-            show: false
-          },
-          tooltip: {
-            show: true,
-            trigger: 'axis',
-            formatter: '{b}<br/>{a}: {c}人',
-            axisPointer: {
-              type: 'shadow'
-            }
-          },
-
-          grid: [
-            {
-              show: false,
-              left: '2%',
-              top: 80,
-              bottom: 50,
-              right: 50,
-              // containLabel: true,
-              width: '38%'
-            },
-            {
-              show: false,
-              left: '52.5%',
-              top: 80,
-              bottom: 50,
-              width: '0%'
-            },
-            {
-              show: false,
-              right: '9%',
-              top: 80,
-              bottom: 50,
-              containLabel: true,
-              width: '30%'
-            }
-          ],
-
-          xAxis: [
-            {
-              type: 'value',
-              inverse: true,
-              axisLine: {
-                show: false
-              },
-              axisTick: {
-                show: false
-              },
-              position: 'top',
-              axisLabel: {
-                show: false
-              },
-              splitLine: {
-                show: false
-              }
-            },
-            {
-              gridIndex: 1,
-              show: false
-            },
-            {
-              gridIndex: 2,
-              nameTextStyle: {
-                color: '#50afff',
-                fontSize: 14
-              },
-              axisLine: {
-                show: false
-              },
-              axisTick: {
-                show: false
-              },
-              position: 'top',
-              axisLabel: {
-                show: false
-              },
-              splitLine: {
-                show: false
-              }
-            }
-          ],
-          yAxis: [
-            {
-              type: 'category',
-              inverse: true,
-              offset: 0,
-              boundaryGap: false,
-              position: 'right',
-              axisLine: {
-                show: true,
-                lineStyle: {
-                  color: 'rgb(71, 165, 214)'
-                }
-              },
-              axisTick: {
-                show: true,
-                inside: true,
-                length: 23
-              },
-              axisLabel: {
-                show: true,
-                color: '#fff',
-                inside: true,
-                margin: 30,
-                verticalAlign: 'bottom',
-                padding: [0, 0, 15, 0]
-              },
-              data: myData
-            },
-            {
-              gridIndex: 1,
-              type: 'category',
-              inverse: true,
-              position: 'right',
-              axisLine: {
-                show: false,
-                lineStyle: {
-                  color: '#f00'
-                }
-              },
-              axisTick: {
-                show: false
-              },
-              axisLabel: {
-                show: false,
-                inside: true,
-                margin: 0,
-
-                verticalAlign: 'bottom',
-                padding: [0, 0, 10, 0]
-              },
-              data: myData1
-            },
-            {
-              gridIndex: 2,
-              type: 'category',
-              inverse: true,
-              boundaryGap: false,
-              position: 'left',
-              axisLine: {
-                show: true,
-                lineStyle: {
-                  color: 'rgb(71, 165, 214)'
-                }
-              },
-              axisTick: {
-                show: true,
-                inside: true,
-                length: 23
-              },
-              axisLabel: {
-                show: true,
-                color: '#fff',
-                inside: true,
-                margin: 30,
-                verticalAlign: 'bottom',
-                padding: [0, 0, 15, 0]
-              },
-              data: myData1
-            }
-          ],
-          series: []
+      let option = {
+        backgroundColor: 'rgba(0,0,0,0)',
+        normal: {
+          top: 200,
+          left: 300,
+          width: 500,
+          height: 400,
+          zIndex: 6
         },
-        options: []
-      }
-      option.baseOption.timeline.data.push(timeLineData[0])
-      option.options.push({
-        tooltip: {
-          show: false
+        radar: {
+          center: ['50%', '50%'],
+          name: {
+            color: '#27b4c2'
+          },
+          radius: '70%',
+          startAngle: 90,
+          splitNumber: 4,
+          shape: 'circle',
+          splitArea: {
+            areaStyle: {
+              color: ['transparent']
+            }
+          },
+          axisLabel: {
+            show: false,
+            fontSize: 18,
+            color: '#fff',
+            fontStyle: 'normal',
+            fontWeight: 'normal'
+          },
+          axisLine: {
+            show: true,
+            lineStyle: {
+              color: '#27b4c2' //
+            }
+          },
+          splitLine: {
+            show: true,
+            lineStyle: {
+              color: '#27b4c2' //
+            }
+          },
+          indicator: [
+            {
+              name: '道路结冰',
+              max: 88
+            },
+            {
+              name: '暴雪',
+              max: 88
+            },
+            {
+              name: '暴雨',
+              max: 88
+            },
+            {
+              name: '冰雹',
+              max: 88
+            },
+            {
+              name: '大风',
+              max: 88
+            },
+            {
+              name: '大雾',
+              max: 88
+            },
+            {
+              name: '高温',
+              max: 88
+            },
+            {
+              name: '干旱',
+              max: 88
+            },
+            {
+              name: '寒潮',
+              max: 88
+            },
+            {
+              name: '雷电',
+              max: 88
+            },
+            {
+              name: '霾',
+              max: 88
+            },
+            {
+              name: '沙尘暴',
+              max: 88
+            },
+            {
+              name: '霜冻',
+              max: 88
+            },
+            {
+              name: '台风',
+              max: 88
+            },
+            {
+              name: '洪水',
+              max: 88
+            }
+          ]
         },
         series: [
           {
-            name: '接入单位辅助',
-            type: 'bar',
-            stack: '接入单位',
-            barWidth: 14,
-            barMinWidth: 5,
-            label: {
+            name: '数据1',
+            type: 'radar',
+            symbol: 'circle',
+            symbolSize: 3,
+            areaStyle: {
               normal: {
-                show: false
+                color: 'rgba(245, 166, 35, 0.4)'
               }
             },
             itemStyle: {
+              color: 'rgba(245, 166, 35, 1)',
+              borderColor: 'rgba(245, 166, 35, 0.3)',
+              borderWidth: 5
+            },
+            lineStyle: {
               normal: {
-                color: 'transparent'
+                type: 'dashed',
+                color: 'rgba(245, 166, 35, 1)',
+                width: 2
               }
             },
-            z: -9,
-
-            data: dataFirmStack[timeLineData[0]]
+            data: [[80, 50, 55, 80, 50, 80, 48, 43, 60, 78, 60, 40, 42, 44, 65]]
           },
           {
-            name: '接入单位',
-            type: 'bar',
-            barWidth: 14,
-            barMinWidth: 5,
-            stack: '接入单位',
-            label: {
-              normal: {
-                show: true,
-                position: 'left',
-                offset: [0, 0],
-                textStyle: {
-                  color: 'rgb(71, 165, 214)',
-                  fontSize: 14
-                }
-              }
-            },
+            name: '数据2',
+            type: 'radar',
+            symbol: 'circle',
+            symbolSize: 3,
             itemStyle: {
               normal: {
-                color: 'transparent',
-                borderColor: 'rgb(71, 165, 214)',
-                borderWidth: 3,
-                barBorderRadius: 50
+                color: 'rgba(19, 173, 255, 1)',
+                borderColor: 'rgba(19, 173, 255, 0.4)',
+                borderWidth: 5
               }
             },
-            z: -11,
-
-            data: dataFirm[timeLineData[0]]
-          },
-          {
-            name: 'dotted',
-            type: 'pictorialBar',
-            symbol: 'rect',
-            symbolPosition: 'start',
-            symbolOffset: ['-30', 0],
-            itemStyle: {
+            areaStyle: {
               normal: {
-                color: 'rgb(71, 165, 214)'
+                color: 'rgba(19, 173, 255, 0.5)'
               }
             },
-            symbolRepeat: true,
-            symbolSize: [4, 8],
-            symbolMargin: 1,
-            z: -10,
-            animationEasing: 'elasticOut',
-            animationDelay: function(dataIndex, params) {
-              return params.index * 30
-            },
-            data: dataFirmDot
-          },
-          {
-            name: '接入设备辅助',
-            type: 'bar',
-            stack: '接入设备',
-            xAxisIndex: 2,
-            yAxisIndex: 2,
-            label: {
+            lineStyle: {
               normal: {
-                show: false
+                color: 'rgba(19, 173, 255, 1)',
+                width: 2,
+                type: 'dashed'
               }
             },
-            itemStyle: {
-              normal: {
-                color: 'transparent'
-              }
-            },
-            data: dataDeviceStack[timeLineData[0]]
-          },
-          {
-            name: '接入设备',
-            type: 'bar',
-            stack: '接入设备',
-            barWidth: 14,
-            xAxisIndex: 2,
-            yAxisIndex: 2,
-            label: {
-              normal: {
-                show: true,
-                position: 'right',
-                offset: [0, 0],
-                textStyle: {
-                  color: 'rgb(143, 179, 72)',
-                  fontSize: 14
-                }
-              }
-            },
-            itemStyle: {
-              normal: {
-                color: 'transparent',
-                barBorderRadius: 50,
-                borderColor: 'rgb(143, 179, 72)',
-                borderWidth: 3
-              }
-            },
-            data: dataDevice[timeLineData[0]]
-          },
-          {
-            name: 'dotted',
-            type: 'pictorialBar',
-            xAxisIndex: 2,
-            yAxisIndex: 2,
-            symbol: 'rect',
-            symbolPosition: 'start',
-            symbolOffset: ['30', 0],
-            itemStyle: {
-              normal: {
-                color: 'rgb(143, 179, 72)'
-              }
-            },
-            symbolRepeat: true,
-            symbolSize: [4, 8],
-            symbolMargin: 1,
-            z: -10,
-            animationEasing: 'elasticOut',
-            animationDelay: function(dataIndex, params) {
-              return params.index * 30
-            },
-            data: dataDeviceDot
+            data: [[60, 60, 65, 60, 70, 40, 80, 63, 68, 60, 77, 60, 80, 62, 80]]
           }
         ]
-      })
+      }
       this.myChart.setOption(option)
       window.onresize = this.myChart.resize
     }
   },
   computed: {
-    ...AppState.getState(['initType'])
+    ...state.getState(['initType'])
   }
 }
 </script>

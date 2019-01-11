@@ -1,17 +1,15 @@
 /*eslint-disable*/
 import store from '@/store'
 import { mapState } from 'vuex'
-export default class appState {
+export default  {
   /**
    * @description 注册一个state
    * @author zzg
    * @date 2019-01-03
-   * @static
    * @param {String} messageKey  需要注册的state的key
    * @param {any} value state详细信息 可选参数
-   * @memberof appState
    */
-  static regist(messageKey, value) {
+  regist(messageKey, value) {
     if (!messageKey || typeof messageKey !== 'string' || !messageKey.trim()) {
       console.warn('请传入需要注册的KEY,且必须为非空string')
       return
@@ -24,18 +22,15 @@ export default class appState {
       messageKey,
       value
     })
-  }
-
+  },
   /**
    * @description 获取state
    * @author zzg
    * @date 2019-01-03
-   * @static
    * @param {String} messageKey
    * @returns {Array} 返回计算属性
-   * @memberof appState
    */
-  static getState(messageKey) {
+  getState(messageKey) {
     if (typeof messageKey === 'string') {
       return mapState({
         [messageKey]: state => state.messenger[messageKey]
@@ -47,18 +42,15 @@ export default class appState {
       })
       return mapState(stateKey)
     }
-  }
-
+  },
   /**
    * @description 更新state
    * @author zzg
    * @date 2019-01-03
-   * @static
    * @param {String} 需要更新的state的key
    * @param {any} value 新值
-   * @memberof appState
    */
-  static updateState(messageKey, value) {
+  updateState(messageKey, value) {
     if (!store.state.messenger.hasOwnProperty(messageKey)) {
       return
     }
@@ -66,32 +58,28 @@ export default class appState {
       messageKey,
       value
     })
-  }
+  },
 
   /**
    * @description 更新isLoadPartComplete状态
    * @author zzg
    * @date 2019-01-03
-   * @static
-   * @memberof appState
    */
-  static loadingPart() {
+  loadingPart() {
     store.commit('messenger/loadedPartCounter')
     store.commit('messenger/loadedPartPercent')
     store.commit('messenger/updateIsLoadPartComplete')
-  }
+  },
 
   /**
    * @description 注册新的store模块
    * @author zzg
    * @date 2019-01-03
-   * @static
    * @param {String} moduleName 注册新的store模块名称
    * @param {Object} state  stroe对象
    * @returns
-   * @memberof appState
    */
-  static rigistNewModule(
+  rigistNewModule(
     moduleName,
     state = {
       state() {

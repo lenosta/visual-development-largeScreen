@@ -20,7 +20,7 @@ export default {
     }
   },
   mounted() {
-    const isAnimate = this.appOption.animate
+    const isAnimate = this.appConfig.animate
     this.$nextTick(() => {
       let me = this
       this.myChart = this.$echarts.init(this.$refs.chart)
