@@ -22,7 +22,7 @@ export const handleChinese = function(params) {
 
 // axios 配置
 const xhr = axios.create({
-  baseURL: baseURL.dev,
+  baseURL: baseURL.prod,
   timeout: TIMEOUT,
   headers: {
     'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
