@@ -488,7 +488,7 @@ export default {
           }
         })
       }
-      getJson('/static/mapJson/jianxi.json').then(geoJson => {
+      getJson('static/mapJson/jianxi.json').then(geoJson => {
         me.$echarts.registerMap('江西', geoJson)
         var myChart = me.$echarts.extendsMap('chart-panel', {
           bgColor: '#154e90', // 画布背景色
