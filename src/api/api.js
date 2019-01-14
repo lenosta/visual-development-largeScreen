@@ -22,7 +22,7 @@ export const handleChinese = function(params) {
 
 // axios 配置
 const xhr = axios.create({
-  baseURL: baseURL.prod,
+  baseURL: process.env.NODE_ENV !== 'production' ? baseURL.dev : baseURL.prod,
   timeout: TIMEOUT,
   headers: {
     'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
@@ -36,6 +36,7 @@ xhr.interceptors.request.use(
     if (config.method === 'post') {
       // config.data = qs.stringify(config.data)
       config.headers['Content-Type'] = 'application/json; charset=UTF-8'
+      console.log(config)
       return config
     }
 
@@ -47,7 +48,7 @@ xhr.interceptors.request.use(
 
     // 简单的调用 get 请求
     if (config.method === 'get') {
-      // console.log(config)
+      console.log(config)
       // let params = handleChinese(config.params)         // 中文字符替换成 ASCII 码
       // config.url += '?' + qs.stringify(params, { encode: false })
       // config.params = {}
@@ -72,14 +73,14 @@ xhr.interceptors.response.use(
         flag === 201
           ? '201 error: Missing parameter'
           : flag === 202
-            ? '202 error: Parameter is malformed'
-            : flag === 500
-              ? '500 error: Background error'
-              : flag === '501'
-                ? '501 error: No data'
-                : flag === '502'
-                  ? '502 error: Session expired'
-                  : 'Unknown error'
+          ? '202 error: Parameter is malformed'
+          : flag === 500
+          ? '500 error: Background error'
+          : flag === '501'
+          ? '501 error: No data'
+          : flag === '502'
+          ? '502 error: Session expired'
+          : 'Unknown error'
       console.error(msg)
       return Promise.reject(response.data)
     }
