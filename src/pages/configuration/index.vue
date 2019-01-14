@@ -12,7 +12,8 @@ export default {
   },
   methods: {
     changeOption() {
-      let url = location.origin + '/?debug=true&isAdapt=true&animate=false&stars=true' + location.hash
+      let url =
+        location.origin + location.pathname + '?debug=true&isAdapt=true&animate=false&stars=true' + location.hash
       location.href = url
     }
   },
