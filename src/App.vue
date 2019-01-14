@@ -80,11 +80,11 @@ export default {
           setTimeout(() => {
             console.log(1)
             document.querySelector('#appLoading').style.top = '-100%'
-          }, 10000)
+          }, 5000)
           setTimeout(() => {
             console.log(2)
             document.querySelector('#appLoading').style.display = 'none'
-          }, 13000)
+          }, 7000)
         }
       }
     },
