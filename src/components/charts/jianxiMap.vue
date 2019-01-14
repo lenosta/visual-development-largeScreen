@@ -45,17 +45,17 @@ export default {
       let me = this
       this.$echarts.extendsMap = function(id, opt) {
         // 实例
-        var nanchang = '../../../static/mapJson/nanchang.json',
-          jingdezhen = '../../../static/mapJson/jingdezhen.json',
-          pingxiang = '../../../static/mapJson/pingxiang.json',
-          jiujiang = '../../../static/mapJson/jiujiang.json',
-          xinyu = '../../../static/mapJson/xinyu.json',
-          yingtan = '../../../static/mapJson/yingtan.json',
-          ganzhou = '../../../static/mapJson/ganzhou.json',
-          jian = '../../../static/mapJson/jian.json',
-          yichun = '../../../static/mapJson/yichun.json',
-          fuzhou = '../../../static/mapJson/fuzhou.json',
-          shangrao = '../../../static/mapJson/shangrao.json'
+        var nanchang = '/static/mapJson/nanchang.json',
+          jingdezhen = '/static/mapJson/jingdezhen.json',
+          pingxiang = '/static/mapJson/pingxiang.json',
+          jiujiang = '/static/mapJson/jiujiang.json',
+          xinyu = '/static/mapJson/xinyu.json',
+          yingtan = '/static/mapJson/yingtan.json',
+          ganzhou = '/static/mapJson/ganzhou.json',
+          jian = '/static/mapJson/jian.json',
+          yichun = '/static/mapJson/yichun.json',
+          fuzhou = '/static/mapJson/fuzhou.json',
+          shangrao = '/static/mapJson/shangrao.json'
         var curGeoJson = {}
         var cityMap = {
           南昌市: nanchang,
