@@ -15,6 +15,6 @@ const getConfigData = params => {
   return xhr.get('static/json/page.config.json', { params })
 }
 const getJson = (url, params) => {
-  return xhr.get(url, params)
+  return xhr.get('visual-development-largeScreen/'+url, params)
 }
 export { getList, testPost, getTreeData, getConfigData, getJson }

@@ -36,7 +36,6 @@ xhr.interceptors.request.use(
     if (config.method === 'post') {
       // config.data = qs.stringify(config.data)
       config.headers['Content-Type'] = 'application/json; charset=UTF-8'
-      console.log(config)
       return config
     }
 
@@ -48,7 +47,6 @@ xhr.interceptors.request.use(
 
     // 简单的调用 get 请求
     if (config.method === 'get') {
-      console.log(config)
       // let params = handleChinese(config.params)         // 中文字符替换成 ASCII 码
       // config.url += '?' + qs.stringify(params, { encode: false })
       // config.params = {}

@@ -78,13 +78,11 @@ export default {
         if (newV) {
           console.log('part加载完毕', newV)
           setTimeout(() => {
-            console.log(1)
             document.querySelector('#appLoading').style.top = '-100%'
-          }, 5000)
+          }, 3000)
           setTimeout(() => {
-            console.log(2)
             document.querySelector('#appLoading').style.display = 'none'
-          }, 7000)
+          }, 5000)
         }
       }
     },
