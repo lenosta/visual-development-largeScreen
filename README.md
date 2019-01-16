@@ -24,7 +24,7 @@
 |   |   |   |-- app                  // 模板核心操作方法
 |   |   |       |--index.js          // 顶级类,作为其他方法的统一导出
 |   |   |       |--baseComponents    // 基础组件
-|   |   |       |--config            // 配置项-模板预置参数{debug: false,isMock:false}每个子组件可添加此配置项权重是url配置>组件配置>页面配置>全局默认配置(预置参数只接受运行时配置覆盖)
+|   |   |       |--config            // 配置项-模板预置参数{debug: false,isMock:false}每个子组件可添加此配置项权重是url配置>组件配置>页面配置>全局默认配置(模板预置参数只接受运行时配置覆盖)
 |   |   |       |--pageAdapt         // 提供页面适配操作方法
 |   |   |       |--plugins           // VUE插件
 |   |   |       |--state             // 提供动态注册状态方法state.regist(${key},${value})、更新状态state.update(key,value)、获取状态值方法state.getSate([key1,ke2.....])
