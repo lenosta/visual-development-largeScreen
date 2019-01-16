@@ -1,7 +1,7 @@
 {
-  "name": "visual-development-largeScreen",
-  "version": "18.1.23",
-  "description": "visual-development-largeScreen",
+  "name": "ulvs",
+  "version": "1.0.3",
+  "description": "可视化大屏模板",
   "author": "jusfoun-fe",
   "private": true,
   "scripts": {
@@ -16,6 +16,7 @@
     "echarts": "^4.0.0",
     "element-ui": "^2.0.11",
     "gsap": "^2.0.2",
+    "mockjs": "^1.0.1-beta3",
     "qs": "^6.5.1",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1",

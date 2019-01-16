@@ -1,4 +1,4 @@
 export default {
   debug: false,
-  isMock: false,
+  isMock:false
 }

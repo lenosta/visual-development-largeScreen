@@ -14,7 +14,7 @@
       <chinaMap />
     </part>
     <!-- 以下是操作部分   -->
-    <part :part="{style:{top:'330px',left:'720px',background:'none',width:'300px',height:'50px'}}">
+    <part :part="{style:{top:'-60px',left:'600px',background:'none',width:'420px',height:'60px',zIndex:99999,paddingLeft:'5px'}}">
       <button
         ref='btn'
         @click="showCharts"
@@ -80,10 +80,16 @@ button {
   outline: none;
   border: 0 none;
   color: #fff;
-  height: 30px;
-  line-height: 30px;
-  background: #012b60;
-  padding: 0 5px;
+  height: 60px;
+  width: 180px;
+  line-height: 60px;
+  border-left: 1px solid #333;
+  border-right: 1px solid #333;
+  float: left;
+  margin-left: -1px;
+}
+button:hover {
+  background: rgba(255, 255, 255, 0.1);
 }
 </style>
 

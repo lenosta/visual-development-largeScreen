@@ -72,7 +72,7 @@ export default {
       immediate: true
     }
   },
-  appConfig: { animate: true },
+  appConfig: { animate: true, isMock:true }, //isMock修改无效
   created() {
     // 注册状态
     state.regist('initType')

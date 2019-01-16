@@ -78,11 +78,8 @@ export default {
         if (newV) {
           console.log('part加载完毕', newV)
           setTimeout(() => {
-            document.querySelector('#appLoading').style.top = '-100%'
-          }, 3000)
-          setTimeout(() => {
             document.querySelector('#appLoading').style.display = 'none'
-          }, 5000)
+          }, 3000)
         }
       }
     },
@@ -208,6 +205,10 @@ header h1 {
   border-left: 1px solid #333;
   text-align: center;
   transition: all 0.3s;
+  a {
+    display: block;
+    height: 100%;
+  }
 }
 .user-area:hover {
   background: rgba(255, 255, 255, 0.1);

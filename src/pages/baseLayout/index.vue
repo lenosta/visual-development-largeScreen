@@ -22,7 +22,7 @@
       <part :part="{ className:'test test-trans',style:{ width: '400px',  height: '200px',left: '1280px',top: '240px'}}">
       </part>
       <!-- 操作部分 -->
-      <part :part="{style:{top:'-50px',left:'600px',background:'none',width:'420px',height:'50px',zIndex:99999}}">
+      <part :part="{style:{top:'-60px',left:'600px',background:'none',width:'420px',height:'60px',zIndex:99999,paddingLeft:'5px'}}">
         <button @click="changeLayout(1)">布局一</button>
         <button @click="changeLayout(2)">布局二</button>
         <button @click="changeLayout(3)">布局三</button>
@@ -120,11 +120,16 @@ button {
   outline: none;
   border: 0 none;
   color: #fff;
-  height: 30px;
-  line-height: 30px;
-  background: #012b60;
-  padding: 0 5px;
-  margin: 10px;
+  height: 60px;
+  width: 80px;
+  line-height: 60px;
+  border-left: 1px solid #333;
+  border-right: 1px solid #333;
+  float: left;
+  margin-left: -1px;
+}
+button:hover {
+  background: rgba(255, 255, 255, 0.1);
 }
 </style>
 

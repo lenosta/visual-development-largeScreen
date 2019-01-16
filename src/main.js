@@ -22,7 +22,7 @@ let vueRoot = new Vue({
   components: {
     App
   },
-  appConfig: { animate: false, stars: false, isAdapt: false } //配置参数
+  appConfig: { animate: false, stars: false, isAdapt: false } //全局默认配置参数可修改
 })
 window.root = vueRoot
-// vueRoot.appConfig.debug && (window.root = vueRoot)
+vueRoot.appConfig.debug && (window.root = vueRoot)
