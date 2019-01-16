@@ -17,7 +17,6 @@ cache:
 
 # Start: Build 生命周期
 
-
 # install 阶段之前执行
 before_install:
     # 由于使用了yarn，所以需要下载，如不用yarn可删除这两行
